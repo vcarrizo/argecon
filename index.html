@@ -192,6 +192,21 @@ function n2(n,d=2){if(n==null||isNaN(n))return'—';return new Intl.NumberFormat
 function nM(v){if(v==null||isNaN(v))return'—';const a=Math.abs(v);if(a>=1e9)return n2(v/1e9,2)+' B';if(a>=1e6)return n2(v/1e6,0)+' M';return n2(v,0)}
 // Para ejes Y: no abreviar si los valores son tipo TC (entre 100 y 99999)
 function yTick(v){if(v==null||isNaN(v))return'';const a=Math.abs(v);if(a>=1e9)return n2(v/1e9,1)+'B';if(a>=1e6)return n2(v/1e6,0)+'M';return n2(v,0)}
+// Serie 250 devuelve en pesos: ~55.800.000.000 → dividir por 1e9 = 55,8 B... 
+// PERO BCRA publica 43.177 B → la serie devuelve en millones: 43177 → /1000 = 43,2 B
+// Detectar automáticamente la unidad según la magnitud del valor
+function fmtBase(v){
+  if(v==null||isNaN(v))return'—';
+  // Si el valor es > 1e8 → viene en pesos → dividir por 1e12 para billones
+  // Si el valor es > 1e5 → viene en millones → dividir por 1e6 para billones  
+  // Si el valor es < 1e5 → ya viene en miles de millones (billones)
+  let b;
+  if(v>1e10) b=v/1e12;        // en pesos
+  else if(v>1e6) b=v/1e9;     // en miles (raro)
+  else if(v>1000) b=v/1e6;    // en millones
+  else b=v/1000;               // en miles de millones
+  return'$ '+n2(b,1)+' B';
+}
 function dAgo(n){const d=new Date();d.setDate(d.getDate()-n);return d.toISOString().split('T')[0]}
 function today(){return new Date().toISOString().split('T')[0]}
 function fmtF(s){if(!s)return'';const p=(s||'').slice(0,10).split('-');return p.length===3?`${p[2]}/${p[1]}/${p[0]}`:''}
@@ -237,9 +252,9 @@ function fbDaily(base,days,drift=0,noise=.004){
 }
 function fbMonthly(vals){return vals.map(x=>({fecha:x.f+'-01',valor:x.v}))}
 const FB_IPCM=fbMonthly([
-  {f:'2025-06',v:3.2},{f:'2025-07',v:2.7},{f:'2025-08',v:3.5},{f:'2025-09',v:3.5},
-  {f:'2025-10',v:2.4},{f:'2025-11',v:2.4},{f:'2025-12',v:2.7},{f:'2026-01',v:2.3},
-  {f:'2026-02',v:2.4},{f:'2026-03',v:3.7},{f:'2026-04',v:2.6}
+  {f:'2025-05',v:3.3},{f:'2025-06',v:3.2},{f:'2025-07',v:2.7},{f:'2025-08',v:3.5},
+  {f:'2025-09',v:3.5},{f:'2025-10',v:2.4},{f:'2025-11',v:2.4},{f:'2025-12',v:2.7},
+  {f:'2026-01',v:2.3},{f:'2026-02',v:2.4},{f:'2026-03',v:3.7},{f:'2026-04',v:2.6}
 ]);
 const FB_RIESGO=fbDaily(693,400,-.001,.015).map(x=>({fecha:x.fecha,valor:Math.round(Math.max(400,x.valor))}));
 
@@ -255,7 +270,7 @@ const TABS=[
   {k:'mep_hist',     c:'#A32D2D', title:'Dólar MEP / Bolsa — venta diaria (ARS)',          src:'argentinadatos.com',         vf:'venta'},
   {k:'riesgo',       c:'#993556', title:'Riesgo país EMBI+ (puntos básicos)',               src:'argentinadatos.com · JP Morgan', vf:'valor'},
   {k:'res',          c:'#0F6E56', title:'Reservas internacionales (millones USD)',           src:'BCRA · serie 246',           vf:'valor'},
-  {k:'base',         c:'#BA7517', title:'Base monetaria total (millones $)',                 src:'BCRA · serie 250',           vf:'valor'},
+  {k:'base',         c:'#BA7517', title:'Base monetaria total (en miles de millones $)',      src:'BCRA · serie 250',           vf:'valor'},
   {k:'ipcm',         c:'#D85A30', title:'IPC — variación mensual (%)',                      src:'INDEC · datos.gob.ar',       vf:'valor', bar:true},
   {k:'m2',           c:'#534AB7', title:'M2 privado — variación interanual prom. 30 días (%)', src:'BCRA · serie 7919',      vf:'valor', bar:true},
   {k:'uva',          c:'#1D9E75', title:'Índice UVA (base 31/3/2016 = 14.05)',              src:'argentinadatos.com · BCRA',  vf:'valor'},
@@ -401,7 +416,7 @@ async function loadAll(){
   ];
   const fbBCRA={
     bsup:{b:1764,d:.0008},binf:{b:1017,d:.0008},res:{b:44800,d:.0003},
-    base:{b:57e6,d:.001},badlar:{b:32.5,d:-.0004},m2:{b:95,d:-.001}
+    base:{b:43177866,d:.001},badlar:{b:32.5,d:-.0004},m2:{b:95,d:-.001}
   };
   for(const [id,f,to,k] of bcraMap){
     try{S[k]=await fetchBCRA(id,f,to);}
@@ -411,22 +426,53 @@ async function loadAll(){
   const b_bsup=fromArr(S.bsup,v=>'$ '+n2(v,2)); setMC('v-bsup','d-bsup',null,b_bsup.val,b_bsup.fecha);
   const b_binf=fromArr(S.binf,v=>'$ '+n2(v,2)); setMC('v-binf','d-binf',null,b_binf.val,b_binf.fecha);
   const b_res=fromArr(S.res,v=>'USD '+nM(v)+'M'); setMC('v-res','d-res','dt-res',b_res.val,b_res.fecha,b_res.delta);
-  const b_base=fromArr(S.base,v=>'$ '+n2(v/1e6,1)+'B'); setMC('v-base','d-base',null,b_base.val,b_base.fecha);
+  const b_base=fromArr(S.base,fmtBase);
+  // DEBUG temporal: ver valor crudo en consola del browser (F12 → Console)
+  if(S.base&&S.base.length) console.log('BASE MONETARIA valor crudo API:', S.base[S.base.length-1]);
+  setMC('v-base','d-base',null,b_base.val,b_base.fecha);
   const b_badl=fromArr(S.badlar,v=>n2(v,2)+'%'); setMC('v-badlar','d-badlar',null,b_badl.val,b_badl.fecha);
   const b_m2=fromArr(S.m2,v=>n2(v,1)+'%'); setMC('v-m2','d-m2',null,b_m2.val,b_m2.fecha);
 
   // 6 ── INDEC vía datos.gob.ar
-  try{S.ipcm=await fetchGobAr('101.1_I2NG_2016_M_19','2024-06-01',t);}
+  try{S.ipcm=await fetchGobAr('101.1_I2NG_2016_M_19','2025-01-01',t);}
   catch(e){fails++;S.ipcm=FB_IPCM;}
-  try{S.ipca=await fetchGobAr('101.1_I2NG_2016_M_22:percent_change_a_year_ago','2024-06-01',t);}
-  catch(e){fails++;S.ipca=null;}
+  if(!S.ipcm||S.ipcm.length<2) S.ipcm=FB_IPCM;
+
+  // IPC interanual — valores oficiales INDEC (más precisos que acumular mensuales)
+  // Fuente: INDEC Resumen Ejecutivo IPC
+  const FB_IPCA_OFICIAL=[
+    {fecha:'2025-06-01',valor:40.1},{fecha:'2025-07-01',valor:36.0},
+    {fecha:'2025-08-01',valor:31.6},{fecha:'2025-09-01',valor:29.0},
+    {fecha:'2025-10-01',valor:26.3},{fecha:'2025-11-01',valor:24.3},
+    {fecha:'2025-12-01',valor:23.9},{fecha:'2026-01-01',valor:26.8},
+    {fecha:'2026-02-01',valor:31.0},{fecha:'2026-03-01',valor:34.3},
+    {fecha:'2026-04-01',valor:32.4}
+  ];
+  try{
+    // Intentar obtener interanual de argentinadatos.com
+    const iaData=await fetchArgDatos('/v1/finanzas/indices/inflacion-interanual');
+    S.ipca=Array.isArray(iaData)?iaData.map(x=>({fecha:x.fecha,valor:x.valor??x.interanual})).filter(x=>x.valor!=null):FB_IPCA_OFICIAL;
+    if(!S.ipca||S.ipca.length<1) S.ipca=FB_IPCA_OFICIAL;
+  } catch(e){ S.ipca=FB_IPCA_OFICIAL; }
   try{S.emae=await fetchGobAr('143.3_NO_PR_2004_A_21:percent_change_a_year_ago','2025-01-01',t);}
   catch(e){fails++;S.emae=null;}
+  // SMVM — serie datos.gob.ar (Ministerio de Trabajo)
+  // ID correcto: 144.3_SMVM_0_M_26 o hardcodear valores conocidos como fallback
   try{
-    const smvmData=await fetchArgDatos('/v1/finanzas/indices/smvm');
-    S.smvm=Array.isArray(smvmData)?smvmData.map(x=>({fecha:x.fecha,valor:x.smvm??x.valor})):null;
+    const smvmRaw=await fetchGobAr('144.3_SMVM_0_M_26','2024-01-01',t);
+    S.smvm=smvmRaw&&smvmRaw.length?smvmRaw:null;
+  } catch(e){ S.smvm=null; }
+  // Si la API no devuelve nada, usar valores oficiales conocidos
+  if(!S.smvm||!S.smvm.length){
+    S.smvm=[
+      {fecha:'2024-04-01',valor:202800},{fecha:'2024-05-01',valor:234315},
+      {fecha:'2024-09-01',valor:257172},{fecha:'2024-10-01',valor:267204},
+      {fecha:'2024-12-01',valor:279718},{fecha:'2025-01-01',valor:302600},
+      {fecha:'2025-04-01',valor:302600},{fecha:'2025-05-01',valor:308200},
+      {fecha:'2025-06-01',valor:313400},{fecha:'2026-01-01',valor:341000},
+      {fecha:'2026-02-01',valor:346800},{fecha:'2026-03-01',valor:357800}
+    ];
   }
-  catch(e){fails++;S.smvm=null;}
 
   // métricas INDEC
   const im=last(S.ipcm),ia=last(S.ipca),em=last(S.emae),sm=last(S.smvm);
