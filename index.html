@@ -163,12 +163,12 @@ X @argecondatos
 <!-- TIPO DE CAMBIO -->
 <div class="slbl">Tipo de cambio · dolarapi.com</div>
 <div class="mg">
-  <div class="mc"><div class="lbl">Oficial BNA venta</div><div class="val" id="v-oficial">—</div><div class="sub" id="d-oficial"></div><div class="src">dolarapi.com</div></div>
-  <div class="mc"><div class="lbl">Oficial BNA compra</div><div class="val" id="v-ofcmp">—</div><div class="sub" id="d-ofcmp"></div><div class="src">dolarapi.com</div></div>
-  <div class="mc"><div class="lbl">Mayorista</div><div class="val" id="v-mayor">—</div><div class="sub" id="d-mayor"></div><div class="src">dolarapi.com</div></div>
+  <div class="mc"><div class="lbl">Oficial BNA venta</div><div class="val" id="v-oficial">—</div><div class="sub" id="d-oficial"></div><div class="dlt" id="dt-oficial"></div><div class="src">dolarapi.com</div></div>
+  <div class="mc"><div class="lbl">Oficial BNA compra</div><div class="val" id="v-ofcmp">—</div><div class="sub" id="d-ofcmp"></div><div class="dlt" id="dt-ofcmp"></div><div class="src">dolarapi.com</div></div>
+  <div class="mc"><div class="lbl">Mayorista</div><div class="val" id="v-mayor">—</div><div class="sub" id="d-mayor"></div><div class="dlt" id="dt-mayor"></div><div class="src">dolarapi.com</div></div>
   <div class="mc"><div class="lbl">Blue venta</div><div class="val" id="v-blue">—</div><div class="sub" id="d-blue"></div><div class="dlt" id="dt-blue"></div><div class="src">dolarapi.com</div></div>
-  <div class="mc"><div class="lbl">MEP / Bolsa</div><div class="val" id="v-mep">—</div><div class="sub" id="d-mep"></div><div class="src">dolarapi.com</div></div>
-  <div class="mc"><div class="lbl">CCL</div><div class="val" id="v-ccl">—</div><div class="sub" id="d-ccl"></div><div class="src">dolarapi.com</div></div>
+  <div class="mc"><div class="lbl">MEP / Bolsa</div><div class="val" id="v-mep">—</div><div class="sub" id="d-mep"></div><div class="dlt" id="dt-mep"></div><div class="src">dolarapi.com</div></div>
+  <div class="mc"><div class="lbl">CCL</div><div class="val" id="v-ccl">—</div><div class="sub" id="d-ccl"></div><div class="dlt" id="dt-ccl"></div><div class="src">dolarapi.com</div></div>
   <div class="mc"><div class="lbl">Banda superior</div><div class="val" id="v-bsup">—</div><div class="sub" id="d-bsup"></div><div class="src">BCRA · s.7929</div></div>
   <div class="mc"><div class="lbl">Banda inferior</div><div class="val" id="v-binf">—</div><div class="sub" id="d-binf"></div><div class="src">BCRA · s.7928</div></div>
 </div>
@@ -383,8 +383,22 @@ function setMC(vid,did,dtid,val,fecha,delta){
   if(did)document.getElementById(did).textContent=fmtF(fecha||'');
   if(dtid&&delta!=null){
     const el=document.getElementById(dtid);
-    if(el){el.textContent=(delta>=0?'+':'')+n2(delta,2)+'% vs ant.';el.className='dlt '+(delta>=0?'up':'dn')}
+    const arrow=delta>=0?'▲':'▼';
+    if(el){el.textContent=arrow+' '+(delta>=0?'+':'')+n2(Math.abs(delta),2)+'%';el.className='dlt '+(delta>=0?'up':'dn')}
   }
+}
+function setDelta(dtid,curVal,histArr){
+  // Calcula variación respecto al día anterior usando el historial
+  if(!dtid||!curVal||!histArr||histArr.length<2)return;
+  const el=document.getElementById(dtid);
+  if(!el)return;
+  const prev_val=histArr[histArr.length-2]?.venta||histArr[histArr.length-2]?.valor;
+  if(!prev_val)return;
+  const numCur=parseFloat(String(curVal).replace(/[^0-9,.]/g,'').replace(',','.'));
+  const delta=((numCur-prev_val)/prev_val*100);
+  const arrow=delta>=0?'▲':'▼';
+  el.textContent=arrow+' '+(delta>=0?'+':'')+n2(Math.abs(delta),2)+'%';
+  el.className='dlt '+(delta>=0?'up':'dn');
 }
 function fromArr(arr,fmt){
   const l=last(arr),p=prev(arr);
@@ -535,6 +549,14 @@ async function loadAll(){
   sb.className='badge '+(fails===0?'live':fails<=3?'partial':'wait');
 
   // ── Gráfico principal ──
+  // Flechas de variación en cards TC
+  setDelta('dt-oficial', document.getElementById('v-oficial').textContent, S.oficial_hist);
+  setDelta('dt-ofcmp',   document.getElementById('v-ofcmp').textContent,   S.oficial_hist);
+  setDelta('dt-mayor',   document.getElementById('v-mayor').textContent,   S.oficial_hist);
+  setDelta('dt-blue',    document.getElementById('v-blue').textContent,    S.blue_hist);
+  setDelta('dt-mep',     document.getElementById('v-mep').textContent,     S.mep_hist);
+  setDelta('dt-ccl',     document.getElementById('v-ccl').textContent,     S.mep_hist);
+
   swTab(curTab);
 
   // ── Mini charts ──
