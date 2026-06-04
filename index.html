@@ -196,7 +196,7 @@ X @argecondatos
 <div class="slbl">Mercados · argentinadatos.com</div>
 <div class="mg">
   <div class="mc"><div class="lbl">Riesgo país (EMBI+)</div><div class="val" id="v-riesgo">—</div><div class="sub" id="d-riesgo"></div><div class="dlt" id="dt-riesgo"></div><div class="src">argentinadatos.com · JP Morgan</div></div>
-  <div class="mc"><div class="lbl">UVA</div><div class="val" id="v-uva">—</div><div class="sub" id="d-uva"></div><div class="src">argentinadatos.com · BCRA</div></div>
+  <div class="mc"><div class="lbl">Merval — variación diaria</div><div class="val" id="v-merval">—</div><div class="sub" id="d-merval"></div><div class="dlt" id="dt-merval"></div><div class="src">Yahoo Finance · ^MERV</div></div>
 </div>
 
 <!-- GRÁFICO PRINCIPAL -->
@@ -454,6 +454,26 @@ async function loadAll(){
     fails++;S.riesgo=FB_RIESGO;
     const l=last(FB_RIESGO);
     setMC('v-riesgo','d-riesgo',null,n2(l.valor,0)+' pb',l.fecha);
+  }
+
+  // 3b ── Merval (Yahoo Finance vía proxy)
+  try{
+    const yurl=`https://query1.finance.yahoo.com/v8/finance/chart/%5EMERV?interval=1d&range=2d`;
+    const yj=await fetchJSON(yurl);
+    const meta=yj?.chart?.result?.[0]?.meta;
+    if(meta){
+      const precio=meta.regularMarketPrice||meta.previousClose;
+      const prev_=meta.previousClose||meta.chartPreviousClose;
+      const delta=prev_?((precio-prev_)/prev_*100):null;
+      if(delta!=null){
+        document.getElementById('v-merval').textContent=(delta>=0?'+':'')+n2(delta,2)+'%';
+        document.getElementById('v-merval').className='val '+(delta>=0?'up':'dn');
+        document.getElementById('d-merval').textContent=nM(precio,0)+' pts · hoy';
+      }
+    }
+  }catch(e){
+    document.getElementById('v-merval').textContent='—';
+    document.getElementById('d-merval').textContent='sin datos';
   }
 
   // 4 ── UVA (argentinadatos.com)
