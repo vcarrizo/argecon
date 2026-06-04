@@ -96,6 +96,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .spin{display:inline-block;width:12px;height:12px;border:2px solid var(--bd2);border-top-color:var(--blue);border-radius:50%;animation:sp .7s linear infinite;vertical-align:middle;margin-right:4px}
 @keyframes sp{to{transform:rotate(360deg)}}
 
+.rng{display:flex;gap:4px;flex-shrink:0}
+.rb{font-size:10px;padding:4px 9px;border-radius:12px;cursor:pointer;border:.5px solid var(--bd2);background:transparent;color:var(--tx3);font-family:inherit;transition:all .12s;-webkit-tap-highlight-color:transparent}
+.rb:hover{background:var(--sur2);color:var(--tx2)}
+.rb.on{background:var(--sur2);color:var(--tx);font-weight:600;border-color:var(--bd2)}
 .fuentes{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;padding-top:12px;border-top:.5px solid var(--bd)}
 .fp{display:flex;align-items:center;gap:4px;font-size:9px;color:var(--tx3)}
 .fd{width:6px;height:6px;border-radius:50%;flex-shrink:0}
@@ -205,6 +209,12 @@ X @argecondatos
   <div class="card-hdr">
     <div><div class="card-title" id="main-title">Dólar oficial BNA — venta diaria</div>
     <div class="card-src" id="main-src">Fuente: argentinadatos.com</div></div>
+    <div class="rng" id="rng-btns">
+      <button class="rb" onclick="setRng(30)">1M</button>
+      <button class="rb" onclick="setRng(90)">3M</button>
+      <button class="rb" onclick="setRng(180)">6M</button>
+      <button class="rb on" onclick="setRng(365)">1A</button>
+    </div>
   </div>
   <div class="tabs" id="tabs-main">
     <button class="tb on c0" onclick="swTab(0)">Oficial</button>
@@ -320,6 +330,7 @@ const FB_RIESGO=fbDaily(693,400,-.001,.015).map(x=>({fecha:x.fecha,valor:Math.ro
 const S={};
 let mainC=null,mn1=null,mn2=null,mn3=null;
 let curTab=0;
+let curRng=365; // días a mostrar por defecto
 const C_CLASSES=['c0','c1','c2','c3','c4','c5','c6','c7','c8','c9'];
 
 const TABS=[
@@ -373,8 +384,29 @@ function swTab(i){
   document.getElementById('main-src').textContent='Fuente: '+t.src;
   if(mainC){mainC.destroy();mainC=null;}
   const arr=S[t.k];if(!arr||!arr.length)return;
-  const labels=arr.map(d=>(d.fecha||'').slice(0,7));
-  mainC=mkChart('mainChart',labels,arr.map(d=>d[t.vf]),t.c,!t.bar,!!t.bar);
+  // Filtrar por rango seleccionado
+  const cutoff=new Date();cutoff.setDate(cutoff.getDate()-curRng);
+  const cutStr=cutoff.toISOString().split('T')[0];
+  const filtered=arr.filter(d=>(d.fecha||'')>=cutStr);
+  const data=filtered.length?filtered:arr.slice(-curRng);
+  // Para series mensuales usar YYYY-MM, para diarias usar día/mes
+  const isMonthly=data.length>0&&data[0].fecha&&data[0].fecha.length===10&&
+    (new Set(data.map(d=>d.fecha.slice(0,7))).size===data.length||data.length<=24);
+  const labels=data.map(d=>{
+    const f=(d.fecha||'').slice(0,10);
+    if(curRng<=90) return f.slice(5).replace('-','/'); // DD/MM
+    return f.slice(0,7); // YYYY-MM
+  });
+  mainC=mkChart('mainChart',labels,data.map(d=>d[t.vf]),t.c,!t.bar,!!t.bar);
+}
+
+function setRng(days){
+  curRng=days;
+  document.querySelectorAll('.rb').forEach(b=>{
+    const d=parseInt(b.getAttribute('onclick').match(/\d+/)[0]);
+    b.className='rb'+(d===days?' on':'');
+  });
+  swTab(curTab);
 }
 
 function setMC(vid,did,dtid,val,fecha,delta){
