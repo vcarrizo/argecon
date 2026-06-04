@@ -192,21 +192,8 @@ function n2(n,d=2){if(n==null||isNaN(n))return'—';return new Intl.NumberFormat
 function nM(v){if(v==null||isNaN(v))return'—';const a=Math.abs(v);if(a>=1e9)return n2(v/1e9,2)+' B';if(a>=1e6)return n2(v/1e6,0)+' M';return n2(v,0)}
 // Para ejes Y: no abreviar si los valores son tipo TC (entre 100 y 99999)
 function yTick(v){if(v==null||isNaN(v))return'';const a=Math.abs(v);if(a>=1e9)return n2(v/1e9,1)+'B';if(a>=1e6)return n2(v/1e6,0)+'M';return n2(v,0)}
-// Serie 250 devuelve en pesos: ~55.800.000.000 → dividir por 1e9 = 55,8 B... 
-// PERO BCRA publica 43.177 B → la serie devuelve en millones: 43177 → /1000 = 43,2 B
-// Detectar automáticamente la unidad según la magnitud del valor
-function fmtBase(v){
-  if(v==null||isNaN(v))return'—';
-  // Si el valor es > 1e8 → viene en pesos → dividir por 1e12 para billones
-  // Si el valor es > 1e5 → viene en millones → dividir por 1e6 para billones  
-  // Si el valor es < 1e5 → ya viene en miles de millones (billones)
-  let b;
-  if(v>1e10) b=v/1e12;        // en pesos
-  else if(v>1e6) b=v/1e9;     // en miles (raro)
-  else if(v>1000) b=v/1e6;    // en millones
-  else b=v/1000;               // en miles de millones
-  return'$ '+n2(b,1)+' B';
-}
+// v4.0: base monetaria en millones de $. 43.177 millones = 43,2 B
+function fmtBase(v){if(v==null||isNaN(v))return'—';return'$ '+n2(v/1000,1)+' B';}
 function dAgo(n){const d=new Date();d.setDate(d.getDate()-n);return d.toISOString().split('T')[0]}
 function today(){return new Date().toISOString().split('T')[0]}
 function fmtF(s){if(!s)return'';const p=(s||'').slice(0,10).split('-');return p.length===3?`${p[2]}/${p[1]}/${p[0]}`:''}
@@ -221,8 +208,10 @@ async function fetchJSON(url){
   return r.json();
 }
 async function fetchBCRA(id,from,to){
-  const j=await fetchJSON(`https://api.bcra.gob.ar/estadisticas/v3.0/Monetarias/${id}?desde=${from}&hasta=${to}`);
-  return(j.results||j.data||[]).sort((a,b)=>a.fecha.localeCompare(b.fecha));
+  const j=await fetchJSON(`https://api.bcra.gob.ar/estadisticas/v4.0/monetarias/${id}?desde=${from}&hasta=${to}&limit=1000`);
+  // v4.0: resultados en results[0].detalle en lugar de results directamente
+  const detalle=(j.results&&j.results[0]&&j.results[0].detalle)?j.results[0].detalle:(j.results||[]);
+  return detalle.map(x=>({fecha:x.fecha,valor:x.valor})).sort((a,b)=>a.fecha.localeCompare(b.fecha));
 }
 async function fetchGobAr(id,from,to){
   const j=await fetchJSON(`https://apis.datos.gob.ar/series/api/series/?ids=${id}&start_date=${from}&end_date=${to}&limit=500&format=json`);
@@ -416,7 +405,7 @@ async function loadAll(){
   ];
   const fbBCRA={
     bsup:{b:1764,d:.0008},binf:{b:1017,d:.0008},res:{b:44800,d:.0003},
-    base:{b:43177866,d:.001},badlar:{b:32.5,d:-.0004},m2:{b:95,d:-.001}
+    base:{b:43177,d:.001},badlar:{b:32.5,d:-.0004},m2:{b:95,d:-.001}
   };
   for(const [id,f,to,k] of bcraMap){
     try{S[k]=await fetchBCRA(id,f,to);}
