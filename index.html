@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ArgEcon — Indicadores Económicos Argentina</title>
 <meta name="description" content="Indicadores económicos de Argentina en tiempo real: tipo de cambio, inflación, reservas, riesgo país, IPC y más. Datos del BCRA e INDEC.">
+<meta name="theme-color" content="#185FA5">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ArgEcon">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5906129229010420" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
@@ -542,6 +549,13 @@ async function loadAll(){
 }
 
 loadAll();
+
+// ── PWA Service Worker ─────────────────────────────────────────────
+if('serviceWorker' in navigator){
+  window.addEventListener('load', ()=>{
+    navigator.serviceWorker.register('/sw.js').catch(()=>{});
+  });
+}
 
 // ── Ticker de noticias ─────────────────────────────────────────────
 const FEEDS=[
