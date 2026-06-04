@@ -387,15 +387,17 @@ function setMC(vid,did,dtid,val,fecha,delta){
     if(el){el.textContent=arrow+' '+(delta>=0?'+':'')+n2(Math.abs(delta),2)+'%';el.className='dlt '+(delta>=0?'up':'dn')}
   }
 }
-function setDelta(dtid,curVal,histArr){
-  // Calcula variación respecto al día anterior usando el historial
-  if(!dtid||!curVal||!histArr||histArr.length<2)return;
+function setDelta(dtid,histArr){
+  // Compara los dos últimos valores del historial
+  if(!dtid||!histArr||histArr.length<2)return;
   const el=document.getElementById(dtid);
   if(!el)return;
-  const prev_val=histArr[histArr.length-2]?.venta||histArr[histArr.length-2]?.valor;
-  if(!prev_val)return;
-  const numCur=parseFloat(String(curVal).replace(/[^0-9,.]/g,'').replace(',','.'));
-  const delta=((numCur-prev_val)/prev_val*100);
+  const lv=histArr[histArr.length-1];
+  const pv=histArr[histArr.length-2];
+  const cur=lv?.venta||lv?.valor;
+  const pre=pv?.venta||pv?.valor;
+  if(!cur||!pre)return;
+  const delta=((cur-pre)/pre*100);
   const arrow=delta>=0?'▲':'▼';
   el.textContent=arrow+' '+(delta>=0?'+':'')+n2(Math.abs(delta),2)+'%';
   el.className='dlt '+(delta>=0?'up':'dn');
@@ -550,12 +552,12 @@ async function loadAll(){
 
   // ── Gráfico principal ──
   // Flechas de variación en cards TC
-  setDelta('dt-oficial', document.getElementById('v-oficial').textContent, S.oficial_hist);
-  setDelta('dt-ofcmp',   document.getElementById('v-ofcmp').textContent,   S.oficial_hist);
-  setDelta('dt-mayor',   document.getElementById('v-mayor').textContent,   S.oficial_hist);
-  setDelta('dt-blue',    document.getElementById('v-blue').textContent,    S.blue_hist);
-  setDelta('dt-mep',     document.getElementById('v-mep').textContent,     S.mep_hist);
-  setDelta('dt-ccl',     document.getElementById('v-ccl').textContent,     S.mep_hist);
+  setDelta('dt-oficial', S.oficial_hist);
+  setDelta('dt-ofcmp',   S.oficial_hist);
+  setDelta('dt-mayor',   S.oficial_hist);
+  setDelta('dt-blue',    S.blue_hist);
+  setDelta('dt-mep',     S.mep_hist);
+  setDelta('dt-ccl',     S.mep_hist);
 
   swTab(curTab);
 
