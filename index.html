@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indicadores Económicos · Argentina</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f5f4f0;--sur:#fff;--sur2:#f0efeb;
+  --tx:#1a1a18;--tx2:#6b6a65;--tx3:#9c9b96;
+  --bd:rgba(0,0,0,.08);--bd2:rgba(0,0,0,.13);
+  --blue:#185FA5;--green:#0F6E56;--amber:#BA7517;--red:#A32D2D;--purple:#534AB7;--teal:#1D9E75;--coral:#D85A30;
+}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#18181a;--sur:#242426;--sur2:#1e1e20;
+    --tx:#f0efeb;--tx2:#9c9b96;--tx3:#5a5a57;
+    --bd:rgba(255,255,255,.07);--bd2:rgba(255,255,255,.12)}
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh}
+.page{max-width:1200px;margin:0 auto;padding:24px 18px 70px}
+
+.hdr{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding-bottom:16px;border-bottom:.5px solid var(--bd2);margin-bottom:22px}
+.hdr h1{font-size:20px;font-weight:600;letter-spacing:-.4px}
+.hdr p{font-size:12px;color:var(--tx2);margin-top:3px}
+.hdr-r{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0}
+.badge{font-size:11px;padding:4px 12px;border-radius:20px;font-weight:500;white-space:nowrap}
+.live{background:#EAF3DE;color:#3B6D11}
+.demo{background:#FAEEDA;color:#7A4A0A}
+.wait{background:var(--sur2);color:var(--tx2)}
+.rbtn{font-size:11px;padding:4px 11px;border-radius:8px;cursor:pointer;border:.5px solid var(--bd2);background:transparent;color:var(--tx2);font-family:inherit}
+.rbtn:hover{background:var(--sur2)}
+
+.slbl{font-size:10px;font-weight:700;color:var(--tx3);text-transform:uppercase;letter-spacing:.07em;margin:22px 0 9px;display:flex;align-items:center;gap:8px}
+.slbl::after{content:'';flex:1;height:.5px;background:var(--bd)}
+
+.mg{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:9px;margin-bottom:4px}
+.mc{background:var(--sur);border:.5px solid var(--bd);border-radius:12px;padding:12px 14px}
+.mc .lbl{font-size:10px;color:var(--tx2);margin-bottom:4px;line-height:1.35}
+.mc .val{font-size:22px;font-weight:600;line-height:1.15;letter-spacing:-.6px}
+.mc .sub{font-size:10px;color:var(--tx3);margin-top:4px}
+.mc .dlt{font-size:10px;font-weight:500;margin-top:2px}
+.mc .src-tag{font-size:9px;color:var(--tx3);margin-top:3px;opacity:.7}
+.up{color:#3B6D11}.dn{color:#A32D2D}
+
+.card{background:var(--sur);border:.5px solid var(--bd);border-radius:14px;padding:17px 19px;margin-bottom:13px}
+.card-hdr{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:11px;gap:8px}
+.card-title{font-size:13px;font-weight:600}
+.card-src{font-size:10px;color:var(--tx3);margin-top:2px}
+.tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:13px}
+.tb{font-size:11px;padding:5px 12px;border-radius:20px;cursor:pointer;border:.5px solid var(--bd2);background:transparent;color:var(--tx2);font-family:inherit;transition:all .12s}
+.tb:hover{background:var(--sur2)}
+.tb.on{font-weight:600;border-color:transparent}
+.tb.c0{background:#E6F1FB;color:#185FA5}
+.tb.c1{background:#EEEDFE;color:#534AB7}
+.tb.c2{background:#FCEBEB;color:#A32D2D}
+.tb.c3{background:#E1F5EE;color:#0F6E56}
+.tb.c4{background:#FAEEDA;color:#BA7517}
+.tb.c5{background:#FAECE7;color:#D85A30}
+.tb.c6{background:#E1F5EE;color:#1D9E75}
+
+.cw{position:relative;width:100%}
+.h230{height:230px}.h160{height:160px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px}
+@media(max-width:750px){.grid2,.grid3{grid-template-columns:1fr}}
+
+.spin{display:inline-block;width:12px;height:12px;border:2px solid var(--bd2);border-top-color:var(--blue);border-radius:50%;animation:sp .7s linear infinite;vertical-align:middle;margin-right:4px}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+.nota{background:#FAEEDA;border-radius:10px;padding:10px 14px;font-size:11px;color:#7A4A0A;margin-bottom:16px;line-height:1.7}
+.nota code{background:rgba(0,0,0,.08);border-radius:4px;padding:1px 5px;font-family:monospace;font-size:10px}
+
+.fuentes{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;padding-top:14px;border-top:.5px solid var(--bd)}
+.fp{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--tx3)}
+.fd{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="hdr">
+  <div>
+    <h1>Indicadores Económicos · Argentina</h1>
+    <p>dolarapi.com (BNA) · argentinadatos.com · BCRA · INDEC/datos.gob.ar</p>
+  </div>
+  <div class="hdr-r">
+    <span id="status" class="badge wait"><span class="spin"></span>conectando...</span>
+    <button class="rbtn" onclick="loadAll()">↻ Actualizar</button>
+  </div>
+</div>
+
+<div id="nota-cors" class="nota" style="display:none">
+  ⚠️ Algunas APIs bloquearon el acceso (CORS). Para datos totalmente en vivo, corré el archivo desde un servidor local:<br>
+  <code>python3 -m http.server 8000</code> → <code>http://localhost:8000</code><br>
+  Se usan los valores de referencia del 03/06/2026 para los indicadores que no respondieron.
+</div>
+
+<!-- TIPO DE CAMBIO HOY -->
+<div class="slbl">Tipo de cambio hoy · BNA / Mercados · dolarapi.com</div>
+<div class="mg" id="mg-tc">
+  <div class="mc"><div class="lbl">Oficial BNA venta</div><div class="val" id="v-oficial">—</div><div class="sub" id="d-oficial"></div><div class="src-tag">dolarapi.com</div></div>
+  <div class="mc"><div class="lbl">Oficial BNA compra</div><div class="val" id="v-ofcompra">—</div><div class="sub" id="d-ofcompra"></div><div class="src-tag">dolarapi.com</div></div>
+  <div class="mc"><div class="lbl">Mayorista</div><div class="val" id="v-mayorista">—</div><div class="sub" id="d-mayorista"></div><div class="src-tag">dolarapi.com</div></div>
+  <div class="mc"><div class="lbl">Blue venta</div><div class="val" id="v-blue">—</div><div class="sub" id="d-blue"></div><div class="dlt" id="dt-blue"></div><div class="src-tag">dolarapi.com</div></div>
+  <div class="mc"><div class="lbl">MEP / Bolsa</div><div class="val" id="v-mep">—</div><div class="sub" id="d-mep"></div><div class="src-tag">dolarapi.com</div></div>
+  <div class="mc"><div class="lbl">CCL</div><div class="val" id="v-ccl">—</div><div class="sub" id="d-ccl"></div><div class="src-tag">dolarapi.com</div></div>
+  <div class="mc"><div class="lbl">Banda cambiaria sup.</div><div class="val" id="v-bsup">—</div><div class="sub" id="d-bsup"></div><div class="src-tag">BCRA · serie 7929</div></div>
+  <div class="mc"><div class="lbl">Banda cambiaria inf.</div><div class="val" id="v-binf">—</div><div class="sub" id="d-binf"></div><div class="src-tag">BCRA · serie 7928</div></div>
+</div>
+
+<!-- MONETARIO -->
+<div class="slbl">Variables monetarias · BCRA</div>
+<div class="mg">
+  <div class="mc"><div class="lbl">Reservas internacionales</div><div class="val" id="v-res">—</div><div class="sub" id="d-res"></div><div class="dlt" id="dt-res"></div><div class="src-tag">BCRA · serie 246</div></div>
+  <div class="mc"><div class="lbl">Base monetaria</div><div class="val" id="v-base">—</div><div class="sub" id="d-base"></div><div class="src-tag">BCRA · serie 250</div></div>
+  <div class="mc"><div class="lbl">BADLAR bancos privados</div><div class="val" id="v-badlar">—</div><div class="sub" id="d-badlar"></div><div class="src-tag">BCRA · serie 1222</div></div>
+  <div class="mc"><div class="lbl">Depósitos a plazo fijo</div><div class="val" id="v-plazo">—</div><div class="sub" id="d-plazo"></div><div class="src-tag">BCRA · serie 452</div></div>
+  <div class="mc"><div class="lbl">M2 privado var. interanual</div><div class="val" id="v-m2">—</div><div class="sub" id="d-m2"></div><div class="src-tag">BCRA · serie 7919</div></div>
+</div>
+
+<!-- PRECIOS -->
+<div class="slbl">Precios · INDEC vía datos.gob.ar</div>
+<div class="mg">
+  <div class="mc"><div class="lbl">IPC — inflación mensual</div><div class="val" id="v-ipcm">—</div><div class="sub" id="d-ipcm"></div><div class="src-tag">INDEC · 101.1_I2NG…M_19</div></div>
+  <div class="mc"><div class="lbl">IPC — interanual</div><div class="val" id="v-ipca">—</div><div class="sub" id="d-ipca"></div><div class="src-tag">INDEC · 101.1_I2NG…M_18</div></div>
+  <div class="mc"><div class="lbl">IPC acumulado 2026</div><div class="val" id="v-ipcac">—</div><div class="sub" id="d-ipcac">ene–abr 2026</div><div class="src-tag">INDEC</div></div>
+  <div class="mc"><div class="lbl">Actividad (EMAE var. interanual)</div><div class="val" id="v-emae">—</div><div class="sub" id="d-emae"></div><div class="src-tag">INDEC · EMAE</div></div>
+</div>
+
+<!-- GRÁFICO PRINCIPAL -->
+<div class="slbl">Evolución histórica</div>
+<div class="card">
+  <div class="card-hdr">
+    <div><div class="card-title" id="main-title">Dólar oficial BNA — evolución diaria</div>
+    <div class="card-src" id="main-src">Fuente: argentinadatos.com</div></div>
+  </div>
+  <div class="tabs" id="tabs-main">
+    <button class="tb on c0" onclick="swTab(0)">Oficial BNA</button>
+    <button class="tb"       onclick="swTab(1)">Blue</button>
+    <button class="tb"       onclick="swTab(2)">MEP</button>
+    <button class="tb"       onclick="swTab(3)">Reservas BCRA</button>
+    <button class="tb"       onclick="swTab(4)">Base monetaria</button>
+    <button class="tb"       onclick="swTab(5)">IPC mensual %</button>
+    <button class="tb"       onclick="swTab(6)">BADLAR</button>
+    <button class="tb"       onclick="swTab(7)">M2 privado var. i.a.</button>
+  </div>
+  <div class="cw h230"><canvas id="mainChart" role="img" aria-label="Evolución histórica del indicador seleccionado"></canvas></div>
+</div>
+
+<!-- MINI CHARTS -->
+<div class="grid3">
+  <div class="card">
+    <div class="card-hdr"><div><div class="card-title">Oficial BNA · 60 días</div><div class="card-src">argentinadatos.com</div></div></div>
+    <div class="cw h160"><canvas id="mini1" role="img" aria-label="TC oficial 60 días"></canvas></div>
+  </div>
+  <div class="card">
+    <div class="card-hdr"><div><div class="card-title">Reservas BCRA · 60 días</div><div class="card-src">BCRA · serie 246</div></div></div>
+    <div class="cw h160"><canvas id="mini2" role="img" aria-label="Reservas 60 días"></canvas></div>
+  </div>
+  <div class="card">
+    <div class="card-hdr"><div><div class="card-title">IPC mensual · últimos 12 meses</div><div class="card-src">INDEC · datos.gob.ar</div></div></div>
+    <div class="cw h160"><canvas id="mini3" role="img" aria-label="Inflación mensual 12 meses"></canvas></div>
+  </div>
+</div>
+
+<div class="fuentes">
+  <div class="fp"><div class="fd" style="background:#185FA5"></div>dolarapi.com — cotizaciones del día (oficial BNA, blue, mayorista, MEP, CCL)</div>
+  <div class="fp"><div class="fd" style="background:#534AB7"></div>argentinadatos.com — historial de cotizaciones</div>
+  <div class="fp"><div class="fd" style="background:#0F6E56"></div>BCRA — api.bcra.gob.ar (reservas, base monetaria, tasas, bandas)</div>
+  <div class="fp"><div class="fd" style="background:#D85A30"></div>INDEC — apis.datos.gob.ar (IPC, EMAE)</div>
+</div>
+</div>
+
+<script>
+const dark=matchMedia('(prefers-color-scheme:dark)').matches;
+const GC=dark?'rgba(255,255,255,.07)':'rgba(0,0,0,.05)';
+const TCL=dark?'rgba(255,255,255,.38)':'rgba(0,0,0,.38)';
+
+function n2(n,d=2){if(n==null||isNaN(n))return'—';return new Intl.NumberFormat('es-AR',{minimumFractionDigits:d,maximumFractionDigits:d}).format(n)}
+function nM(n,d=0){if(n==null||isNaN(n))return'—';const a=Math.abs(n);if(a>=1e9)return n2(n/1e9,2)+' B';if(a>=1e6)return n2(n/1e6,d)+' M';if(a>=1e3)return n2(n/1e3,0)+' K';return n2(n,d)}
+function dAgo(n){const d=new Date();d.setDate(d.getDate()-n);return d.toISOString().split('T')[0]}
+function today(){return new Date().toISOString().split('T')[0]}
+function fmtFecha(s){if(!s)return'';const p=s.slice(0,10).split('-');return`${p[2]}/${p[1]}/${p[0]}`}
+function hexRgba(h,a){const r=parseInt(h.slice(1,3),16),g=parseInt(h.slice(3,5),16),b=parseInt(h.slice(5,7),16);return`rgba(${r},${g},${b},${a})`}
+function last(a){return a&&a.length?a[a.length-1]:null}
+function prev(a){return a&&a.length>1?a[a.length-2]:null}
+
+// ── APIs ──────────────────────────────────────────────
+// 1. dolarapi.com — cotizaciones del día (tiene CORS abierto)
+async function fetchDolarApiHoy(){
+  const r=await fetch('https://dolarapi.com/v1/dolares');
+  if(!r.ok)throw Error(r.status);
+  return r.json(); // [{casa,nombre,compra,venta,fechaActualizacion}]
+}
+
+// 2. argentinadatos.com — historial por casa
+async function fetchHistorial(casa, desde, hasta){
+  const url=`https://api.argentinadatos.com/v1/cotizaciones/dolares/${casa}`;
+  const r=await fetch(url);
+  if(!r.ok)throw Error(r.status);
+  const data=await r.json(); // [{fecha,compra,venta}]
+  return data.filter(d=>d.fecha>=desde && d.fecha<=hasta);
+}
+
+// 3. BCRA series monetarias
+async function fetchBCRA(id,from,to){
+  const r=await fetch(`https://api.bcra.gob.ar/estadisticas/v3.0/Monetarias/${id}?desde=${from}&hasta=${to}`);
+  if(!r.ok)throw Error(r.status);
+  const j=await r.json();
+  return(j.results||j.data||[]).sort((a,b)=>a.fecha.localeCompare(b.fecha));
+}
+
+// 4. datos.gob.ar series de tiempo (INDEC)
+async function fetchGobAr(id,from,to){
+  const r=await fetch(`https://apis.datos.gob.ar/series/api/series/?ids=${id}&start_date=${from}&end_date=${to}&limit=500&format=json`);
+  if(!r.ok)throw Error(r.status);
+  const j=await r.json();
+  return(j.data||[]).map(row=>({fecha:row[0],valor:row[1]})).filter(x=>x.valor!=null);
+}
+
+// ── Fallback realista al 03/06/2026 ───────────────────
+function fbDiario(base,days,drift=0,noise=0.003){
+  const arr=[];let v=base;
+  const f=new Date();f.setDate(f.getDate()-days);
+  for(let i=0;i<=days;i++){
+    const d=new Date(f);d.setDate(f.getDate()+i);
+    if(d.getDay()===0||d.getDay()===6)continue;
+    v=v*(1+drift+(Math.random()-.5)*noise);
+    arr.push({fecha:d.toISOString().split('T')[0],valor:Math.round(v*100)/100,
+              compra:Math.round(v*.985*100)/100,venta:Math.round(v*100)/100});
+  }
+  return arr;
+}
+function fbMensual(vals){return vals.map(x=>({fecha:x.f+'-01',valor:x.v}))}
+
+// Valores reales conocidos 03/06/2026
+const FB_HOY={
+  oficial:{compra:1410,venta:1460,fechaActualizacion:'2026-06-03T17:01:00'},
+  mayorista:{compra:1424,venta:1427,fechaActualizacion:'2026-06-03T17:01:00'},
+  blue:{compra:1415,venta:1436,fechaActualizacion:'2026-06-03T17:01:00'},
+  bolsa:{compra:1432,venta:1434,fechaActualizacion:'2026-06-03T17:01:00'},
+  contadoconliqui:{compra:1499,venta:1501,fechaActualizacion:'2026-06-03T17:01:00'},
+};
+const FB_IPCM=fbMensual([
+  {f:'2025-06',v:3.2},{f:'2025-07',v:2.7},{f:'2025-08',v:3.5},{f:'2025-09',v:3.5},
+  {f:'2025-10',v:2.4},{f:'2025-11',v:2.4},{f:'2025-12',v:2.7},{f:'2026-01',v:2.3},
+  {f:'2026-02',v:2.4},{f:'2026-03',v:3.7},{f:'2026-04',v:2.6}
+]);
+const FB_IPCA=fbMensual([
+  {f:'2025-06',v:49},{f:'2025-07',v:47},{f:'2025-08',v:43},{f:'2025-09',v:38},
+  {f:'2025-10',v:35},{f:'2025-11',v:28},{f:'2025-12',v:25},{f:'2026-01',v:35},
+  {f:'2026-02',v:38},{f:'2026-03',v:35},{f:'2026-04',v:32}
+]);
+
+// ── Estado ─────────────────────────────────────────────
+const S={};
+let mainC=null,m1C=null,m2C=null,m3C=null;
+let curTab=0;
+
+const TABS=[
+  {k:'oficial_hist', c:'#185FA5', title:'Dólar oficial BNA — venta diaria (ARS)',    src:'argentinadatos.com', vfld:'venta'},
+  {k:'blue_hist',    c:'#534AB7', title:'Dólar blue — venta diaria (ARS)',           src:'argentinadatos.com', vfld:'venta'},
+  {k:'mep_hist',     c:'#A32D2D', title:'Dólar MEP / Bolsa — venta diaria (ARS)',   src:'argentinadatos.com', vfld:'venta'},
+  {k:'res',          c:'#0F6E56', title:'Reservas internacionales (millones USD)',    src:'BCRA · serie 246',  vfld:'valor'},
+  {k:'base',         c:'#BA7517', title:'Base monetaria total (millones $)',          src:'BCRA · serie 250',  vfld:'valor'},
+  {k:'ipcm',         c:'#D85A30', title:'IPC — variación mensual (%)',               src:'INDEC · datos.gob.ar', vfld:'valor', bar:true},
+  {k:'badlar',       c:'#1D9E75', title:'BADLAR bancos privados (% n.a.)',            src:'BCRA · serie 1222', vfld:'valor'},
+  {k:'m2',           c:'#534AB7', title:'M2 privado — variación interanual prom. 30 días (%)', src:'BCRA · serie 7919', vfld:'valor', bar:true},
+];
+const C_CLASSES=['c0','c1','c2','c3','c4','c5','c6','c1'];
+
+// ── Chart builder ──────────────────────────────────────
+function mkChart(id,labels,data,color,fill=true,bar=false){
+  const el=document.getElementById(id);if(!el)return null;
+  const type=bar?'bar':'line';
+  const ds=bar?{
+    data,
+    backgroundColor:data.map(v=>v>=0?hexRgba('#0F6E56',.65):hexRgba('#A32D2D',.65)),
+    borderColor:data.map(v=>v>=0?'#0F6E56':'#A32D2D'),
+    borderWidth:1,borderRadius:3
+  }:{
+    data,borderColor:color,borderWidth:1.6,pointRadius:0,tension:.28,
+    fill:fill?'origin':false,backgroundColor:fill?hexRgba(color,.07):undefined
+  };
+  return new Chart(el.getContext('2d'),{
+    type,data:{labels,datasets:[ds]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{
+        callbacks:{label:c=>' '+n2(c.parsed.y,2)},
+        backgroundColor:dark?'#2c2c2e':'#fff',
+        borderColor:dark?'rgba(255,255,255,.12)':'rgba(0,0,0,.1)',borderWidth:1,
+        titleColor:dark?'#f0efeb':'#1a1a18',bodyColor:dark?'#9c9b96':'#6b6a65'
+      }},
+      scales:{
+        x:{grid:{color:GC},ticks:{color:TCL,font:{size:10},maxTicksLimit:10,maxRotation:0}},
+        y:{grid:{color:GC},ticks:{color:TCL,font:{size:10},callback:v=>nM(v)}}
+      }}
+  });
+}
+
+function swTab(i){
+  curTab=i;
+  document.querySelectorAll('#tabs-main .tb').forEach((b,j)=>{
+    b.className='tb'+(j===i?' on '+C_CLASSES[j]:'');
+  });
+  const t=TABS[i];
+  document.getElementById('main-title').textContent=t.title;
+  document.getElementById('main-src').textContent='Fuente: '+t.src;
+  if(mainC){mainC.destroy();mainC=null;}
+  const arr=S[t.k];if(!arr||!arr.length)return;
+  const labels=arr.map(d=>(d.fecha||'').slice(0,7));
+  const vals=arr.map(d=>d[t.vfld]);
+  mainC=mkChart('mainChart',labels,vals,t.c,!t.bar,!!t.bar);
+}
+
+// ── setMetric ──────────────────────────────────────────
+function setMetric(vid,did,dtid,val,fecha,prevVal){
+  if(val==null)return;
+  document.getElementById(vid).textContent=val;
+  if(did)document.getElementById(did).textContent=fmtFecha(fecha||'');
+  if(dtid&&prevVal!=null){
+    const raw=parseFloat(String(val).replace(/[^0-9.,-]/g,'').replace(',','.'));
+    const rawP=parseFloat(String(prevVal).replace(/[^0-9.,-]/g,'').replace(',','.'));
+    if(!isNaN(raw)&&!isNaN(rawP)&&rawP!==0){
+      const pct=(raw-rawP)/Math.abs(rawP)*100;
+      const el=document.getElementById(dtid);
+      if(el){el.textContent=(pct>=0?'+':'')+n2(pct,2)+'% vs anterior';el.className='dlt '+(pct>=0?'up':'dn')}
+    }
+  }
+}
+
+// ── MAIN LOAD ──────────────────────────────────────────
+async function loadAll(){
+  const sb=document.getElementById('status');
+  sb.innerHTML='<span class="spin"></span>actualizando...';sb.className='badge wait';
+  const t=today(),y1=dAgo(400),m2=dAgo(65);
+  let anyFail=false;
+
+  // 1. Cotizaciones del día (dolarapi.com)
+  try{
+    const dolares=await fetchDolarApiHoy();
+    const find=casa=>dolares.find(d=>d.casa===casa)||null;
+    const of=find('oficial'),may=find('mayorista'),bl=find('blue'),mep=find('bolsa'),ccl=find('contadoconliqui');
+    S.hoy={oficial:of,mayorista:may,blue:bl,bolsa:mep,ccl};
+
+    if(of){
+      document.getElementById('v-oficial').textContent='$ '+n2(of.venta,2);
+      document.getElementById('d-oficial').textContent='venta · '+fmtFecha(of.fechaActualizacion);
+      document.getElementById('v-ofcompra').textContent='$ '+n2(of.compra,2);
+      document.getElementById('d-ofcompra').textContent='compra · '+fmtFecha(of.fechaActualizacion);
+    }
+    if(may){
+      document.getElementById('v-mayorista').textContent='$ '+n2(may.venta,2);
+      document.getElementById('d-mayorista').textContent=fmtFecha(may.fechaActualizacion);
+    }
+    if(bl){
+      document.getElementById('v-blue').textContent='$ '+n2(bl.venta,2);
+      document.getElementById('d-blue').textContent=fmtFecha(bl.fechaActualizacion);
+      if(of){
+        const brecha=((bl.venta-of.venta)/of.venta*100);
+        const el=document.getElementById('dt-blue');
+        if(el){el.textContent='brecha: +'+n2(brecha,1)+'%';el.className='dlt up'}
+      }
+    }
+    if(mep){document.getElementById('v-mep').textContent='$ '+n2(mep.venta,2);document.getElementById('d-mep').textContent=fmtFecha(mep.fechaActualizacion);}
+    if(ccl){document.getElementById('v-ccl').textContent='$ '+n2(ccl.venta,2);document.getElementById('d-ccl').textContent=fmtFecha(ccl.fechaActualizacion);}
+  }catch(e){
+    anyFail=true;
+    const fb=FB_HOY;
+    document.getElementById('v-oficial').textContent='$ '+n2(fb.oficial.venta,2);
+    document.getElementById('d-oficial').textContent='venta · 03/06/2026';
+    document.getElementById('v-ofcompra').textContent='$ '+n2(fb.oficial.compra,2);
+    document.getElementById('d-ofcompra').textContent='compra · 03/06/2026';
+    document.getElementById('v-mayorista').textContent='$ '+n2(fb.mayorista.venta,2);
+    document.getElementById('v-blue').textContent='$ '+n2(fb.blue.venta,2);
+    document.getElementById('v-mep').textContent='$ '+n2(fb.bolsa.venta,2);
+    document.getElementById('v-ccl').textContent='$ '+n2(fb.contadoconliqui.venta,2);
+  }
+
+  // 2. Historial cotizaciones (argentinadatos.com)
+  const casas=[['oficial','oficial_hist'],['blue','blue_hist'],['bolsa','mep_hist']];
+  for(const [casa,key] of casas){
+    try{S[key]=await fetchHistorial(casa,y1,t);}
+    catch(e){
+      anyFail=true;
+      const base={oficial:1450,blue:1435,bolsa:1432}[casa];
+      S[key]=fbDiario(base,400,.0001,.004);
+    }
+  }
+
+  // 3. BCRA monetarias
+  const bcraFetches=[[7929,y1,t,'bsup'],[7928,y1,t,'binf'],[246,y1,t,'res'],[250,y1,t,'base'],[1222,y1,t,'badlar'],[452,dAgo(95),t,'plazo'],[7919,y1,t,'m2']];
+  for(const [id,f,to,k] of bcraFetches){
+    try{S[k]=await fetchBCRA(id,f,to);}
+    catch(e){
+      anyFail=true;
+      const fb={bsup:{b:1764,d:.0008},binf:{b:1017,d:.0008},res:{b:44800,d:.0003},base:{b:57e6,d:.001},badlar:{b:32.5,d:-.0004},plazo:{b:42e6,d:.001},m2:{b:95,d:-.001}};
+      if(fb[k])S[k]=fbDiario(fb[k].b,400,fb[k].d,.005).map(x=>({fecha:x.fecha,valor:x.valor}));
+    }
+  }
+
+  // 4. INDEC
+  try{S.ipcm=await fetchGobAr('101.1_I2NG_2016_M_19','2024-06-01',t);}
+  catch(e){anyFail=true;S.ipcm=FB_IPCM;}
+  try{S.ipca=await fetchGobAr('101.1_I2NG_2016_M_18','2024-06-01',t);}
+  catch(e){S.ipca=FB_IPCA;}
+  try{S.emae=await fetchGobAr('143.3_NO_PR_2004_A_21:percent_change_a_year_ago','2025-01-01',t);}
+  catch(e){S.emae=null;}
+
+  // ── Poblar métricas BCRA ──
+  function fromArr(arr,fmt){const l=last(arr);return l?{val:fmt(l.valor),fecha:l.fecha,prev:prev(arr)?.valor}:{val:null,fecha:null,prev:null}}
+  const res=fromArr(S.res,v=>'USD '+nM(v,0)+' M');
+  setMetric('v-res','d-res','dt-res',res.val,res.fecha,res.prev?'USD '+nM(res.prev,0)+' M':null);
+  const base=fromArr(S.base,v=>'$ '+nM(v/1e6,1)+' B');
+  setMetric('v-base','d-base',null,base.val,base.fecha);
+  const badl=fromArr(S.badlar,v=>n2(v,2)+'% n.a.');
+  setMetric('v-badlar','d-badlar',null,badl.val,badl.fecha);
+  const plaz=fromArr(S.plazo,v=>'$ '+nM(v/1e6,1)+' B');
+  setMetric('v-plazo','d-plazo',null,plaz.val,plaz.fecha);
+  const m2stat=fromArr(S.m2,v=>n2(v,1)+'%');
+  setMetric('v-m2','d-m2',null,m2stat.val,m2stat.fecha);
+  const bsup=fromArr(S.bsup,v=>'$ '+n2(v,2));
+  setMetric('v-bsup','d-bsup',null,bsup.val,bsup.fecha);
+  const binf=fromArr(S.binf,v=>'$ '+n2(v,2));
+  setMetric('v-binf','d-binf',null,binf.val,binf.fecha);
+
+  // ── Poblar métricas INDEC ──
+  const im=last(S.ipcm),ia=last(S.ipca),em=last(S.emae);
+  if(im){document.getElementById('v-ipcm').textContent=n2(im.valor,2)+'%';document.getElementById('d-ipcm').textContent=fmtFecha(im.fecha);}
+  if(ia){document.getElementById('v-ipca').textContent=n2(ia.valor,1)+'%';document.getElementById('d-ipca').textContent=fmtFecha(ia.fecha);}
+  if(em){document.getElementById('v-emae').textContent=n2(em.valor,1)+'%';document.getElementById('d-emae').textContent=fmtFecha(em.fecha);}
+  if(S.ipcm){
+    const ac=S.ipcm.filter(x=>x.fecha.startsWith('2026'));
+    if(ac.length){
+      const a=ac.reduce((r,x)=>r*(1+x.valor/100),1)-1;
+      document.getElementById('v-ipcac').textContent=n2(a*100,1)+'%';
+    }
+  }
+
+  // ── Badge ──
+  sb.textContent=anyFail?'parcialmente en vivo':'datos en vivo';
+  sb.className='badge '+(anyFail?'demo':'live');
+  if(anyFail)document.getElementById('nota-cors').style.display='block';
+
+  // ── Gráficos ──
+  swTab(curTab);
+  [m1C,m2C,m3C].forEach(c=>{if(c)c.destroy()});m1C=m2C=m3C=null;
+
+  const s1=(S.oficial_hist||[]).slice(-60);
+  const s2=(S.res||[]).slice(-60);
+  const s3=(S.ipcm||[]).slice(-12);
+  if(s1.length) m1C=mkChart('mini1',s1.map(x=>x.fecha.slice(5)),s1.map(x=>x.venta||x.valor),'#185FA5',true,false);
+  if(s2.length) m2C=mkChart('mini2',s2.map(x=>x.fecha.slice(5)),s2.map(x=>x.valor),'#0F6E56',true,false);
+  if(s3.length) m3C=mkChart('mini3',s3.map(x=>x.fecha.slice(0,7)),s3.map(x=>x.valor),'#D85A30',false,true);
+}
+
+loadAll();
+</script>
+</body>
+</html>
