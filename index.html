@@ -52,7 +52,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 /* ── Ticker noticias ── */
 .ticker-wrap{width:100%;background:var(--blue);overflow:hidden;position:relative;height:32px;display:flex;align-items:center}
 .ticker-label{flex-shrink:0;background:#0d3d6e;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:0 12px;height:100%;display:flex;align-items:center;z-index:2;white-space:nowrap}
-.ticker-track{display:flex;align-items:center;white-space:nowrap;animation:ticker-scroll 30s linear infinite;will-change:transform}
+.ticker-track{display:flex;align-items:center;white-space:nowrap;animation:ticker-scroll 15s linear infinite;will-change:transform}
 .ticker-track:hover{animation-play-state:paused}
 .ticker-item{color:rgba(255,255,255,.92);font-size:11px;padding:0 28px;cursor:pointer;transition:color .15s;text-decoration:none;display:inline-block}
 .ticker-item:hover{color:#fff;text-decoration:underline}
@@ -535,7 +535,7 @@ async function loadTicker(){
   track.innerHTML=html;
   // Ajustar velocidad según ancho real del contenido
   const w=track.scrollWidth/2;
-  const speed=Math.max(20,w/250); // más rápido: ~250px por segundo
+  const speed=Math.max(10,w/600); // ~600px por segundo
   track.style.animationDuration=speed+'s';
 }
 
