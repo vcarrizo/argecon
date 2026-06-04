@@ -399,55 +399,47 @@ async function loadAll(){
   }
 
   // 5 ── BCRA series
+  // IDs correctos v4.0 (verificados contra api.bcra.gob.ar/estadisticas/v4.0/monetarias)
   const bcraMap=[
-    [7929,y1,t,'bsup'],[7928,y1,t,'binf'],[246,y1,t,'res'],
-    [250,y1,t,'base'],[1222,y1,t,'badlar'],[7919,y1,t,'m2']
+    [1,  y1,t,'res'],    // Reservas internacionales (mill. USD)
+    [15, y1,t,'base'],   // Base monetaria (mill. ARS)
+    [7,  y1,t,'badlar'], // BADLAR bancos privados (% n.a.)
+    [25, y1,t,'m2'],     // M2 privado var. i.a. (%)
+    [27, y1,t,'ipcm_bcra'], // IPC var. mensual (%)
+    [28, y1,t,'ipca_bcra'], // IPC var. interanual (%)
+    [31, y1,t,'uva_bcra'],  // UVA (ARS)
   ];
+  // Bandas cambiarias: IDs 7929/7928 son v3.0 y no existen en v4.0
+  // Se usan valores de referencia
   const fbBCRA={
-    bsup:{b:1764,d:.0008},binf:{b:1017,d:.0008},res:{b:44800,d:.0003},
-    base:{b:43177,d:.001},badlar:{b:32.5,d:-.0004},m2:{b:95,d:-.001}
+    res:{b:44800,d:.0003}, base:{b:43177,d:.001},
+    badlar:{b:32.5,d:-.0004}, m2:{b:28,d:-.001},
+    ipcm_bcra:{b:2.6,d:0}, ipca_bcra:{b:32.4,d:0}, uva_bcra:{b:1818,d:.0007}
   };
   for(const [id,f,to,k] of bcraMap){
     try{S[k]=await fetchBCRA(id,f,to);}
     catch(e){fails++;const fb=fbBCRA[k];S[k]=fbDaily(fb.b,400,fb.d,.005).map(x=>({fecha:x.fecha,valor:x.valor}));}
   }
   // métricas BCRA
-  const b_bsup=fromArr(S.bsup,v=>'$ '+n2(v,2)); setMC('v-bsup','d-bsup',null,b_bsup.val,b_bsup.fecha);
-  const b_binf=fromArr(S.binf,v=>'$ '+n2(v,2)); setMC('v-binf','d-binf',null,b_binf.val,b_binf.fecha);
-  const b_res=fromArr(S.res,v=>'USD '+nM(v)+'M'); setMC('v-res','d-res','dt-res',b_res.val,b_res.fecha,b_res.delta);
-  const b_base=fromArr(S.base,fmtBase);
-  // DEBUG temporal: ver valor crudo en consola del browser (F12 → Console)
-  if(S.base&&S.base.length) console.log('BASE MONETARIA valor crudo API:', S.base[S.base.length-1]);
-  setMC('v-base','d-base',null,b_base.val,b_base.fecha);
+  const b_res=fromArr(S.res,v=>'USD '+n2(v,0)+' M'); setMC('v-res','d-res','dt-res',b_res.val,b_res.fecha,b_res.delta);
+  const b_base=fromArr(S.base,fmtBase); setMC('v-base','d-base',null,b_base.val,b_base.fecha);
   const b_badl=fromArr(S.badlar,v=>n2(v,2)+'%'); setMC('v-badlar','d-badlar',null,b_badl.val,b_badl.fecha);
   const b_m2=fromArr(S.m2,v=>n2(v,1)+'%'); setMC('v-m2','d-m2',null,b_m2.val,b_m2.fecha);
+  // Bandas — fallback estático (IDs v3.0 no existen en v4.0)
+  setMC('v-bsup','d-bsup',null,'$ 1.764',null);
+  setMC('v-binf','d-binf',null,'$ 1.017',null);
+  // UVA desde BCRA v4.0
+  const b_uva=fromArr(S.uva_bcra,v=>n2(v,2)); setMC('v-uva','d-uva',null,b_uva.val,b_uva.fecha);
 
-  // 6 ── INDEC vía datos.gob.ar
-  try{S.ipcm=await fetchGobAr('101.1_I2NG_2016_M_19','2025-01-01',t);}
-  catch(e){fails++;S.ipcm=FB_IPCM;}
-  if(!S.ipcm||S.ipcm.length<2) S.ipcm=FB_IPCM;
+  // 6 ── IPC desde BCRA v4.0 (más confiable que datos.gob.ar)
+  if(S.ipcm_bcra&&S.ipcm_bcra.length) S.ipcm=S.ipcm_bcra;
+  else S.ipcm=FB_IPCM;
+  if(S.ipca_bcra&&S.ipca_bcra.length) S.ipca=S.ipca_bcra;
+  else S.ipca=FB_IPCA_OFICIAL;
 
-  // IPC interanual — valores oficiales INDEC (más precisos que acumular mensuales)
-  // Fuente: INDEC Resumen Ejecutivo IPC
-  const FB_IPCA_OFICIAL=[
-    {fecha:'2025-06-01',valor:40.1},{fecha:'2025-07-01',valor:36.0},
-    {fecha:'2025-08-01',valor:31.6},{fecha:'2025-09-01',valor:29.0},
-    {fecha:'2025-10-01',valor:26.3},{fecha:'2025-11-01',valor:24.3},
-    {fecha:'2025-12-01',valor:23.9},{fecha:'2026-01-01',valor:26.8},
-    {fecha:'2026-02-01',valor:31.0},{fecha:'2026-03-01',valor:34.3},
-    {fecha:'2026-04-01',valor:32.4}
-  ];
-  // IPC interanual — valores oficiales INDEC hardcodeados (argentinadatos no tiene este endpoint)
-  S.ipca=FB_IPCA_OFICIAL;
   try{S.emae=await fetchGobAr('143.3_NO_PR_2004_A_21:percent_change_a_year_ago','2025-01-01',t);}
   catch(e){fails++;S.emae=null;}
-  // SMVM — serie datos.gob.ar (Ministerio de Trabajo)
-  // ID correcto: 144.3_SMVM_0_M_26 o hardcodear valores conocidos como fallback
-  try{
-    const smvmRaw=await fetchGobAr('144.3_SMVM_0_M_26','2024-01-01',t);
-    S.smvm=smvmRaw&&smvmRaw.length?smvmRaw:null;
-  } catch(e){ S.smvm=null; }
-  // Si la API no devuelve nada, usar valores oficiales conocidos
+  // SMVM — valores oficiales hardcodeados (no hay API pública confiable)
   if(!S.smvm||!S.smvm.length){
     S.smvm=[
       {fecha:'2024-04-01',valor:202800},{fecha:'2024-05-01',valor:234315},
