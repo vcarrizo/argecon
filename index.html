@@ -535,7 +535,7 @@ async function loadTicker(){
   track.innerHTML=html;
   // Ajustar velocidad según ancho real del contenido
   const w=track.scrollWidth/2;
-  const speed=Math.max(10,w/600); // ~600px por segundo
+  const speed=Math.max(8,w/900); // ~900px por segundo
   track.style.animationDuration=speed+'s';
 }
 
