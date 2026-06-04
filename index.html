@@ -456,18 +456,15 @@ async function loadAll(){
     setMC('v-riesgo','d-riesgo',null,n2(l.valor,0)+' pb',l.fecha);
   }
 
-  // 3b ── Merval vía argentinadatos remesas (proxy alternativo sin CORS)
+  // 3b ── Merval var. interanual (BCRA v4.0 serie 39)
   try{
-    const murl='https://api.argentinadatos.com/v1/finanzas/indices/merval';
-    const mj=await fetchJSON(murl);
-    const arr=Array.isArray(mj)?mj:[];
-    if(arr.length>=2){
-      const lm=arr[arr.length-1], pm=arr[arr.length-2];
-      const delta=((lm.valor-pm.valor)/pm.valor*100);
+    const mdata=await fetchBCRA(39,dAgo(5),t);
+    const lm=last(mdata), pm=prev(mdata);
+    if(lm){
       const el=document.getElementById('v-merval');
-      el.textContent=(delta>=0?'+':'')+n2(delta,2)+'%';
-      el.className='val '+(delta>=0?'up':'dn');
-      document.getElementById('d-merval').textContent=nM(lm.valor,0)+' pts · '+lm.fecha?.slice(0,10);
+      el.textContent=(lm.valor>=0?'+':'')+n2(lm.valor,1)+'%';
+      el.className='val '+(lm.valor>=0?'up':'dn');
+      document.getElementById('d-merval').textContent='var. interanual · '+fmtF(lm.fecha);
     }
   }catch(e){
     document.getElementById('v-merval').textContent='—';
@@ -566,7 +563,7 @@ if('serviceWorker' in navigator){
 // ── Ticker de noticias ─────────────────────────────────────────────
 const FEEDS=[
   'https://www.ambito.com/rss/pages/economia.xml',
-  'https://www.cronista.com/rss/',
+  'https://www.infobae.com/feeds/rss/economia/',
   'https://www.iprofesional.com/rss/economia',
 ];
 const RSS2JSON='https://api.rss2json.com/v1/api.json?rss_url=';
