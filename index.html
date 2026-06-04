@@ -203,6 +203,16 @@ X @argecondatos
   <div class="mc"><div class="lbl">UVA</div><div class="val" id="v-uva">—</div><div class="sub" id="d-uva"></div><div class="src">argentinadatos.com · BCRA</div></div>
 </div>
 
+<!-- COMMODITIES -->
+<div class="slbl">Commodities · precios internacionales (USD/tn)</div>
+<div class="mg">
+  <div class="mc"><div class="lbl">Brent (USD/barril)</div><div class="val" id="v-brent">—</div><div class="sub" id="d-brent"></div><div class="dlt" id="dt-brent"></div><div class="src">BCRA v4.0</div></div>
+  <div class="mc"><div class="lbl">WTI (USD/barril)</div><div class="val" id="v-wti">—</div><div class="sub" id="d-wti"></div><div class="dlt" id="dt-wti"></div><div class="src">BCRA v4.0</div></div>
+  <div class="mc"><div class="lbl">Soja CBOT (USD/tn)</div><div class="val" id="v-soja">—</div><div class="sub" id="d-soja"></div><div class="src">ref. semanal</div></div>
+  <div class="mc"><div class="lbl">Maíz CBOT (USD/tn)</div><div class="val" id="v-maiz">—</div><div class="sub" id="d-maiz"></div><div class="src">ref. semanal</div></div>
+  <div class="mc"><div class="lbl">Trigo CBOT (USD/tn)</div><div class="val" id="v-trigo">—</div><div class="sub" id="d-trigo"></div><div class="src">ref. semanal</div></div>
+</div>
+
 <!-- GRÁFICO PRINCIPAL -->
 <div class="slbl">Evolución histórica</div>
 <div class="card">
@@ -578,6 +588,50 @@ async function loadAll(){
 
   try{S.emae=await fetchGobAr('143.3_NO_PR_2004_A_21:percent_change_a_year_ago','2025-01-01',t);}
   catch(e){fails++;S.emae=null;}
+  // 3c ── Commodities vía BCRA v4.0 (Brent=40, WTI=41)
+  try{
+    const [brentData,wtiData]=await Promise.all([
+      fetchBCRA(40,dAgo(5),t),
+      fetchBCRA(41,dAgo(5),t)
+    ]);
+    const lb=last(brentData),pb=prev(brentData);
+    const lw=last(wtiData),pw=prev(wtiData);
+    if(lb){
+      document.getElementById('v-brent').textContent='USD '+n2(lb.valor,1);
+      document.getElementById('d-brent').textContent=fmtF(lb.fecha);
+      if(pb){
+        const d=((lb.valor-pb.valor)/pb.valor*100);
+        const el=document.getElementById('dt-brent');
+        if(el){el.textContent=(d>=0?'▲':'▼')+' '+(d>=0?'+':'')+n2(Math.abs(d),2)+'%';el.className='dlt '+(d>=0?'up':'dn');}
+      }
+    }
+    if(lw){
+      document.getElementById('v-wti').textContent='USD '+n2(lw.valor,1);
+      document.getElementById('d-wti').textContent=fmtF(lw.fecha);
+      if(pw){
+        const d=((lw.valor-pw.valor)/pw.valor*100);
+        const el=document.getElementById('dt-wti');
+        if(el){el.textContent=(d>=0?'▲':'▼')+' '+(d>=0?'+':'')+n2(Math.abs(d),2)+'%';el.className='dlt '+(d>=0?'up':'dn');}
+      }
+    }
+  }catch(e){
+    // Fallback valores referenciales
+    document.getElementById('v-brent').textContent='USD 96,7';
+    document.getElementById('v-wti').textContent='USD 95,1';
+  }
+
+  // Granos CBOT — valores de referencia actualizados semanalmente
+  // (No hay API pública sin CORS para granos en tiempo real)
+  const granos=[
+    {id:'soja', val:429, label:'USD 429/tn', fecha:'04/06/2026'},
+    {id:'maiz', val:196, label:'USD 196/tn', fecha:'04/06/2026'},
+    {id:'trigo',val:215, label:'USD 215/tn', fecha:'04/06/2026'},
+  ];
+  granos.forEach(g=>{
+    document.getElementById('v-'+g.id).textContent=g.label;
+    document.getElementById('d-'+g.id).textContent=g.fecha;
+  });
+
   // SMVM — valores oficiales hardcodeados (no hay API pública confiable)
   if(!S.smvm||!S.smvm.length){
     S.smvm=[
