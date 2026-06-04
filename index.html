@@ -49,7 +49,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .mc .src{font-size:9px;color:var(--tx3);margin-top:3px;opacity:.65}
 .up{color:#3B6D11}.dn{color:#A32D2D}
 
-/* Chart cards */
+/* ── Ticker noticias ── */
+.ticker-wrap{width:100%;background:var(--blue);overflow:hidden;position:relative;height:32px;display:flex;align-items:center}
+.ticker-label{flex-shrink:0;background:#0d3d6e;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:0 12px;height:100%;display:flex;align-items:center;z-index:2;white-space:nowrap}
+.ticker-track{display:flex;align-items:center;white-space:nowrap;animation:ticker-scroll 60s linear infinite;will-change:transform}
+.ticker-track:hover{animation-play-state:paused}
+.ticker-item{color:rgba(255,255,255,.92);font-size:11px;padding:0 28px;cursor:pointer;transition:color .15s;text-decoration:none;display:inline-block}
+.ticker-item:hover{color:#fff;text-decoration:underline}
+.ticker-sep{color:rgba(255,255,255,.35);font-size:14px;user-select:none}
+.ticker-loading{color:rgba(255,255,255,.6);font-size:11px;padding:0 16px}
+@keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
 .card{background:var(--sur);border:.5px solid var(--bd);border-radius:14px;padding:17px 19px;margin-bottom:13px}
 .card-hdr{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:11px;gap:8px}
 .card-title{font-size:13px;font-weight:600}
@@ -84,6 +94,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </style>
 </head>
 <body>
+
+<!-- Ticker noticias -->
+<div class="ticker-wrap">
+  <div class="ticker-label">📰 Noticias</div>
+  <div style="overflow:hidden;flex:1">
+    <div class="ticker-track" id="ticker-track">
+      <span class="ticker-loading">Cargando noticias económicas...</span>
+    </div>
+  </div>
+</div>
+
 <div class="page">
 
 <div class="hdr">
@@ -480,6 +501,47 @@ async function loadAll(){
 }
 
 loadAll();
+
+// ── Ticker de noticias ─────────────────────────────────────────────
+const FEEDS=[
+  'https://www.ambito.com/rss/pages/economia.xml',
+  'https://www.cronista.com/rss/',
+  'https://www.iprofesional.com/rss/economia',
+];
+const RSS2JSON='https://api.rss2json.com/v1/api.json?rss_url=';
+
+async function loadTicker(){
+  const track=document.getElementById('ticker-track');
+  const items=[];
+  for(const feed of FEEDS){
+    try{
+      const r=await fetch(RSS2JSON+encodeURIComponent(feed));
+      const j=await r.json();
+      if(j.items) j.items.slice(0,8).forEach(x=>{
+        if(x.title&&x.link) items.push({title:x.title.trim(),link:x.link});
+      });
+    }catch(e){}
+  }
+  if(!items.length){
+    track.innerHTML='<span class="ticker-loading">Sin noticias disponibles en este momento</span>';
+    return;
+  }
+  // Duplicar items para loop infinito continuo
+  const all=[...items,...items];
+  const html=all.map(x=>
+    `<a class="ticker-item" href="${x.link}" target="_blank" rel="noopener">${x.title}</a>`+
+    `<span class="ticker-sep">·</span>`
+  ).join('');
+  track.innerHTML=html;
+  // Ajustar velocidad según ancho real del contenido
+  const w=track.scrollWidth/2;
+  const speed=Math.max(40,w/120); // ~120px por segundo
+  track.style.animationDuration=speed+'s';
+}
+
+loadTicker();
+// Refrescar noticias cada 15 minutos
+setInterval(loadTicker, 15*60*1000);
 </script>
 </body>
 </html>
