@@ -234,16 +234,39 @@ X @argecondatos
 <!-- MINI CHARTS -->
 <div class="grid3">
   <div class="card">
-    <div class="card-hdr"><div><div class="card-title">Oficial BNA · 60 días</div><div class="card-src">argentinadatos.com</div></div></div>
-    <div class="cw h160"><canvas id="mini1" role="img" aria-label="TC oficial 60 días"></canvas></div>
+    <div class="card-hdr">
+      <div><div class="card-title" id="mini1-title">Oficial BNA</div><div class="card-src">argentinadatos.com</div></div>
+      <div class="rng">
+        <button class="rb" onclick="setMiniRng(1,30)">1M</button>
+        <button class="rb on" onclick="setMiniRng(1,60)">2M</button>
+        <button class="rb" onclick="setMiniRng(1,180)">6M</button>
+        <button class="rb" onclick="setMiniRng(1,365)">1A</button>
+      </div>
+    </div>
+    <div class="cw h160"><canvas id="mini1" role="img" aria-label="TC oficial"></canvas></div>
   </div>
   <div class="card">
-    <div class="card-hdr"><div><div class="card-title">Riesgo país · 60 días</div><div class="card-src">argentinadatos.com</div></div></div>
-    <div class="cw h160"><canvas id="mini2" role="img" aria-label="Riesgo país 60 días"></canvas></div>
+    <div class="card-hdr">
+      <div><div class="card-title" id="mini2-title">Riesgo país</div><div class="card-src">argentinadatos.com</div></div>
+      <div class="rng">
+        <button class="rb" onclick="setMiniRng(2,30)">1M</button>
+        <button class="rb on" onclick="setMiniRng(2,60)">2M</button>
+        <button class="rb" onclick="setMiniRng(2,180)">6M</button>
+        <button class="rb" onclick="setMiniRng(2,365)">1A</button>
+      </div>
+    </div>
+    <div class="cw h160"><canvas id="mini2" role="img" aria-label="Riesgo país"></canvas></div>
   </div>
   <div class="card">
-    <div class="card-hdr"><div><div class="card-title">IPC mensual · 12 meses</div><div class="card-src">INDEC</div></div></div>
-    <div class="cw h160"><canvas id="mini3" role="img" aria-label="Inflación mensual 12 meses"></canvas></div>
+    <div class="card-hdr">
+      <div><div class="card-title" id="mini3-title">IPC mensual</div><div class="card-src">INDEC</div></div>
+      <div class="rng">
+        <button class="rb" onclick="setMiniRng(3,6)">6M</button>
+        <button class="rb on" onclick="setMiniRng(3,12)">1A</button>
+        <button class="rb" onclick="setMiniRng(3,24)">2A</button>
+      </div>
+    </div>
+    <div class="cw h160"><canvas id="mini3" role="img" aria-label="IPC mensual"></canvas></div>
   </div>
 </div>
 
@@ -598,12 +621,37 @@ async function loadAll(){
 
   // ── Mini charts ──
   [mn1,mn2,mn3].forEach(c=>{if(c)c.destroy()});mn1=mn2=mn3=null;
-  const s1=(S.oficial_hist||[]).slice(-60);
-  const s2=(S.riesgo||[]).slice(-60);
-  const s3=(S.ipcm||[]).slice(-12);
-  if(s1.length) mn1=mkChart('mini1',s1.map(x=>x.fecha.slice(5)),s1.map(x=>x.venta||x.valor),'#185FA5',true);
-  if(s2.length) mn2=mkChart('mini2',s2.map(x=>x.fecha.slice(5)),s2.map(x=>x.valor),'#993556',true);
-  if(s3.length) mn3=mkChart('mini3',s3.map(x=>x.fecha.slice(0,7)),s3.map(x=>x.valor),'#D85A30',false,true);
+  drawMini(1,60); drawMini(2,60); drawMini(3,12);
+}
+
+// ── Mini charts con rango ─────────────────────────────────────────
+const miniRngs={1:60,2:60,3:12};
+
+function drawMini(n,days){
+  miniRngs[n]=days;
+  const charts={1:mn1,2:mn2,3:mn3};
+  if(charts[n]){charts[n].destroy();}
+
+  const cfgs={
+    1:{arr:S.oficial_hist,vf:x=>x.venta||x.valor,color:'#185FA5',fill:true,bar:false,lblFn:x=>x.fecha.slice(5)},
+    2:{arr:S.riesgo,      vf:x=>x.valor,          color:'#993556',fill:true,bar:false,lblFn:x=>x.fecha.slice(5)},
+    3:{arr:S.ipcm,        vf:x=>x.valor,          color:'#D85A30',fill:false,bar:true, lblFn:x=>x.fecha.slice(0,7)},
+  };
+  const cfg=cfgs[n];
+  const arr=(cfg.arr||[]).slice(-days);
+  if(!arr.length)return;
+  const c=mkChart('mini'+n,arr.map(cfg.lblFn),arr.map(cfg.vf),cfg.color,cfg.fill,cfg.bar);
+  if(n===1)mn1=c; else if(n===2)mn2=c; else mn3=c;
+}
+
+function setMiniRng(n,days){
+  // Actualizar botón activo
+  const card=document.getElementById('mini'+n).closest('.card');
+  card.querySelectorAll('.rb').forEach(b=>{
+    const d=parseInt(b.getAttribute('onclick').match(/\d+/)[1]);
+    b.className='rb'+(d===days?' on':'');
+  });
+  drawMini(n,days);
 }
 
 loadAll();
