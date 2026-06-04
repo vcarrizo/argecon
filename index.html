@@ -547,7 +547,10 @@ async function loadAll(){
   }
 
   // ── Badge ──
-  sb.textContent=fails===0?'datos en vivo':fails<=3?'mayoría en vivo':'valores de referencia';
+  const now=new Date();
+  const hhmm=now.toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'});
+  const label=fails===0?'en vivo':fails<=3?'mayoría en vivo':'ref.';
+  sb.textContent=label+' · '+hhmm;
   sb.className='badge '+(fails===0?'live':fails<=3?'partial':'wait');
 
   // ── Gráfico principal ──
@@ -572,6 +575,12 @@ async function loadAll(){
 }
 
 loadAll();
+
+// ── Auto-refresh cada 5 minutos ────────────────────────────────────
+setInterval(()=>{
+  // Solo refrescar si la pestaña está visible
+  if(!document.hidden) loadAll();
+}, 5 * 60 * 1000);
 
 // ── PWA Service Worker ─────────────────────────────────────────────
 if('serviceWorker' in navigator){
