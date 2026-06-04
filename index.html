@@ -437,12 +437,8 @@ async function loadAll(){
     {fecha:'2026-02-01',valor:31.0},{fecha:'2026-03-01',valor:34.3},
     {fecha:'2026-04-01',valor:32.4}
   ];
-  try{
-    // Intentar obtener interanual de argentinadatos.com
-    const iaData=await fetchArgDatos('/v1/finanzas/indices/inflacion-interanual');
-    S.ipca=Array.isArray(iaData)?iaData.map(x=>({fecha:x.fecha,valor:x.valor??x.interanual})).filter(x=>x.valor!=null):FB_IPCA_OFICIAL;
-    if(!S.ipca||S.ipca.length<1) S.ipca=FB_IPCA_OFICIAL;
-  } catch(e){ S.ipca=FB_IPCA_OFICIAL; }
+  // IPC interanual — valores oficiales INDEC hardcodeados (argentinadatos no tiene este endpoint)
+  S.ipca=FB_IPCA_OFICIAL;
   try{S.emae=await fetchGobAr('143.3_NO_PR_2004_A_21:percent_change_a_year_ago','2025-01-01',t);}
   catch(e){fails++;S.emae=null;}
   // SMVM — serie datos.gob.ar (Ministerio de Trabajo)
