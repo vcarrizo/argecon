@@ -456,19 +456,20 @@ async function loadAll(){
     setMC('v-riesgo','d-riesgo',null,n2(l.valor,0)+' pb',l.fecha);
   }
 
-  // 3b ── Merval var. interanual (BCRA v4.0 serie 39)
+  // 3b ── Merval var. diaria vía dolarapi.com (incluye índices)
   try{
-    const mdata=await fetchBCRA(39,dAgo(5),t);
-    const lm=last(mdata), pm=prev(mdata);
-    if(lm){
+    const mdata=await fetchJSON('https://dolarapi.com/v1/indices/merval');
+    if(mdata&&mdata.variacion!=null){
       const el=document.getElementById('v-merval');
-      el.textContent=(lm.valor>=0?'+':'')+n2(lm.valor,1)+'%';
-      el.className='val '+(lm.valor>=0?'up':'dn');
-      document.getElementById('d-merval').textContent='var. interanual · '+fmtF(lm.fecha);
+      const v=mdata.variacion;
+      el.textContent=(v>=0?'+':'')+n2(v,2)+'%';
+      el.className='val '+(v>=0?'up':'dn');
+      document.getElementById('d-merval').textContent=
+        nM(mdata.valor||mdata.precio||0,0)+' pts';
     }
   }catch(e){
     document.getElementById('v-merval').textContent='—';
-    document.getElementById('d-merval').textContent='sin datos';
+    document.getElementById('d-merval').textContent='sin datos hoy';
   }
 
   // 5 ── BCRA series
@@ -563,8 +564,8 @@ if('serviceWorker' in navigator){
 // ── Ticker de noticias ─────────────────────────────────────────────
 const FEEDS=[
   'https://www.ambito.com/rss/pages/economia.xml',
-  'https://www.infobae.com/feeds/rss/economia/',
   'https://www.iprofesional.com/rss/economia',
+  'https://www.lagaceta.com.ar/rss/seccion/economia/',
 ];
 const RSS2JSON='https://api.rss2json.com/v1/api.json?rss_url=';
 
