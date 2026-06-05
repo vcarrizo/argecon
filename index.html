@@ -117,6 +117,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .rb{font-size:10px;padding:4px 9px;border-radius:12px;cursor:pointer;border:.5px solid var(--bd2);background:transparent;color:var(--tx3);font-family:inherit;transition:all .12s;-webkit-tap-highlight-color:transparent}
 .rb:hover{background:var(--sur2);color:var(--tx2)}
 .rb.on{background:var(--sur2);color:var(--tx);font-weight:600;border-color:var(--bd2)}
+/* ── Noticias ── */
+.news-list{display:flex;flex-direction:column;gap:0;margin-bottom:4px}
+.news-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:.5px solid var(--bd);text-decoration:none;color:var(--tx);transition:background .12s;cursor:pointer}
+.news-item:last-child{border-bottom:none}
+.news-item:hover .news-title{color:var(--blue);text-decoration:underline}
+.news-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:5px}
+.news-body{flex:1;min-width:0}
+.news-title{font-size:13px;font-weight:500;line-height:1.4;color:var(--tx);margin-bottom:3px}
+.news-meta{font-size:10px;color:var(--tx3);display:flex;gap:8px;align-items:center}
+.news-source{font-weight:600;color:var(--tx2)}
+.news-loading{font-size:12px;color:var(--tx3);padding:12px 0;display:flex;align-items:center;gap:6px}
+@media(min-width:900px){
+  .news-title{font-size:13px}
+}
 .fuentes{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;padding-top:12px;border-top:.5px solid var(--bd)}
 .fp{display:flex;align-items:center;gap:4px;font-size:9px;color:var(--tx3)}
 .fd{width:6px;height:6px;border-radius:50%;flex-shrink:0}
@@ -228,6 +242,14 @@ X @argecondatos
   <div class="mc"><div class="lbl">🌱 Soja CBOT (USD/tn)</div><div class="val" id="v-soja">—</div><div class="sub" id="d-soja"></div><div class="src">ref. semanal</div></div>
   <div class="mc"><div class="lbl">🌽 Maíz CBOT (USD/tn)</div><div class="val" id="v-maiz">—</div><div class="sub" id="d-maiz"></div><div class="src">ref. semanal</div></div>
   <div class="mc"><div class="lbl">🌾 Trigo CBOT (USD/tn)</div><div class="val" id="v-trigo">—</div><div class="sub" id="d-trigo"></div><div class="src">ref. semanal</div></div>
+</div>
+
+<!-- NOTICIAS -->
+<div class="slbl">Noticias del día · Ámbito · iProfesional · La Gaceta</div>
+<div class="card" style="margin-bottom:14px">
+  <div id="news-list" class="news-list">
+    <div class="news-loading"><span class="spin"></span>Cargando noticias...</div>
+  </div>
 </div>
 
 <!-- GRÁFICO PRINCIPAL -->
@@ -605,49 +627,52 @@ async function loadAll(){
 
   try{S.emae=await fetchGobAr('143.3_NO_PR_2004_A_21:percent_change_a_year_ago','2025-01-01',t);}
   catch(e){fails++;S.emae=null;}
-  // 3c ── Commodities vía BCRA v4.0 (Brent=40, WTI=41)
+  // 3c ── Commodities vía Cloudflare Worker (proxy sin CORS)
   try{
-    const [brentData,wtiData]=await Promise.all([
-      fetchBCRA(40,dAgo(5),t),
-      fetchBCRA(41,dAgo(5),t)
-    ]);
-    const lb=last(brentData),pb=prev(brentData);
-    const lw=last(wtiData),pw=prev(wtiData);
-    if(lb){
-      document.getElementById('v-brent').textContent='USD '+n2(lb.valor,1);
-      document.getElementById('d-brent').textContent=fmtF(lb.fecha);
-      if(pb){
-        const d=((lb.valor-pb.valor)/pb.valor*100);
-        const el=document.getElementById('dt-brent');
-        if(el){el.textContent=(d>=0?'▲':'▼')+' '+(d>=0?'+':'')+n2(Math.abs(d),2)+'%';el.className='dlt '+(d>=0?'up':'dn');}
+    const cdata=await fetchJSON('https://argecon-proxy.vcarrizo2010.workers.dev/commodities');
+    function setCommodity(id,obj,unit){
+      if(!obj||!obj.valor)return;
+      const val=parseFloat(String(obj.valor).replace(',','.'));
+      const variac=obj.variacion?parseFloat(String(obj.variacion).replace(',','.')):null;
+      document.getElementById('v-'+id).textContent=unit+' '+n2(val,2);
+      document.getElementById('d-'+id).textContent=obj.fecha?fmtF(obj.fecha):'hoy';
+      const dtEl=document.getElementById('dt-'+id);
+      if(dtEl&&variac!=null){
+        dtEl.textContent=(variac>=0?'▲':'▼')+' '+(variac>=0?'+':'')+n2(Math.abs(variac),2)+'%';
+        dtEl.className='dlt '+(variac>=0?'up':'dn');
       }
     }
-    if(lw){
-      document.getElementById('v-wti').textContent='USD '+n2(lw.valor,1);
-      document.getElementById('d-wti').textContent=fmtF(lw.fecha);
-      if(pw){
-        const d=((lw.valor-pw.valor)/pw.valor*100);
-        const el=document.getElementById('dt-wti');
-        if(el){el.textContent=(d>=0?'▲':'▼')+' '+(d>=0?'+':'')+n2(Math.abs(d),2)+'%';el.className='dlt '+(d>=0?'up':'dn');}
+    setCommodity('brent', cdata.brent, 'USD');
+    setCommodity('wti',   cdata.wti,   'USD');
+    setCommodity('soja',  cdata.soja,  'USD');
+    setCommodity('maiz',  cdata.maiz,  'USD');
+    setCommodity('trigo', cdata.trigo, 'USD');
+  }catch(e){
+    // Fallback valores referenciales
+    document.getElementById('v-brent').textContent='USD 96,1';
+    document.getElementById('v-wti').textContent='USD 93,2';
+    document.getElementById('v-soja').textContent='USD 436,06/tn';
+    document.getElementById('v-maiz').textContent='USD 175,88/tn';
+    document.getElementById('v-trigo').textContent='USD 224,32/tn';
+  }
+
+  // 3d ── Merval vía Cloudflare Worker
+  try{
+    const mdata=await fetchJSON('https://argecon-proxy.vcarrizo2010.workers.dev/merval');
+    if(mdata&&mdata.variacion!=null){
+      const v=parseFloat(String(mdata.variacion).replace(',','.'));
+      const el=document.getElementById('v-merval');
+      if(el){
+        el.textContent=(v>=0?'+':'')+n2(v,2)+'%';
+        el.className='val '+(v>=0?'up':'dn');
+        document.getElementById('d-merval').textContent=
+          (mdata.valor?'$ '+n2(parseFloat(String(mdata.valor).replace(',','.')),0)+' pts · ':'')+
+          (mdata.fecha?fmtF(mdata.fecha):'hoy');
       }
     }
   }catch(e){
-    // Fallback valores referenciales
-    document.getElementById('v-brent').textContent='USD 96,7';
-    document.getElementById('v-wti').textContent='USD 95,1';
+    document.getElementById('v-merval').textContent='—';
   }
-
-  // Granos CBOT — valores de referencia actualizados semanalmente
-  // (No hay API pública sin CORS para granos en tiempo real)
-  const granos=[
-    {id:'soja', val:429, label:'USD 429/tn', fecha:'04/06/2026'},
-    {id:'maiz', val:196, label:'USD 196/tn', fecha:'04/06/2026'},
-    {id:'trigo',val:215, label:'USD 215/tn', fecha:'04/06/2026'},
-  ];
-  granos.forEach(g=>{
-    document.getElementById('v-'+g.id).textContent=g.label;
-    document.getElementById('d-'+g.id).textContent=g.fecha;
-  });
 
   // SMVM — valores oficiales hardcodeados (no hay API pública confiable)
   if(!S.smvm||!S.smvm.length){
@@ -780,6 +805,57 @@ async function loadTicker(){
 loadTicker();
 // Refrescar noticias cada 15 minutos
 setInterval(loadTicker, 15*60*1000);
+
+// ── Noticias del día ───────────────────────────────────────────────
+async function loadNews(){
+  const container=document.getElementById('news-list');
+  if(!container)return;
+  const allItems=[];
+  for(const feed of FEEDS){
+    try{
+      const r=await fetch(RSS2JSON+encodeURIComponent(feed));
+      const j=await r.json();
+      if(j.items) j.items.slice(0,5).forEach(x=>{
+        if(x.title&&x.link) allItems.push({
+          title:x.title.trim(),
+          link:x.link,
+          source:j.feed?.title||new URL(feed).hostname.replace('www.',''),
+          pubDate:x.pubDate||''
+        });
+      });
+    }catch(e){}
+  }
+  if(!allItems.length){
+    container.innerHTML='<div class="news-loading">Sin noticias disponibles en este momento</div>';
+    return;
+  }
+  // Ordenar por fecha más reciente
+  allItems.sort((a,b)=>new Date(b.pubDate)-new Date(a.pubDate));
+  // Mostrar top 8
+  container.innerHTML=allItems.slice(0,8).map(item=>{
+    // Formatear hora
+    let timeStr='';
+    if(item.pubDate){
+      try{
+        const d=new Date(item.pubDate);
+        timeStr=d.toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'});
+      }catch(e){}
+    }
+    return `<a class="news-item" href="${item.link}" target="_blank" rel="noopener">
+      <div class="news-dot"></div>
+      <div class="news-body">
+        <div class="news-title">${item.title}</div>
+        <div class="news-meta">
+          <span class="news-source">${item.source}</span>
+          ${timeStr?`<span>${timeStr}</span>`:''}
+        </div>
+      </div>
+    </a>`;
+  }).join('');
+}
+
+loadNews();
+setInterval(loadNews, 15*60*1000);
 </script>
 </body>
 </html>
