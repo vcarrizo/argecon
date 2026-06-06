@@ -209,6 +209,8 @@ X @argecondatos
   <div class="mc"><div class="lbl">💵 CCL</div><div class="val" id="v-ccl">—</div><div class="sub" id="d-ccl"></div><div class="dlt" id="dt-ccl"></div><div class="src">dolarapi.com</div></div>
   <div class="mc"><div class="lbl">💵 Banda superior</div><div class="val" id="v-bsup">—</div><div class="sub" id="d-bsup"></div><div class="src">BCRA · s.7929</div></div>
   <div class="mc"><div class="lbl">💵 Banda inferior</div><div class="val" id="v-binf">—</div><div class="sub" id="d-binf"></div><div class="src">BCRA · s.7928</div></div>
+  <div class="mc"><div class="lbl">🇧🇷 Real brasileño (BRL/ARS)</div><div class="val" id="v-brl">—</div><div class="sub" id="d-brl"></div><div class="src">dolarapi.com</div></div>
+  <div class="mc"><div class="lbl">🇵🇾 Guaraní paraguayo (PYG/ARS)</div><div class="val" id="v-pyg">—</div><div class="sub" id="d-pyg"></div><div class="src">Yahoo Finance</div></div>
 </div>
 
 <!-- MONETARIO -->
@@ -543,6 +545,12 @@ async function loadAll(){
     }
     if(mep) setMC('v-mep','d-mep',null,'$ '+n2(mep.venta),mep.fechaActualizacion);
     if(ccl) setMC('v-ccl','d-ccl',null,'$ '+n2(ccl.venta),ccl.fechaActualizacion);
+
+    // BRL desde dolarapi
+    try{
+      const brl=await fetchJSON('https://dolarapi.com/v1/cotizaciones/brl');
+      if(brl?.venta) setMC('v-brl','d-brl',null,'$ '+n2(brl.venta),brl.fechaActualizacion);
+    }catch(e){}
   }catch(e){
     fails++;
     const f=FB_HOY;
@@ -700,6 +708,13 @@ async function loadAll(){
     setMercado('sp500',   mkdata.sp500,   '',  ' pts', false);
     setMercado('bitcoin', mkdata.bitcoin, 'USD ', '',  false);
     setMercado('oro',     mkdata.oro,     'USD ', '/oz',false);
+    // PYG/ARS desde Yahoo via Worker
+    if(mkdata.pyg?.valor){
+      const pygVal=parseFloat(String(mkdata.pyg.valor).replace(',','.'));
+      // Yahoo devuelve ARS por 1 PYG — mostrar con 4 decimales
+      document.getElementById('v-pyg').textContent='$ '+n2(pygVal,4);
+      document.getElementById('d-pyg').textContent=mkdata.pyg.fecha?fmtF(mkdata.pyg.fecha):'hoy';
+    }
     // Merval variación en el dlt
     if(mkdata.merval?.variacion!=null){
       const v=parseFloat(String(mkdata.merval.variacion).replace(',','.'));
