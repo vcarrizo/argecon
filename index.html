@@ -572,7 +572,7 @@ async function loadAll(){
     catch(e){fails++;S[key]=fbDaily(fb.base,400,fb.drift,.004);}
   }
 
-  // 3 ── Riesgo país (argentinadatos.com)
+  // 3 ── Riesgo país — argentinadatos (historial) + Ámbito via Worker (valor actual)
   try{
     const rp=await fetchArgDatos('/v1/finanzas/indices/riesgo-pais');
     S.riesgo=Array.isArray(rp)?rp.map(x=>({fecha:x.fecha,valor:x.valor})):[];
@@ -708,6 +708,12 @@ async function loadAll(){
     setMercado('sp500',   mkdata.sp500,   '',  ' pts', false);
     setMercado('bitcoin', mkdata.bitcoin, 'USD ', '',  false);
     setMercado('oro',     mkdata.oro,     'USD ', '/oz',false);
+    // Sobrescribir riesgo país con valor en tiempo real de Ámbito (via Worker)
+    if(mkdata?.riesgo_pais?.valor){
+      const rpVal=parseFloat(String(mkdata.riesgo_pais.valor).replace(',','.'));
+      const rpVar=mkdata.riesgo_pais.variacion!=null ? parseFloat(String(mkdata.riesgo_pais.variacion).replace(',','.')) : null;
+      setMC('v-riesgo','d-riesgo','dt-riesgo', n2(rpVal,0)+' pb', mkdata.riesgo_pais.fecha||t, rpVar);
+    }
     // PYG/ARS desde Yahoo via Worker
     if(mkdata.pyg?.valor){
       const pygVal=parseFloat(String(mkdata.pyg.valor).replace(',','.'));
