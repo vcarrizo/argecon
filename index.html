@@ -648,18 +648,19 @@ async function loadAll(){
     }
     setCommodity('brent', cdata.brent, 'USD');
     setCommodity('wti',   cdata.wti,   'USD');
-    // Yahoo devuelve granos en cents/bushel → convertir a USD/tn
-    // 1 bushel soja/trigo = 27.2155 kg → factor = 100 / 27.2155 = 3.6744
-    // 1 bushel maíz       = 25.4012 kg → factor = 100 / 25.4012 = 3.9368
+    // Yahoo devuelve granos en cents/bushel (ej: 1121 = 11.21 USD/bushel)
+    // Conversión: valor (cents/bu) / 100 → USD/bu → / kg_por_bu * 1000 → USD/tn
+    // 1 bushel soja/trigo = 27.2155 kg → factor = 1000 / 100 / 27.2155 = 0.36744
+    // 1 bushel maíz       = 25.4012 kg → factor = 1000 / 100 / 25.4012 = 0.39368
     function convertGrano(obj, factor){
       if(!obj||!obj.valor) return obj;
       const v=parseFloat(String(obj.valor).replace(',','.'));
       const variac=obj.variacion!=null?parseFloat(String(obj.variacion).replace(',','.')):null;
       return {...obj, valor: Math.round(v * factor * 100) / 100, variacion: variac};
     }
-    setCommodity('soja',  convertGrano(cdata.soja,  3.6744), 'USD');
-    setCommodity('maiz',  convertGrano(cdata.maiz,  3.9368), 'USD');
-    setCommodity('trigo', convertGrano(cdata.trigo, 3.6744), 'USD');
+    setCommodity('soja',  convertGrano(cdata.soja,  0.36744), 'USD');
+    setCommodity('maiz',  convertGrano(cdata.maiz,  0.39368), 'USD');
+    setCommodity('trigo', convertGrano(cdata.trigo, 0.36744), 'USD');
   }catch(e){
     // Fallback valores referenciales
     document.getElementById('v-brent').textContent='USD 96,1';
