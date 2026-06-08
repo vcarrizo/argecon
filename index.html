@@ -104,8 +104,25 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .mc .src{font-size:8px;color:var(--tx3);margin-top:2px;opacity:.6}
 .up{color:#3B6D11}.dn{color:#A32D2D}
 
-/* Chart cards */
-.card{background:var(--sur);border:.5px solid var(--bd);border-radius:13px;padding:13px 14px;margin-bottom:11px}
+/* Modal gráfico */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;align-items:flex-end;justify-content:center}
+.modal-overlay.open{display:flex}
+@media(min-width:600px){.modal-overlay{align-items:center}}
+.modal-box{background:var(--sur);border-radius:18px 18px 0 0;width:100%;max-width:720px;padding:20px 18px 28px;max-height:90vh;overflow-y:auto;animation:slideUp .22s ease}
+@media(min-width:600px){.modal-box{border-radius:18px;max-height:85vh}}
+@keyframes slideUp{from{transform:translateY(60px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-hdr{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;gap:10px}
+.modal-title{font-size:14px;font-weight:700;color:var(--tx);line-height:1.35}
+.modal-src{font-size:10px;color:var(--tx3);margin-top:3px}
+.modal-close{background:var(--sur2);border:none;border-radius:50%;width:28px;height:28px;font-size:16px;cursor:pointer;color:var(--tx2);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.modal-close:hover{background:var(--bd2)}
+.modal-rng{display:flex;gap:5px;margin-bottom:14px;flex-wrap:wrap}
+.modal-canvas{height:260px}
+@media(min-width:600px){.modal-canvas{height:310px}}
+/* Tarjetas clickeables */
+.mc{cursor:pointer;transition:transform .12s,box-shadow .12s}
+.mc:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.mc:active{transform:translateY(0)}
 .card-hdr{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px;gap:8px}
 .card-title{font-size:12px;font-weight:600;line-height:1.35}
 .card-src{font-size:9px;color:var(--tx3);margin-top:2px}
@@ -291,70 +308,18 @@ X @argecondatos
   </div>
 </div>
 
-<!-- GRÁFICO PRINCIPAL -->
-<div class="slbl">Evolución histórica</div>
-<div class="card">
-  <div class="card-hdr">
-    <div><div class="card-title" id="main-title">Dólar oficial BNA — venta diaria</div>
-    <div class="card-src" id="main-src">Fuente: argentinadatos.com</div></div>
-    <div class="rng" id="rng-btns">
-      <button class="rb" onclick="setRng(30)">1M</button>
-      <button class="rb" onclick="setRng(90)">3M</button>
-      <button class="rb" onclick="setRng(180)">6M</button>
-      <button class="rb on" onclick="setRng(365)">1A</button>
-    </div>
-  </div>
-  <div class="tabs" id="tabs-main">
-    <button class="tb on c0" onclick="swTab(0)">Oficial</button>
-    <button class="tb"       onclick="swTab(1)">Blue</button>
-    <button class="tb"       onclick="swTab(2)">MEP</button>
-    <button class="tb"       onclick="swTab(3)">Riesgo país</button>
-    <button class="tb"       onclick="swTab(4)">Reservas</button>
-    <button class="tb"       onclick="swTab(5)">Base monetaria</button>
-    <button class="tb"       onclick="swTab(6)">IPC mensual %</button>
-    <button class="tb"       onclick="swTab(7)">M2 var. i.a.</button>
-    <button class="tb"       onclick="swTab(8)">UVA</button>
-    <button class="tb"       onclick="swTab(9)">BADLAR</button>
-  </div>
-  <div class="cw h230"><canvas id="mainChart" role="img" aria-label="Evolución histórica del indicador seleccionado"></canvas></div>
-</div>
-
-<!-- MINI CHARTS -->
-<div class="grid3">
-  <div class="card">
-    <div class="card-hdr">
-      <div><div class="card-title" id="mini1-title">Oficial BNA</div><div class="card-src">argentinadatos.com</div></div>
-      <div class="rng">
-        <button class="rb" onclick="setMiniRng(1,30)">1M</button>
-        <button class="rb on" onclick="setMiniRng(1,60)">2M</button>
-        <button class="rb" onclick="setMiniRng(1,180)">6M</button>
-        <button class="rb" onclick="setMiniRng(1,365)">1A</button>
+<!-- MODAL GRÁFICO -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal-box">
+    <div class="modal-hdr">
+      <div>
+        <div class="modal-title" id="modal-title">—</div>
+        <div class="modal-src" id="modal-src"></div>
       </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
-    <div class="cw h160"><canvas id="mini1" role="img" aria-label="TC oficial"></canvas></div>
-  </div>
-  <div class="card">
-    <div class="card-hdr">
-      <div><div class="card-title" id="mini2-title">Riesgo país</div><div class="card-src">argentinadatos.com</div></div>
-      <div class="rng">
-        <button class="rb" onclick="setMiniRng(2,30)">1M</button>
-        <button class="rb on" onclick="setMiniRng(2,60)">2M</button>
-        <button class="rb" onclick="setMiniRng(2,180)">6M</button>
-        <button class="rb" onclick="setMiniRng(2,365)">1A</button>
-      </div>
-    </div>
-    <div class="cw h160"><canvas id="mini2" role="img" aria-label="Riesgo país"></canvas></div>
-  </div>
-  <div class="card">
-    <div class="card-hdr">
-      <div><div class="card-title" id="mini3-title">IPC mensual</div><div class="card-src">INDEC</div></div>
-      <div class="rng">
-        <button class="rb" onclick="setMiniRng(3,6)">6M</button>
-        <button class="rb on" onclick="setMiniRng(3,12)">1A</button>
-        <button class="rb" onclick="setMiniRng(3,24)">2A</button>
-      </div>
-    </div>
-    <div class="cw h160"><canvas id="mini3" role="img" aria-label="IPC mensual"></canvas></div>
+    <div class="modal-rng" id="modal-rng"></div>
+    <div class="modal-canvas"><canvas id="modalChart"></canvas></div>
   </div>
 </div>
 
@@ -439,23 +404,36 @@ const FB_RIESGO=fbDaily(693,400,-.001,.015).map(x=>({fecha:x.fecha,valor:Math.ro
 
 // ── Estado ─────────────────────────────────────────────────────────
 const S={};
-let mainC=null,mn1=null,mn2=null,mn3=null;
-let curTab=0;
-let curRng=365; // días a mostrar por defecto
-const C_CLASSES=['c0','c1','c2','c3','c4','c5','c6','c7','c8','c9'];
+let modalC=null;
+let modalRng=365;
+let curModalKey=null;
 
-const TABS=[
-  {k:'oficial_hist', c:'#185FA5', title:'Dólar oficial BNA — venta diaria (ARS)',         src:'argentinadatos.com',         vf:'venta'},
-  {k:'blue_hist',    c:'#534AB7', title:'Dólar blue — venta diaria (ARS)',                 src:'argentinadatos.com',         vf:'venta'},
-  {k:'mep_hist',     c:'#A32D2D', title:'Dólar MEP / Bolsa — venta diaria (ARS)',          src:'argentinadatos.com',         vf:'venta'},
-  {k:'riesgo',       c:'#993556', title:'Riesgo país EMBI+ (puntos básicos)',               src:'argentinadatos.com · JP Morgan', vf:'valor'},
-  {k:'res',          c:'#0F6E56', title:'Reservas internacionales (millones USD)',           src:'BCRA · serie 246',           vf:'valor'},
-  {k:'base',         c:'#BA7517', title:'Base monetaria total (en miles de millones $)',      src:'BCRA · serie 250',           vf:'valor'},
-  {k:'ipcm',         c:'#D85A30', title:'IPC — variación mensual (%)',                      src:'INDEC · datos.gob.ar',       vf:'valor', bar:true},
-  {k:'m2',           c:'#534AB7', title:'M2 privado — variación interanual prom. 30 días (%)', src:'BCRA · serie 7919',      vf:'valor', bar:true},
-  {k:'uva',          c:'#1D9E75', title:'Índice UVA (base 31/3/2016 = 14.05)',              src:'argentinadatos.com · BCRA',  vf:'valor'},
-  {k:'badlar',       c:'#185FA5', title:'BADLAR bancos privados (% n.a.)',                   src:'BCRA · serie 1222',          vf:'valor'},
-];
+// Mapa tarjeta → configuración de gráfico
+const CARD_CHART={
+  'v-oficial':  {k:'oficial_hist', c:'#185FA5', title:'Dólar oficial BNA — venta diaria (ARS)',          src:'argentinadatos.com',            vf:x=>x.venta||x.valor, bar:false, rngs:[30,90,180,365]},
+  'v-ofcmp':    {k:'oficial_hist', c:'#185FA5', title:'Dólar oficial BNA — compra diaria (ARS)',          src:'argentinadatos.com',            vf:x=>x.compra||x.valor,bar:false, rngs:[30,90,180,365]},
+  'v-mayor':    {k:'oficial_hist', c:'#185FA5', title:'Dólar mayorista — venta diaria (ARS)',             src:'argentinadatos.com',            vf:x=>x.venta||x.valor, bar:false, rngs:[30,90,180,365]},
+  'v-blue':     {k:'blue_hist',    c:'#534AB7', title:'Dólar blue — venta diaria (ARS)',                  src:'argentinadatos.com',            vf:x=>x.venta||x.valor, bar:false, rngs:[30,90,180,365]},
+  'v-mep':      {k:'mep_hist',     c:'#A32D2D', title:'Dólar MEP / Bolsa — venta diaria (ARS)',           src:'argentinadatos.com',            vf:x=>x.venta||x.valor, bar:false, rngs:[30,90,180,365]},
+  'v-ccl':      {k:'mep_hist',     c:'#A32D2D', title:'Dólar CCL — venta diaria (ARS)',                   src:'argentinadatos.com',            vf:x=>x.venta||x.valor, bar:false, rngs:[30,90,180,365]},
+  'v-riesgo':   {k:'riesgo',       c:'#993556', title:'Riesgo país EMBI+ (puntos básicos)',               src:'argentinadatos.com · JP Morgan',vf:x=>x.valor,          bar:false, rngs:[30,90,180,365]},
+  'v-res':      {k:'res',          c:'#0F6E56', title:'Reservas internacionales (millones USD)',           src:'BCRA · serie 246',              vf:x=>x.valor,          bar:false, rngs:[30,90,180,365]},
+  'v-base':     {k:'base',         c:'#BA7517', title:'Base monetaria total (miles de millones $)',        src:'BCRA · serie 250',              vf:x=>x.valor,          bar:false, rngs:[30,90,180,365]},
+  'v-badlar':   {k:'badlar',       c:'#185FA5', title:'BADLAR bancos privados (% n.a.)',                   src:'BCRA · serie 1222',             vf:x=>x.valor,          bar:false, rngs:[30,90,180,365]},
+  'v-m2':       {k:'m2',           c:'#534AB7', title:'M2 privado — variación interanual (%)',             src:'BCRA · serie 7919',             vf:x=>x.valor,          bar:true,  rngs:[30,90,180,365]},
+  'v-bsup':     {k:'oficial_hist', c:'#0F6E56', title:'Banda cambiaria superior (ARS)',                   src:'BCRA',                          vf:x=>x.venta||x.valor, bar:false, rngs:[30,90,180,365]},
+  'v-binf':     {k:'oficial_hist', c:'#0F6E56', title:'Banda cambiaria inferior (ARS)',                   src:'BCRA',                          vf:x=>x.venta||x.valor, bar:false, rngs:[30,90,180,365]},
+  'v-ipcm':     {k:'ipcm',         c:'#D85A30', title:'IPC — variación mensual (%)',                      src:'INDEC · datos.gob.ar',          vf:x=>x.valor,          bar:true,  rngs:[6,12,24,36]},
+  'v-ipca':     {k:'ipcm',         c:'#D85A30', title:'IPC — variación interanual (%)',                   src:'INDEC · datos.gob.ar',          vf:x=>x.valor,          bar:true,  rngs:[6,12,24,36]},
+  'v-uva':      {k:'uva',          c:'#1D9E75', title:'Índice UVA (base 31/3/2016 = 14.05)',              src:'argentinadatos.com · BCRA',     vf:x=>x.valor,          bar:false, rngs:[30,90,180,365]},
+};
+
+// Labels de rango
+function rngLabel(r){
+  if(r<=31)return r+'D';
+  if(r<=93)return Math.round(r/30)+'M';
+  return Math.round(r/365)+'A';
+}
 
 // ── Chart builder ──────────────────────────────────────────────────
 function mkChart(id,labels,data,color,fill=true,bar=false){
@@ -485,40 +463,65 @@ function mkChart(id,labels,data,color,fill=true,bar=false){
   });
 }
 
-function swTab(i){
-  curTab=i;
-  document.querySelectorAll('#tabs-main .tb').forEach((b,j)=>{
-    b.className='tb'+(j===i?' on '+C_CLASSES[j]:'');
-  });
-  const t=TABS[i];
-  document.getElementById('main-title').textContent=t.title;
-  document.getElementById('main-src').textContent='Fuente: '+t.src;
-  if(mainC){mainC.destroy();mainC=null;}
-  const arr=S[t.k];if(!arr||!arr.length)return;
-  // Filtrar por rango seleccionado
-  const cutoff=new Date();cutoff.setDate(cutoff.getDate()-curRng);
-  const cutStr=cutoff.toISOString().split('T')[0];
-  const filtered=arr.filter(d=>(d.fecha||'')>=cutStr);
-  const data=filtered.length?filtered:arr.slice(-curRng);
-  // Para series mensuales usar YYYY-MM, para diarias usar día/mes
-  const isMonthly=data.length>0&&data[0].fecha&&data[0].fecha.length===10&&
-    (new Set(data.map(d=>d.fecha.slice(0,7))).size===data.length||data.length<=24);
-  const labels=data.map(d=>{
-    const f=(d.fecha||'').slice(0,10);
-    if(curRng<=90) return f.slice(5).replace('-','/'); // DD/MM
-    return f.slice(0,7); // YYYY-MM
-  });
-  mainC=mkChart('mainChart',labels,data.map(d=>d[t.vf]),t.c,!t.bar,!!t.bar);
+// ── Modal ──────────────────────────────────────────────────────────
+function openModal(cardId){
+  const cfg=CARD_CHART[cardId];
+  if(!cfg)return;
+  curModalKey=cardId;
+  modalRng=cfg.rngs[cfg.rngs.length-1]; // default: mayor rango
+  document.getElementById('modal-title').textContent=cfg.title;
+  document.getElementById('modal-src').textContent='Fuente: '+cfg.src;
+  // Botones de rango
+  const rngEl=document.getElementById('modal-rng');
+  rngEl.innerHTML=cfg.rngs.map(r=>`<button class="rb${r===modalRng?' on':''}" onclick="setModalRng(${r})">${rngLabel(r)}</button>`).join('');
+  drawModalChart(cfg,modalRng);
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
 }
 
-function setRng(days){
-  curRng=days;
-  document.querySelectorAll('.rb').forEach(b=>{
+function drawModalChart(cfg,days){
+  if(modalC){modalC.destroy();modalC=null;}
+  const arr=S[cfg.k];
+  if(!arr||!arr.length)return;
+  const slice=arr.slice(-days);
+  const labels=slice.map(d=>{
+    const f=(d.fecha||'').slice(0,10);
+    return days<=90?f.slice(5).replace('-','/'):f.slice(0,7);
+  });
+  modalC=mkChart('modalChart',labels,slice.map(cfg.vf),cfg.c,!cfg.bar,!!cfg.bar);
+}
+
+function setModalRng(days){
+  modalRng=days;
+  const cfg=CARD_CHART[curModalKey];
+  if(!cfg)return;
+  document.querySelectorAll('#modal-rng .rb').forEach(b=>{
     const d=parseInt(b.getAttribute('onclick').match(/\d+/)[0]);
     b.className='rb'+(d===days?' on':'');
   });
-  swTab(curTab);
+  drawModalChart(cfg,days);
 }
+
+function closeModal(e){
+  if(e&&e.target!==document.getElementById('modal-overlay'))return;
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow='';
+  if(modalC){modalC.destroy();modalC=null;}
+}
+
+// Cerrar con Escape
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+// Click en tarjetas
+document.querySelectorAll('.mc').forEach(card=>{
+  const valEl=card.querySelector('[id^="v-"]');
+  if(!valEl)return;
+  const vid=valEl.id;
+  if(CARD_CHART[vid]){
+    card.addEventListener('click',()=>openModal(vid));
+    card.setAttribute('title','Ver historial');
+  }
+});
 
 function setMC(vid,did,dtid,val,fecha,delta){
   if(val==null)return;
@@ -804,42 +807,6 @@ async function loadAll(){
   setDelta('dt-blue',    S.blue_hist);
   setDelta('dt-mep',     S.mep_hist);
   setDelta('dt-ccl',     S.mep_hist);
-
-  swTab(curTab);
-
-  // ── Mini charts ──
-  [mn1,mn2,mn3].forEach(c=>{if(c)c.destroy()});mn1=mn2=mn3=null;
-  drawMini(1,60); drawMini(2,60); drawMini(3,12);
-}
-
-// ── Mini charts con rango ─────────────────────────────────────────
-const miniRngs={1:60,2:60,3:12};
-
-function drawMini(n,days){
-  miniRngs[n]=days;
-  const charts={1:mn1,2:mn2,3:mn3};
-  if(charts[n]){charts[n].destroy();}
-
-  const cfgs={
-    1:{arr:S.oficial_hist,vf:x=>x.venta||x.valor,color:'#185FA5',fill:true,bar:false,lblFn:x=>x.fecha.slice(5)},
-    2:{arr:S.riesgo,      vf:x=>x.valor,          color:'#993556',fill:true,bar:false,lblFn:x=>x.fecha.slice(5)},
-    3:{arr:S.ipcm,        vf:x=>x.valor,          color:'#D85A30',fill:false,bar:true, lblFn:x=>x.fecha.slice(0,7)},
-  };
-  const cfg=cfgs[n];
-  const arr=(cfg.arr||[]).slice(-days);
-  if(!arr.length)return;
-  const c=mkChart('mini'+n,arr.map(cfg.lblFn),arr.map(cfg.vf),cfg.color,cfg.fill,cfg.bar);
-  if(n===1)mn1=c; else if(n===2)mn2=c; else mn3=c;
-}
-
-function setMiniRng(n,days){
-  // Actualizar botón activo
-  const card=document.getElementById('mini'+n).closest('.card');
-  card.querySelectorAll('.rb').forEach(b=>{
-    const d=parseInt(b.getAttribute('onclick').match(/\d+/)[1]);
-    b.className='rb'+(d===days?' on':'');
-  });
-  drawMini(n,days);
 }
 
 loadAll();
