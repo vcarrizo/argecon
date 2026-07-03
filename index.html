@@ -243,6 +243,7 @@ X @argecondatos
       </a>
       <button class="rbtn" onclick="loadAll()">↻ Actualizar</button>
       <button class="rbtn" onclick="openCalc()" style="background:var(--acc);color:#fff;border-color:var(--acc)">🧮 Calculadora</button>
+      <button class="rbtn" onclick="openCash()">💵 Contador</button>
     </div>
   </div>
 </div>
@@ -375,6 +376,30 @@ X @argecondatos
       </div>
       <div id="calc-tabla" style="max-height:240px;overflow-y:auto;font-size:11px"></div>
     </div>
+  </div>
+</div>
+
+<!-- MODAL CONTADOR DE EFECTIVO -->
+<div class="modal-overlay" id="cash-overlay" onclick="closeCash(event)">
+  <div class="modal-box" style="max-width:460px">
+    <div class="modal-hdr">
+      <div>
+        <div class="modal-title">💵 Contador de efectivo</div>
+        <div class="modal-src">Billetes en circulación · Peso argentino (ARS)</div>
+      </div>
+      <button class="modal-close" onclick="closeCash()">✕</button>
+    </div>
+
+    <div style="display:grid;grid-template-columns:70px 1fr 96px;gap:10px;font-size:10px;font-weight:600;color:var(--tx2);padding:0 0 6px;text-transform:uppercase;letter-spacing:.05em">
+      <span>Billete</span><span>Cantidad</span><span style="text-align:right">Subtotal</span>
+    </div>
+    <div id="cash-rows" style="display:flex;flex-direction:column;gap:0;margin-bottom:14px"></div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px;background:var(--sur2);border-radius:10px;margin-bottom:10px">
+      <span style="font-size:12px;color:var(--tx2)">Total contado</span>
+      <span style="font-size:22px;font-weight:700;color:var(--tx)" id="cash-total">$ 0</span>
+    </div>
+    <button onclick="resetCash()" style="width:100%;font-size:12px;padding:8px;border:.5px solid var(--bd2);border-radius:8px;background:transparent;color:var(--tx2);cursor:pointer;font-family:inherit">↺ Limpiar todo</button>
   </div>
 </div>
 
@@ -1065,7 +1090,50 @@ function closeCalc(e){
   document.getElementById('calc-overlay').classList.remove('open');
   document.body.style.overflow='';
 }
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeCalc();}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeCalc();closeCash();}});
+
+// ── Contador de efectivo ────────────────────────────────────────────
+const CASH_DENOMS=[20000,10000,2000,1000,500,200,100,50,20,10];
+function buildCashRows(){
+  const el=document.getElementById('cash-rows');
+  if(!el||el.dataset.built)return;
+  el.innerHTML=CASH_DENOMS.map((d,i)=>`
+    <div style="display:grid;grid-template-columns:70px 1fr 96px;align-items:center;gap:10px;padding:6px 0;${i?'border-top:.5px solid var(--bd)':''}">
+      <div style="font-size:13px;font-weight:700;color:var(--tx)">$${d.toLocaleString('es-AR')}</div>
+      <input type="number" min="0" step="1" value="" placeholder="0" inputmode="numeric"
+        data-denom="${d}" oninput="calcCash()"
+        style="width:100%;background:var(--sur2);border:.5px solid var(--bd2);border-radius:8px;padding:6px 8px;font-size:13px;color:var(--tx);outline:none">
+      <div class="cash-sub" data-denom-sub="${d}" style="text-align:right;font-size:12px;color:var(--tx2)">$ 0</div>
+    </div>`).join('');
+  el.dataset.built='1';
+}
+function calcCash(){
+  let total=0;
+  document.querySelectorAll('#cash-rows input[data-denom]').forEach(inp=>{
+    const d=parseInt(inp.getAttribute('data-denom'));
+    const q=parseInt(inp.value)||0;
+    const sub=d*q;
+    total+=sub;
+    const subEl=document.querySelector(`.cash-sub[data-denom-sub="${d}"]`);
+    if(subEl)subEl.textContent='$ '+sub.toLocaleString('es-AR');
+  });
+  document.getElementById('cash-total').textContent='$ '+total.toLocaleString('es-AR');
+}
+function resetCash(){
+  document.querySelectorAll('#cash-rows input[data-denom]').forEach(inp=>inp.value='');
+  calcCash();
+}
+function openCash(){
+  buildCashRows();
+  calcCash();
+  document.getElementById('cash-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeCash(e){
+  if(e&&e.target!==document.getElementById('cash-overlay'))return;
+  document.getElementById('cash-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
 
 function calcPrestamo(){
   const P=parseFloat(document.getElementById('calc-monto').value)||0;
