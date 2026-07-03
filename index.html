@@ -280,6 +280,9 @@ X @argecondatos
   <div class="mc"><div class="lbl">📊 IPC acumulado 2026</div><div class="val" id="v-ipcac">—</div><div class="sub" id="d-ipcac">ene–abr 2026</div><div class="src">INDEC</div></div>
   <div class="mc"><div class="lbl">📈 EMAE var. interanual</div><div class="val" id="v-emae">—</div><div class="sub" id="d-emae"></div><div class="src">INDEC</div></div>
   <div class="mc"><div class="lbl">💼 Salario mínimo (SMVM)</div><div class="val" id="v-smvm">—</div><div class="sub" id="d-smvm"></div><div class="src">Min. Trabajo · datos.gob.ar</div></div>
+  <div class="mc"><div class="lbl">🏗️ Construcción (ISAC) var. i.a.</div><div class="val" id="v-isac">—</div><div class="sub" id="d-isac"></div><div class="src">INDEC · datos.gob.ar</div></div>
+  <div class="mc"><div class="lbl">🏭 Industria manufacturera (IPI) var. i.a.</div><div class="val" id="v-ipi">—</div><div class="sub" id="d-ipi"></div><div class="src">INDEC · datos.gob.ar</div></div>
+  <div class="mc"><div class="lbl">🛒 Ventas supermercados var. i.a.</div><div class="val" id="v-ventas">—</div><div class="sub" id="d-ventas"></div><div class="src">INDEC · datos.gob.ar</div></div>
 </div>
 
 <!-- MERCADOS Y RIESGO -->
@@ -434,7 +437,7 @@ X @argecondatos
   <div class="fp"><div class="fd" style="background:#185FA5"></div>dolarapi.com — cotizaciones del día (BNA, blue, mayorista, MEP, CCL)</div>
   <div class="fp"><div class="fd" style="background:#534AB7"></div>argentinadatos.com — historial TC, riesgo país, UVA</div>
   <div class="fp"><div class="fd" style="background:#0F6E56"></div>BCRA — api.bcra.gob.ar (reservas, base monetaria, M2, BADLAR, bandas)</div>
-  <div class="fp"><div class="fd" style="background:#D85A30"></div>INDEC — apis.datos.gob.ar (IPC, EMAE, SMVM)</div>
+  <div class="fp"><div class="fd" style="background:#D85A30"></div>INDEC — apis.datos.gob.ar (IPC, EMAE, SMVM, ISAC, IPI, ventas supermercados)</div>
   <div class="fp" style="margin-left:auto">
     <a href="https://x.com/argecondatos" target="_blank" rel="noopener"
       style="display:flex;align-items:center;gap:4px;font-size:10px;color:var(--tx3);text-decoration:none">
@@ -533,6 +536,9 @@ const CARD_CHART={
   'v-ipcm':     {k:'ipcm',         c:'#D85A30', title:'IPC — variación mensual (%)',                      src:'INDEC · datos.gob.ar',          vf:x=>x.valor,          bar:true,  rngs:[6,12,24,36]},
   'v-ipca':     {k:'ipcm',         c:'#D85A30', title:'IPC — variación interanual (%)',                   src:'INDEC · datos.gob.ar',          vf:x=>x.valor,          bar:true,  rngs:[6,12,24,36]},
   'v-uva':      {k:'uva',          c:'#1D9E75', title:'Índice UVA (base 31/3/2016 = 14.05)',              src:'argentinadatos.com · BCRA',     vf:x=>x.valor,          bar:false, rngs:[30,90,180,365]},
+  'v-isac':     {k:'isac',         c:'#0F6E56', title:'ISAC — Actividad de la construcción, var. i.a. (%)',src:'INDEC · datos.gob.ar',          vf:x=>x.valor,          bar:true,  rngs:[12,24,36,60]},
+  'v-ipi':      {k:'ipi',          c:'#D85A30', title:'IPI manufacturero — var. i.a. (%)',                 src:'INDEC · datos.gob.ar',          vf:x=>x.valor,          bar:true,  rngs:[12,24,36,60]},
+  'v-ventas':   {k:'ventas_super', c:'#534AB7', title:'Ventas en supermercados (precios ctes.) — var. i.a. (%)',src:'INDEC · datos.gob.ar',      vf:x=>x.valor,          bar:true,  rngs:[12,24,36,60]},
   // Commodities y mercados — historial desde Yahoo via Worker
   'v-brent':    {k:'brent',   c:'#BA7517', title:'Petróleo Brent (USD/barril)',           src:'Yahoo Finance · BZ=F',  vf:x=>x.valor, bar:false, rngs:[30,90,180,365], yahoo:{sym:'BZ=F',  factor:1}},
   'v-wti':      {k:'wti',     c:'#BA7517', title:'Petróleo WTI (USD/barril)',             src:'Yahoo Finance · CL=F',  vf:x=>x.valor, bar:false, rngs:[30,90,180,365], yahoo:{sym:'CL=F',  factor:1}},
@@ -812,8 +818,27 @@ async function loadAll(){
   if(S.ipca_bcra&&S.ipca_bcra.length) S.ipca=S.ipca_bcra;
   else S.ipca=FB_IPCA_OFICIAL;
 
-  try{S.emae=await fetchGobAr('143.3_NO_PR_2004_A_21:percent_change_a_year_ago','2025-01-01',t);}
+  try{
+    S.emae=(await fetchGobAr('143.3_NO_PR_2004_A_21:percent_change_a_year_ago','2025-01-01',t))
+           .map(x=>({fecha:x.fecha,valor:x.valor*100}));
+  }
   catch(e){fails++;S.emae=null;}
+
+  // 6b ── Actividad real: ISAC, IPI manufacturero, ventas supermercados (datos.gob.ar)
+  // La transformación :percent_change_a_year_ago de datos.gob.ar devuelve una fracción (0.026 = 2,6%),
+  // se normaliza *100 acá para que quede en la misma escala que el resto de las variaciones % del sitio.
+  try{
+    S.isac=(await fetchGobAr('33.2_ISAC_NIVELRAL_0_M_18_63:percent_change_a_year_ago','2024-01-01',t))
+           .map(x=>({fecha:x.fecha,valor:x.valor*100}));
+  }catch(e){fails++;S.isac=null;}
+  try{
+    S.ipi=(await fetchGobAr('453.1_SERIE_ORIGNAL_0_0_14_46:percent_change_a_year_ago','2024-01-01',t))
+          .map(x=>({fecha:x.fecha,valor:x.valor*100}));
+  }catch(e){fails++;S.ipi=null;}
+  try{
+    S.ventas_super=(await fetchGobAr('455.1_VENTAS_PRETES_0_M_25_98:percent_change_a_year_ago','2024-01-01',t))
+                   .map(x=>({fecha:x.fecha,valor:x.valor*100}));
+  }catch(e){fails++;S.ventas_super=null;}
   // 3c ── Commodities vía Cloudflare Worker (proxy sin CORS)
   try{
     const cdata=await fetchJSON('https://argecon-proxy.vcarrizo2010.workers.dev/commodities');
@@ -926,6 +951,10 @@ async function loadAll(){
   if(ia){document.getElementById('v-ipca').textContent=n2(ia.valor,1)+'%';document.getElementById('d-ipca').textContent=fmtF(ia.fecha);}
   if(em){document.getElementById('v-emae').textContent=n2(em.valor,1)+'%';document.getElementById('d-emae').textContent=fmtF(em.fecha);}
   if(sm){document.getElementById('v-smvm').textContent='$ '+nM(sm.valor);document.getElementById('d-smvm').textContent=fmtF(sm.fecha);}
+  const isv=last(S.isac),ipv=last(S.ipi),vsv=last(S.ventas_super);
+  if(isv){document.getElementById('v-isac').textContent=(isv.valor>=0?'+':'')+n2(isv.valor,1)+'%';document.getElementById('d-isac').textContent=fmtF(isv.fecha);}
+  if(ipv){document.getElementById('v-ipi').textContent=(ipv.valor>=0?'+':'')+n2(ipv.valor,1)+'%';document.getElementById('d-ipi').textContent=fmtF(ipv.fecha);}
+  if(vsv){document.getElementById('v-ventas').textContent=(vsv.valor>=0?'+':'')+n2(vsv.valor,1)+'%';document.getElementById('d-ventas').textContent=fmtF(vsv.fecha);}
   if(S.ipcm){
     const ac=S.ipcm.filter(x=>x.fecha.startsWith('2026'));
     if(ac.length){const a=ac.reduce((r,x)=>r*(1+x.valor/100),1)-1;document.getElementById('v-ipcac').textContent=n2(a*100,1)+'%';}
