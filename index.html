@@ -399,6 +399,7 @@ X @argecondatos
       <span style="font-size:12px;color:var(--tx2)">Total contado</span>
       <span style="font-size:22px;font-weight:700;color:var(--tx)" id="cash-total">$ 0</span>
     </div>
+    <button onclick="compartirTicketCash()" style="width:100%;font-size:12px;padding:10px;border:none;border-radius:8px;background:#25D366;color:#fff;cursor:pointer;font-family:inherit;font-weight:600;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:6px">📸 Generar ticket para WhatsApp</button>
     <button onclick="resetCash()" style="width:100%;font-size:12px;padding:8px;border:.5px solid var(--bd2);border-radius:8px;background:transparent;color:var(--tx2);cursor:pointer;font-family:inherit">↺ Limpiar todo</button>
   </div>
 </div>
@@ -1133,6 +1134,112 @@ function closeCash(e){
   if(e&&e.target!==document.getElementById('cash-overlay'))return;
   document.getElementById('cash-overlay').classList.remove('open');
   document.body.style.overflow='';
+}
+
+// ── Ticket de efectivo como imagen JPG (para compartir por WhatsApp) ──
+function generarTicketCanvas(){
+  const rows=[];
+  document.querySelectorAll('#cash-rows input[data-denom]').forEach(inp=>{
+    const d=parseInt(inp.getAttribute('data-denom'));
+    const q=parseInt(inp.value)||0;
+    if(q>0) rows.push({d,q,sub:d*q});
+  });
+  if(!rows.length){
+    alert('Ingresá al menos un billete antes de generar el ticket.');
+    return null;
+  }
+  rows.sort((a,b)=>b.d-a.d);
+  const total=rows.reduce((s,r)=>s+r.sub,0);
+
+  const W=480, padX=28, rowH=34, headH=118, totalH=76, footH=54;
+  const H=headH+rows.length*rowH+totalH+footH;
+  const canvas=document.createElement('canvas');
+  canvas.width=W; canvas.height=H;
+  const ctx=canvas.getContext('2d');
+  const FONT='-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif';
+
+  // Fondo blanco (ticket siempre en claro, para legibilidad al compartir)
+  ctx.fillStyle='#ffffff';
+  ctx.fillRect(0,0,W,H);
+
+  // Banda superior
+  ctx.fillStyle='#185FA5';
+  ctx.fillRect(0,0,W,70);
+  ctx.fillStyle='#ffffff';
+  ctx.font=`700 19px ${FONT}`;
+  ctx.fillText('ArgEcon · Contador de efectivo', padX, 42);
+
+  // Fecha/hora
+  const now=new Date();
+  const fechaStr=now.toLocaleDateString('es-AR')+' · '+now.toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'});
+  ctx.fillStyle='#6b6a65';
+  ctx.font=`12px ${FONT}`;
+  ctx.fillText(fechaStr, padX, 92);
+
+  // Línea divisoria
+  ctx.strokeStyle='#e4e2dc';
+  ctx.beginPath();ctx.moveTo(padX,106);ctx.lineTo(W-padX,106);ctx.stroke();
+
+  // Filas de billetes
+  let y=headH;
+  rows.forEach(r=>{
+    ctx.fillStyle='#1a1a18';
+    ctx.font=`600 14px ${FONT}`;
+    ctx.fillText('$'+r.d.toLocaleString('es-AR'), padX, y+22);
+    ctx.fillStyle='#6b6a65';
+    ctx.font=`14px ${FONT}`;
+    ctx.fillText('x '+r.q, padX+140, y+22);
+    ctx.fillStyle='#1a1a18';
+    ctx.font=`600 14px ${FONT}`;
+    const subStr='$ '+r.sub.toLocaleString('es-AR');
+    ctx.fillText(subStr, W-padX-ctx.measureText(subStr).width, y+22);
+    y+=rowH;
+  });
+
+  // Línea antes del total
+  ctx.strokeStyle='#e4e2dc';
+  ctx.beginPath();ctx.moveTo(padX,y+8);ctx.lineTo(W-padX,y+8);ctx.stroke();
+  y+=8;
+
+  // Total
+  ctx.fillStyle='#0F6E56';
+  ctx.font=`700 15px ${FONT}`;
+  ctx.fillText('TOTAL', padX, y+42);
+  ctx.font=`700 26px ${FONT}`;
+  const totalStr='$ '+total.toLocaleString('es-AR');
+  ctx.fillText(totalStr, W-padX-ctx.measureText(totalStr).width, y+44);
+  y+=totalH;
+
+  // Pie
+  ctx.fillStyle='#9c9b96';
+  ctx.font=`11px ${FONT}`;
+  const footStr='Generado en argecon.ar';
+  ctx.fillText(footStr, (W-ctx.measureText(footStr).width)/2, y+28);
+
+  return canvas;
+}
+
+async function compartirTicketCash(){
+  const canvas=generarTicketCanvas();
+  if(!canvas)return;
+  canvas.toBlob(async blob=>{
+    if(!blob)return;
+    const filename='ticket_efectivo_'+Date.now()+'.jpg';
+    const file=new File([blob],filename,{type:'image/jpeg'});
+    // En celulares (Android/iOS) intenta abrir el menú nativo "Compartir",
+    // que incluye WhatsApp directamente si está instalado.
+    if(navigator.canShare && navigator.canShare({files:[file]})){
+      try{
+        await navigator.share({files:[file],title:'Ticket de efectivo',text:'Contador de efectivo · ArgEcon'});
+        return;
+      }catch(e){/* usuario canceló el share sheet: seguir con descarga */}
+    }
+    // Fallback (desktop o navegadores sin Web Share API): descarga la imagen
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url;a.download=filename;a.click();
+    setTimeout(()=>URL.revokeObjectURL(url),2000);
+  },'image/jpeg',0.92);
 }
 
 function calcPrestamo(){
