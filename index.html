@@ -399,7 +399,18 @@ X @argecondatos
       <span style="font-size:12px;color:var(--tx2)">Total contado</span>
       <span style="font-size:22px;font-weight:700;color:var(--tx)" id="cash-total">$ 0</span>
     </div>
-    <button onclick="compartirTicketCash()" style="width:100%;font-size:12px;padding:10px;border:none;border-radius:8px;background:#25D366;color:#fff;cursor:pointer;font-family:inherit;font-weight:600;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:6px">📸 Generar ticket para WhatsApp</button>
+    <button onclick="generarYMostrarTicket()" style="width:100%;font-size:12px;padding:10px;border:none;border-radius:8px;background:#25D366;color:#fff;cursor:pointer;font-family:inherit;font-weight:600;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:6px">📸 Generar imagen del ticket</button>
+
+    <div id="cash-ticket-preview" style="display:none;margin-bottom:10px">
+      <img id="cash-ticket-img" alt="Ticket de efectivo" style="width:100%;border-radius:10px;border:.5px solid var(--bd2);display:block;margin-bottom:8px">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
+        <button onclick="descargarTicketCash()" style="font-size:11px;padding:8px 4px;border:.5px solid var(--bd2);border-radius:8px;background:var(--sur2);color:var(--tx);cursor:pointer;font-family:inherit">⬇ Descargar</button>
+        <button onclick="copiarTicketCash()" style="font-size:11px;padding:8px 4px;border:.5px solid var(--bd2);border-radius:8px;background:var(--sur2);color:var(--tx);cursor:pointer;font-family:inherit">📋 Copiar</button>
+        <button onclick="abrirWhatsAppWeb()" style="font-size:11px;padding:8px 4px;border:.5px solid var(--bd2);border-radius:8px;background:var(--sur2);color:var(--tx);cursor:pointer;font-family:inherit">💬 WhatsApp Web</button>
+      </div>
+      <div id="cash-copy-msg" style="font-size:11px;text-align:center;margin-top:7px;min-height:14px;color:var(--tx2)"></div>
+    </div>
+
     <button onclick="resetCash()" style="width:100%;font-size:12px;padding:8px;border:.5px solid var(--bd2);border-radius:8px;background:transparent;color:var(--tx2);cursor:pointer;font-family:inherit">↺ Limpiar todo</button>
   </div>
 </div>
@@ -1123,6 +1134,12 @@ function calcCash(){
 function resetCash(){
   document.querySelectorAll('#cash-rows input[data-denom]').forEach(inp=>inp.value='');
   calcCash();
+  cashTicketBlobJPG=null; cashTicketBlobPNG=null;
+  if(cashTicketURL){URL.revokeObjectURL(cashTicketURL);cashTicketURL=null;}
+  const prev=document.getElementById('cash-ticket-preview');
+  if(prev)prev.style.display='none';
+  const msg=document.getElementById('cash-copy-msg');
+  if(msg)msg.textContent='';
 }
 function openCash(){
   buildCashRows();
@@ -1219,27 +1236,50 @@ function generarTicketCanvas(){
   return canvas;
 }
 
-async function compartirTicketCash(){
+let cashTicketBlobJPG=null, cashTicketBlobPNG=null, cashTicketURL=null;
+
+function generarYMostrarTicket(){
   const canvas=generarTicketCanvas();
   if(!canvas)return;
-  canvas.toBlob(async blob=>{
+  const msg=document.getElementById('cash-copy-msg');
+  if(msg){msg.textContent='';}
+  // JPG — para descargar/compartir con el formato pedido
+  canvas.toBlob(blob=>{ cashTicketBlobJPG=blob; },'image/jpeg',0.92);
+  // PNG — para copiar al portapapeles (más compatible entre navegadores) y vista previa
+  canvas.toBlob(blob=>{
     if(!blob)return;
-    const filename='ticket_efectivo_'+Date.now()+'.jpg';
-    const file=new File([blob],filename,{type:'image/jpeg'});
-    // En celulares (Android/iOS) intenta abrir el menú nativo "Compartir",
-    // que incluye WhatsApp directamente si está instalado.
-    if(navigator.canShare && navigator.canShare({files:[file]})){
-      try{
-        await navigator.share({files:[file],title:'Ticket de efectivo',text:'Contador de efectivo · ArgEcon'});
-        return;
-      }catch(e){/* usuario canceló el share sheet: seguir con descarga */}
-    }
-    // Fallback (desktop o navegadores sin Web Share API): descarga la imagen
-    const url=URL.createObjectURL(blob);
-    const a=document.createElement('a');
-    a.href=url;a.download=filename;a.click();
-    setTimeout(()=>URL.revokeObjectURL(url),2000);
-  },'image/jpeg',0.92);
+    cashTicketBlobPNG=blob;
+    if(cashTicketURL) URL.revokeObjectURL(cashTicketURL);
+    cashTicketURL=URL.createObjectURL(blob);
+    document.getElementById('cash-ticket-img').src=cashTicketURL;
+    document.getElementById('cash-ticket-preview').style.display='block';
+  },'image/png');
+}
+
+function descargarTicketCash(){
+  const msg=document.getElementById('cash-copy-msg');
+  if(!cashTicketBlobJPG){if(msg)msg.textContent='Esperá un instante y volvé a intentar.';return;}
+  const url=URL.createObjectURL(cashTicketBlobJPG);
+  const a=document.createElement('a');
+  a.href=url;a.download='ticket_efectivo_'+Date.now()+'.jpg';a.click();
+  setTimeout(()=>URL.revokeObjectURL(url),2000);
+}
+
+async function copiarTicketCash(){
+  const msg=document.getElementById('cash-copy-msg');
+  if(!cashTicketBlobPNG){if(msg)msg.textContent='Esperá un instante y volvé a intentar.';return;}
+  try{
+    await navigator.clipboard.write([new ClipboardItem({'image/png':cashTicketBlobPNG})]);
+    if(msg){msg.textContent='✓ Imagen copiada — pegala en el chat con Ctrl+V (Cmd+V en Mac)';msg.style.color='#3B6D11';}
+  }catch(e){
+    if(msg){msg.textContent='No se pudo copiar automáticamente. Usá "⬇ Descargar" y adjuntá el archivo.';msg.style.color='#A32D2D';}
+  }
+}
+
+function abrirWhatsAppWeb(){
+  const msg=document.getElementById('cash-copy-msg');
+  if(msg && cashTicketBlobPNG){msg.textContent='Se abrió WhatsApp Web — pegá la imagen (Ctrl+V) en la conversación.';msg.style.color='var(--tx2)';}
+  window.open('https://web.whatsapp.com/','_blank','noopener');
 }
 
 function calcPrestamo(){
