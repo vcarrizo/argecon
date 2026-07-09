@@ -72,7 +72,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .hdr-logo{font-size:20px;font-weight:700;letter-spacing:-.5px;color:var(--tx);line-height:1.2}
 .hdr-logo span{color:var(--blue)}
 .hdr p{font-size:10px;color:var(--tx2);margin-top:2px}
-.hdr-r{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.hdr-r{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end;row-gap:6px;max-width:100%}
 .badge{font-size:10px;padding:3px 9px;border-radius:20px;font-weight:500;white-space:nowrap}
 .live{background:#EAF3DE;color:#3B6D11}
 .partial{background:#FAEEDA;color:#7A4A0A}
@@ -121,22 +121,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 @media(min-width:600px){.modal-canvas{height:310px}}
 
 /* Contador de efectivo — optimizado para mobile */
-.cash-modal-box{display:flex;flex-direction:column;max-height:88vh;max-height:88dvh}
-.cash-col-hdr{display:grid;grid-template-columns:56px 1fr 76px;gap:6px;font-size:9px;font-weight:700;color:var(--tx3);padding:0 2px 6px;text-transform:uppercase;letter-spacing:.05em;flex-shrink:0}
-.cash-rows-scroll{display:flex;flex-direction:column;gap:0;margin-bottom:12px;max-height:34vh;overflow-y:auto;-webkit-overflow-scrolling:touch;flex-shrink:1}
-.cash-row{display:grid;grid-template-columns:56px 1fr 76px;align-items:center;gap:6px;padding:7px 2px;border-top:.5px solid var(--bd)}
+.cash-modal-box{display:flex;flex-direction:column;max-height:92vh;max-height:92dvh}
+.cash-col-hdr{display:grid;grid-template-columns:58px 1fr 72px;gap:6px;font-size:9px;font-weight:700;color:var(--tx3);padding:0 2px 4px;text-transform:uppercase;letter-spacing:.05em;flex-shrink:0}
+.cash-rows-scroll{display:flex;flex-direction:column;gap:0;margin-bottom:10px;max-height:46vh;overflow-y:auto;-webkit-overflow-scrolling:touch;flex-shrink:1}
+.cash-row{display:grid;grid-template-columns:58px 1fr 72px;align-items:center;gap:6px;padding:4px 2px;border-top:.5px solid var(--bd)}
 .cash-row:first-child{border-top:none}
-.cash-denom{font-size:12px;font-weight:700;color:var(--tx)}
-.cash-stepper{display:flex;align-items:center;justify-content:center;gap:5px}
-.cash-stepbtn{width:25px;height:25px;flex-shrink:0;border-radius:7px;border:.5px solid var(--bd2);background:var(--sur2);color:var(--tx);font-size:14px;line-height:1;cursor:pointer;font-family:inherit;-webkit-tap-highlight-color:transparent}
-.cash-stepbtn:active{background:var(--bd2)}
-.cash-qty{width:40px;text-align:center;background:var(--sur2);border:.5px solid var(--bd2);border-radius:7px;padding:5px 2px;font-size:12.5px;color:var(--tx);outline:none;font-family:inherit;-moz-appearance:textfield}
-.cash-qty::-webkit-outer-spin-button,.cash-qty::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.cash-denom{font-size:11.5px;font-weight:700;color:var(--tx)}
+.cash-qty{width:100%;max-width:64px;margin:0 auto;display:block;text-align:center;background:var(--sur2);border:.5px solid var(--bd2);border-radius:7px;padding:5px 2px;font-size:12.5px;color:var(--tx);outline:none;font-family:inherit}
 .cash-sub{text-align:right;font-size:11px;color:var(--tx2)}
-.cash-total-box{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:var(--sur2);border-radius:10px;margin-bottom:10px;flex-shrink:0}
+.cash-total-box{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--sur2);border-radius:10px;margin-bottom:8px;flex-shrink:0}
 @media(min-width:600px){
   .cash-modal-box{max-height:80vh;max-height:80dvh}
-  .cash-rows-scroll{max-height:280px}
+  .cash-rows-scroll{max-height:320px}
 }
 /* Tarjetas clickeables */
 .mc{cursor:pointer;transition:transform .12s,box-shadow .12s}
@@ -255,7 +251,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   </div>
   <div class="hdr-r">
     <span id="status" class="badge wait"><span class="spin"></span>conectando...</span>
-    <div style="display:flex;gap:6px;align-items:center">
+    <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end">
       <a href="https://x.com/argecondatos" target="_blank" rel="noopener"
         style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--tx2);text-decoration:none;padding:4px 9px;border:.5px solid var(--bd2);border-radius:8px;background:transparent">
 X @argecondatos
@@ -1160,22 +1156,11 @@ function buildCashRows(){
   el.innerHTML=CASH_DENOMS.map(d=>`
     <div class="cash-row">
       <div class="cash-denom">$${d.toLocaleString('es-AR')}</div>
-      <div class="cash-stepper">
-        <button type="button" class="cash-stepbtn" onclick="stepCash(${d},-1)">−</button>
-        <input type="number" min="0" step="1" value="" placeholder="0" inputmode="numeric" class="cash-qty"
-          data-denom="${d}" oninput="calcCash()">
-        <button type="button" class="cash-stepbtn" onclick="stepCash(${d},1)">+</button>
-      </div>
+      <input type="number" min="0" step="1" value="" placeholder="0" inputmode="numeric" class="cash-qty"
+        data-denom="${d}" oninput="calcCash()">
       <div class="cash-sub" data-denom-sub="${d}">$ 0</div>
     </div>`).join('');
   el.dataset.built='1';
-}
-function stepCash(d,delta){
-  const inp=document.querySelector(`#cash-rows input[data-denom="${d}"]`);
-  if(!inp)return;
-  const next=Math.max(0,(parseInt(inp.value)||0)+delta);
-  inp.value=next?next:'';
-  calcCash();
 }
 function calcCash(){
   let total=0;
