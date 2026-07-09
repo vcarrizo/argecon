@@ -119,6 +119,25 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .modal-rng{display:flex;gap:5px;margin-bottom:14px;flex-wrap:wrap}
 .modal-canvas{height:260px}
 @media(min-width:600px){.modal-canvas{height:310px}}
+
+/* Contador de efectivo — optimizado para mobile */
+.cash-modal-box{display:flex;flex-direction:column;max-height:88vh;max-height:88dvh}
+.cash-col-hdr{display:grid;grid-template-columns:56px 1fr 76px;gap:6px;font-size:9px;font-weight:700;color:var(--tx3);padding:0 2px 6px;text-transform:uppercase;letter-spacing:.05em;flex-shrink:0}
+.cash-rows-scroll{display:flex;flex-direction:column;gap:0;margin-bottom:12px;max-height:34vh;overflow-y:auto;-webkit-overflow-scrolling:touch;flex-shrink:1}
+.cash-row{display:grid;grid-template-columns:56px 1fr 76px;align-items:center;gap:6px;padding:7px 2px;border-top:.5px solid var(--bd)}
+.cash-row:first-child{border-top:none}
+.cash-denom{font-size:12px;font-weight:700;color:var(--tx)}
+.cash-stepper{display:flex;align-items:center;justify-content:center;gap:5px}
+.cash-stepbtn{width:25px;height:25px;flex-shrink:0;border-radius:7px;border:.5px solid var(--bd2);background:var(--sur2);color:var(--tx);font-size:14px;line-height:1;cursor:pointer;font-family:inherit;-webkit-tap-highlight-color:transparent}
+.cash-stepbtn:active{background:var(--bd2)}
+.cash-qty{width:40px;text-align:center;background:var(--sur2);border:.5px solid var(--bd2);border-radius:7px;padding:5px 2px;font-size:12.5px;color:var(--tx);outline:none;font-family:inherit;-moz-appearance:textfield}
+.cash-qty::-webkit-outer-spin-button,.cash-qty::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.cash-sub{text-align:right;font-size:11px;color:var(--tx2)}
+.cash-total-box{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:var(--sur2);border-radius:10px;margin-bottom:10px;flex-shrink:0}
+@media(min-width:600px){
+  .cash-modal-box{max-height:80vh;max-height:80dvh}
+  .cash-rows-scroll{max-height:280px}
+}
 /* Tarjetas clickeables */
 .mc{cursor:pointer;transition:transform .12s,box-shadow .12s}
 .mc:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.12)}
@@ -384,7 +403,7 @@ X @argecondatos
 
 <!-- MODAL CONTADOR DE EFECTIVO -->
 <div class="modal-overlay" id="cash-overlay" onclick="closeCash(event)">
-  <div class="modal-box" style="max-width:460px">
+  <div class="modal-box cash-modal-box" style="max-width:440px">
     <div class="modal-hdr">
       <div>
         <div class="modal-title">💵 Contador de efectivo</div>
@@ -393,23 +412,23 @@ X @argecondatos
       <button class="modal-close" onclick="closeCash()">✕</button>
     </div>
 
-    <div style="display:grid;grid-template-columns:70px 1fr 96px;gap:10px;font-size:10px;font-weight:600;color:var(--tx2);padding:0 0 6px;text-transform:uppercase;letter-spacing:.05em">
-      <span>Billete</span><span>Cantidad</span><span style="text-align:right">Subtotal</span>
+    <div class="cash-col-hdr">
+      <span>Billete</span><span style="text-align:center">Cantidad</span><span style="text-align:right">Subtotal</span>
     </div>
-    <div id="cash-rows" style="display:flex;flex-direction:column;gap:0;margin-bottom:14px"></div>
+    <div id="cash-rows" class="cash-rows-scroll"></div>
 
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px;background:var(--sur2);border-radius:10px;margin-bottom:10px">
-      <span style="font-size:12px;color:var(--tx2)">Total contado</span>
-      <span style="font-size:22px;font-weight:700;color:var(--tx)" id="cash-total">$ 0</span>
+    <div class="cash-total-box">
+      <span style="font-size:11.5px;color:var(--tx2)">Total contado</span>
+      <span style="font-size:20px;font-weight:700;color:var(--tx)" id="cash-total">$ 0</span>
     </div>
-    <button onclick="generarYMostrarTicket()" style="width:100%;font-size:12px;padding:10px;border:none;border-radius:8px;background:#25D366;color:#fff;cursor:pointer;font-family:inherit;font-weight:600;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:6px">📸 Generar imagen del ticket</button>
+    <button onclick="generarYMostrarTicket()" style="width:100%;font-size:12px;padding:10px;border:none;border-radius:8px;background:#25D366;color:#fff;cursor:pointer;font-family:inherit;font-weight:600;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:6px">📸 Generar imagen del ticket</button>
 
-    <div id="cash-ticket-preview" style="display:none;margin-bottom:10px">
-      <img id="cash-ticket-img" alt="Ticket de efectivo" style="width:100%;border-radius:10px;border:.5px solid var(--bd2);display:block;margin-bottom:8px">
+    <div id="cash-ticket-preview" style="display:none;margin-bottom:8px">
+      <img id="cash-ticket-img" alt="Ticket de efectivo" style="width:100%;max-height:44vh;object-fit:contain;border-radius:10px;border:.5px solid var(--bd2);display:block;margin-bottom:8px;background:#fff">
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
-        <button onclick="descargarTicketCash()" style="font-size:11px;padding:8px 4px;border:.5px solid var(--bd2);border-radius:8px;background:var(--sur2);color:var(--tx);cursor:pointer;font-family:inherit">⬇ Descargar</button>
-        <button onclick="copiarTicketCash()" style="font-size:11px;padding:8px 4px;border:.5px solid var(--bd2);border-radius:8px;background:var(--sur2);color:var(--tx);cursor:pointer;font-family:inherit">📋 Copiar</button>
-        <button onclick="abrirWhatsAppWeb()" style="font-size:11px;padding:8px 4px;border:.5px solid var(--bd2);border-radius:8px;background:var(--sur2);color:var(--tx);cursor:pointer;font-family:inherit">💬 WhatsApp Web</button>
+        <button onclick="descargarTicketCash()" style="font-size:11px;padding:9px 4px;border:.5px solid var(--bd2);border-radius:8px;background:var(--sur2);color:var(--tx);cursor:pointer;font-family:inherit">⬇ Descargar</button>
+        <button onclick="copiarTicketCash()" style="font-size:11px;padding:9px 4px;border:.5px solid var(--bd2);border-radius:8px;background:var(--sur2);color:var(--tx);cursor:pointer;font-family:inherit">📋 Copiar</button>
+        <button onclick="abrirWhatsAppWeb()" style="font-size:11px;padding:9px 4px;border:.5px solid var(--bd2);border-radius:8px;background:var(--sur2);color:var(--tx);cursor:pointer;font-family:inherit">💬 WhatsApp Web</button>
       </div>
       <div id="cash-copy-msg" style="font-size:11px;text-align:center;margin-top:7px;min-height:14px;color:var(--tx2)"></div>
     </div>
@@ -1138,15 +1157,25 @@ const CASH_DENOMS=[20000,10000,2000,1000,500,200,100,50,20,10];
 function buildCashRows(){
   const el=document.getElementById('cash-rows');
   if(!el||el.dataset.built)return;
-  el.innerHTML=CASH_DENOMS.map((d,i)=>`
-    <div style="display:grid;grid-template-columns:70px 1fr 96px;align-items:center;gap:10px;padding:6px 0;${i?'border-top:.5px solid var(--bd)':''}">
-      <div style="font-size:13px;font-weight:700;color:var(--tx)">$${d.toLocaleString('es-AR')}</div>
-      <input type="number" min="0" step="1" value="" placeholder="0" inputmode="numeric"
-        data-denom="${d}" oninput="calcCash()"
-        style="width:100%;background:var(--sur2);border:.5px solid var(--bd2);border-radius:8px;padding:6px 8px;font-size:13px;color:var(--tx);outline:none">
-      <div class="cash-sub" data-denom-sub="${d}" style="text-align:right;font-size:12px;color:var(--tx2)">$ 0</div>
+  el.innerHTML=CASH_DENOMS.map(d=>`
+    <div class="cash-row">
+      <div class="cash-denom">$${d.toLocaleString('es-AR')}</div>
+      <div class="cash-stepper">
+        <button type="button" class="cash-stepbtn" onclick="stepCash(${d},-1)">−</button>
+        <input type="number" min="0" step="1" value="" placeholder="0" inputmode="numeric" class="cash-qty"
+          data-denom="${d}" oninput="calcCash()">
+        <button type="button" class="cash-stepbtn" onclick="stepCash(${d},1)">+</button>
+      </div>
+      <div class="cash-sub" data-denom-sub="${d}">$ 0</div>
     </div>`).join('');
   el.dataset.built='1';
+}
+function stepCash(d,delta){
+  const inp=document.querySelector(`#cash-rows input[data-denom="${d}"]`);
+  if(!inp)return;
+  const next=Math.max(0,(parseInt(inp.value)||0)+delta);
+  inp.value=next?next:'';
+  calcCash();
 }
 function calcCash(){
   let total=0;
