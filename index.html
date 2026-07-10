@@ -190,6 +190,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 @media(min-width:600px){
   .page{padding:18px 16px 80px}
   .mg{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
+  .mg-4{grid-template-columns:repeat(2,1fr)}
+  .mg-6{grid-template-columns:repeat(3,1fr)}
+  .mg-7,.mg-8{grid-template-columns:repeat(4,1fr)}
   .mc .val{font-size:21px}
   .grid2{grid-template-columns:1fr 1fr}
   .grid3{grid-template-columns:1fr 1fr}
@@ -203,6 +206,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   .page{padding:24px 18px 70px}
   .hdr-logo{font-size:22px}
   .mg{grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:9px}
+  .mg-4{grid-template-columns:repeat(4,1fr)}
+  .mg-6{grid-template-columns:repeat(6,1fr)}
+  .mg-7{grid-template-columns:repeat(7,1fr)}
+  .mg-8{grid-template-columns:repeat(4,1fr)}
   .mc{padding:12px 14px}
   .mc .val{font-size:22px}
   .grid2{grid-template-columns:1fr 1fr}
@@ -211,6 +218,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   .h160{height:160px}
   .card{padding:17px 19px}
   .slbl{margin:22px 0 9px}
+}
+
+/* ── WIDESCREEN 1400px+ ── */
+@media(min-width:1400px){
+  .page{max-width:1440px}
+  .mg-8{grid-template-columns:repeat(8,1fr)}
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
@@ -265,7 +278,7 @@ X @argecondatos
 
 <!-- TIPO DE CAMBIO -->
 <div class="slbl">Tipo de cambio · dolarapi.com</div>
-<div class="mg">
+<div class="mg mg-8">
   <div class="mc"><div class="lbl">💵 Oficial BNA venta</div><div class="val" id="v-oficial">—</div><div class="sub" id="d-oficial"></div><div class="dlt" id="dt-oficial"></div><div class="src">dolarapi.com</div></div>
   <div class="mc"><div class="lbl">💵 Oficial BNA compra</div><div class="val" id="v-ofcmp">—</div><div class="sub" id="d-ofcmp"></div><div class="dlt" id="dt-ofcmp"></div><div class="src">dolarapi.com</div></div>
   <div class="mc"><div class="lbl">💵 Mayorista</div><div class="val" id="v-mayor">—</div><div class="sub" id="d-mayor"></div><div class="dlt" id="dt-mayor"></div><div class="src">dolarapi.com</div></div>
@@ -278,7 +291,7 @@ X @argecondatos
 
 <!-- MONETARIO -->
 <div class="slbl">Variables monetarias · BCRA</div>
-<div class="mg">
+<div class="mg mg-6">
   <div class="mc"><div class="lbl">🏦 Reservas internacionales</div><div class="val" id="v-res">—</div><div class="sub" id="d-res"></div><div class="dlt" id="dt-res"></div><div class="src">BCRA · s.246</div></div>
   <div class="mc"><div class="lbl">🏦 Base monetaria</div><div class="val" id="v-base">—</div><div class="sub" id="d-base"></div><div class="src">BCRA · s.250</div></div>
   <div class="mc"><div class="lbl">🏦 M2 privado var. i.a.</div><div class="val" id="v-m2">—</div><div class="sub" id="d-m2"></div><div class="src">BCRA · s.7919</div></div>
@@ -289,7 +302,7 @@ X @argecondatos
 
 <!-- PRECIOS Y ACTIVIDAD -->
 <div class="slbl">Precios y actividad · INDEC / datos.gob.ar</div>
-<div class="mg">
+<div class="mg mg-8">
   <div class="mc"><div class="lbl">📊 IPC mensual</div><div class="val" id="v-ipcm">—</div><div class="sub" id="d-ipcm"></div><div class="src">INDEC</div></div>
   <div class="mc"><div class="lbl">📊 IPC interanual</div><div class="val" id="v-ipca">—</div><div class="sub" id="d-ipca"></div><div class="src">INDEC</div></div>
   <div class="mc"><div class="lbl">📊 IPC acumulado 2026</div><div class="val" id="v-ipcac">—</div><div class="sub" id="d-ipcac">ene–abr 2026</div><div class="src">INDEC</div></div>
@@ -302,7 +315,7 @@ X @argecondatos
 
 <!-- MERCADOS Y RIESGO -->
 <div class="slbl">Mercados · argentinadatos.com</div>
-<div class="mg">
+<div class="mg mg-4">
   <div class="mc"><div class="lbl">⚠️ Riesgo país (EMBI+)</div><div class="val" id="v-riesgo">—</div><div class="sub" id="d-riesgo"></div><div class="dlt" id="dt-riesgo"></div><div class="src">argentinadatos.com · JP Morgan</div></div>
   <div class="mc"><div class="lbl">🏠 UVA</div><div class="val" id="v-uva">—</div><div class="sub" id="d-uva"></div><div class="src">argentinadatos.com · BCRA</div></div>
   <div class="mc"><div class="lbl">📈 Merval — var. diaria</div><div class="val" id="v-merval">—</div><div class="sub" id="d-merval"></div><div class="dlt" id="dt-merval"></div><div class="src">Ámbito · Worker</div></div>
@@ -311,7 +324,7 @@ X @argecondatos
 
 <!-- COMMODITIES -->
 <div class="slbl">Commodities · precios internacionales (USD/tn)</div>
-<div class="mg">
+<div class="mg mg-7">
   <div class="mc"><div class="lbl">₿ Bitcoin (USD)</div><div class="val" id="v-bitcoin">—</div><div class="sub" id="d-bitcoin"></div><div class="dlt" id="dt-bitcoin"></div><div class="src">Ámbito · Worker</div></div>
   <div class="mc"><div class="lbl">🥇 Oro (USD/oz)</div><div class="val" id="v-oro">—</div><div class="sub" id="d-oro"></div><div class="dlt" id="dt-oro"></div><div class="src">Ámbito · Worker</div></div>
   <div class="mc"><div class="lbl">🛢️ Brent (USD/barril)</div><div class="val" id="v-brent">—</div><div class="sub" id="d-brent"></div><div class="dlt" id="dt-brent"></div><div class="src">BCRA v4.0</div></div>
