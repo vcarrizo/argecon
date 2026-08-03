@@ -322,6 +322,12 @@ X @argecondatos
   <div class="mc"><div class="lbl">🇺🇸 S&amp;P 500 — var. diaria</div><div class="val" id="v-sp500">—</div><div class="sub" id="d-sp500"></div><div class="dlt" id="dt-sp500"></div><div class="src">Ámbito · Worker</div></div>
 </div>
 
+<!-- FISCAL -->
+<div class="slbl">Fiscal · deuda pública y recaudación</div>
+<div class="mg">
+  <div class="mc"><div class="lbl">💳 Deuda pública / Recaudación (TTM)</div><div class="val" id="v-deudarec">—</div><div class="sub" id="d-deudarec"></div><div class="dlt" id="dt-deudarec"></div><div class="src">Sec. Finanzas (act. manual) + AFIP/ARCA + BCRA · estimado</div></div>
+</div>
+
 <!-- COMMODITIES -->
 <div class="slbl">Commodities · precios internacionales (USD/tn)</div>
 <div class="mg mg-7">
@@ -466,6 +472,7 @@ X @argecondatos
   <div class="fp"><div class="fd" style="background:#534AB7"></div>argentinadatos.com — historial TC, riesgo país, UVA</div>
   <div class="fp"><div class="fd" style="background:#0F6E56"></div>BCRA — api.bcra.gob.ar (reservas, base monetaria, M2, BADLAR, bandas)</div>
   <div class="fp"><div class="fd" style="background:#D85A30"></div>INDEC — apis.datos.gob.ar (IPC, EMAE, SMVM, ISAC, IPI, ventas supermercados)</div>
+  <div class="fp"><div class="fd" style="background:#993556"></div>Sec. Finanzas (deuda, manual) + AFIP/ARCA vía datos.gob.ar (recaudación)</div>
   <div class="fp" style="margin-left:auto">
     <a href="https://x.com/argecondatos" target="_blank" rel="noopener"
       style="display:flex;align-items:center;gap:4px;font-size:10px;color:var(--tx3);text-decoration:none">
@@ -540,6 +547,25 @@ const FB_IPCM=fbMonthly([
 ]);
 const FB_RIESGO=fbDaily(693,400,-.001,.015).map(x=>({fecha:x.fecha,valor:Math.round(Math.max(400,x.valor))}));
 
+// ── Deuda pública bruta (Administración Central, USD millones, fin de mes) ──
+// Fuente: Boletín de Deuda — Secretaría de Finanzas, Ministerio de Economía
+// (replicado y verificado vía notas de Infobae/La Nación de cada mes).
+// No existe API pública en tiempo real para el stock de deuda: este array se
+// actualiza a mano cada vez que sale un nuevo Boletín mensual (a mediados de
+// cada mes). Última carga: boletín de junio 2026 (publicado 15/07/2026).
+const DEUDA_BRUTA=[
+  {fecha:'2024-12-31',valor:466921},{fecha:'2025-01-31',valor:467788},
+  {fecha:'2025-02-28',valor:471150},{fecha:'2025-03-31',valor:483830},
+  {fecha:'2025-04-30',valor:472920},{fecha:'2025-05-31',valor:461019},
+  {fecha:'2025-06-30',valor:465355},{fecha:'2025-07-31',valor:447202},
+  {fecha:'2025-08-31',valor:454230},{fecha:'2025-09-30',valor:454031},
+  {fecha:'2025-10-31',valor:442196},{fecha:'2025-11-30',valor:445985},
+  {fecha:'2025-12-31',valor:455067},{fecha:'2026-01-31',valor:460934},
+  {fecha:'2026-02-28',valor:472135},{fecha:'2026-03-31',valor:483830},
+  {fecha:'2026-04-30',valor:496676},{fecha:'2026-05-31',valor:479273},
+  {fecha:'2026-06-30',valor:474192}
+];
+
 // ── Estado ─────────────────────────────────────────────────────────
 const S={};
 let modalC=null;
@@ -567,6 +593,7 @@ const CARD_CHART={
   'v-isac':     {k:'isac',         c:'#0F6E56', title:'ISAC — Actividad de la construcción, var. i.a. (%)',src:'INDEC · datos.gob.ar',          vf:x=>x.valor,          bar:true,  rngs:[12,24,36,60]},
   'v-ipi':      {k:'ipi',          c:'#D85A30', title:'IPI manufacturero — var. i.a. (%)',                 src:'INDEC · datos.gob.ar',          vf:x=>x.valor,          bar:true,  rngs:[12,24,36,60]},
   'v-ventas':   {k:'ventas_super', c:'#534AB7', title:'Ventas en supermercados (precios ctes.) — var. i.a. (%)',src:'INDEC · datos.gob.ar',      vf:x=>x.valor,          bar:true,  rngs:[12,24,36,60]},
+  'v-deudarec': {k:'deuda_recaudacion', c:'#993556', title:'Deuda pública bruta / Recaudación tributaria (años, TTM)', src:'Sec. Finanzas (deuda) + AFIP/ARCA vía datos.gob.ar (recaudación) + BCRA (TC) — cálculo propio', vf:x=>x.valor, bar:true, rngs:[6,12,18]},
   // Commodities y mercados — historial desde Yahoo via Worker
   'v-brent':    {k:'brent',   c:'#BA7517', title:'Petróleo Brent (USD/barril)',           src:'Yahoo Finance · BZ=F',  vf:x=>x.valor, bar:false, rngs:[30,90,180,365], yahoo:{sym:'BZ=F',  factor:1}},
   'v-wti':      {k:'wti',     c:'#BA7517', title:'Petróleo WTI (USD/barril)',             src:'Yahoo Finance · CL=F',  vf:x=>x.valor, bar:false, rngs:[30,90,180,365], yahoo:{sym:'CL=F',  factor:1}},
@@ -919,6 +946,56 @@ async function loadAll(){
     S.ventas_super=(await fetchGobAr('455.1_VENTAS_PRETES_0_M_25_98:percent_change_a_year_ago','2024-01-01',t))
                    .map(x=>({fecha:x.fecha,valor:x.valor*100}));
   }catch(e){fails++;S.ventas_super=null;}
+
+  // 6c ── Recaudación tributaria total mensual (AFIP/ARCA vía datos.gob.ar)
+  try{
+    S.recaudacion=(await fetchGobAr('172.3_TL_RECAION_M_0_0_17','2023-01-01',t))
+                  .map(x=>({fecha:x.fecha,valor:x.valor}));
+  }catch(e){fails++;S.recaudacion=null;}
+
+  // 6d ── Deuda pública / Recaudación tributaria (años de recaudación TTM)
+  // La deuda (DEUDA_BRUTA, USD) se actualiza a mano desde el Boletín de Deuda;
+  // se convierte a ARS con el dólar oficial del historial ya cargado (S.oficial_hist)
+  // y se compara contra la recaudación tributaria de los últimos 12 meses (TTM),
+  // para evitar distorsiones por estacionalidad (aguinaldo, etc.) de un solo mes.
+  function computeDeudaRecaudacion(){
+    if(!S.recaudacion||!S.recaudacion.length||!S.oficial_hist||!S.oficial_hist.length) return [];
+    const hist=[...S.oficial_hist].sort((a,b)=>a.fecha.localeCompare(b.fecha));
+    function fxFor(dateStr){
+      let best=null;
+      for(const h of hist){ if(h.fecha<=dateStr) best=h; else break; }
+      return best?(best.venta||best.valor):null;
+    }
+    const recByMonth={};
+    S.recaudacion.forEach(r=>{ recByMonth[r.fecha.slice(0,7)]=r.valor; });
+    function recTTM(ym){
+      const [y,m]=ym.split('-').map(Number);
+      let sum=0,count=0;
+      for(let i=0;i<12;i++){
+        let mm=m-i,yy=y;
+        if(mm<=0){mm+=12;yy-=1;}
+        const key=yy+'-'+String(mm).padStart(2,'0');
+        if(recByMonth[key]!=null){sum+=recByMonth[key];count++;}
+      }
+      return count===12?sum:null;
+    }
+    const out=[];
+    DEUDA_BRUTA.forEach(d=>{
+      const ym=d.fecha.slice(0,7);
+      const fx=fxFor(d.fecha);
+      const recAnual=recTTM(ym);
+      if(fx!=null&&recAnual!=null){
+        const deudaARS=d.valor*1e6*fx;      // d.valor: millones USD → USD × TC = ARS
+        const recAnualARS=recAnual*1e6;     // recaudación TTM ya en millones de $ → ARS
+        out.push({fecha:d.fecha,valor:deudaARS/recAnualARS});
+      }
+    });
+    return out;
+  }
+  S.deuda_recaudacion=computeDeudaRecaudacion();
+  const drL=last(S.deuda_recaudacion),drP=prev(S.deuda_recaudacion);
+  if(drL) setMC('v-deudarec','d-deudarec','dt-deudarec', n2(drL.valor,2)+' años', drL.fecha,
+                drP?((drL.valor-drP.valor)/drP.valor*100):null);
   // 3c ── Commodities vía Cloudflare Worker (proxy sin CORS)
   try{
     const cdata=await fetchJSON('https://argecon-proxy.vcarrizo2010.workers.dev/commodities');
