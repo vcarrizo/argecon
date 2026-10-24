@@ -20,25 +20,36 @@ FEEDS = [
     ("Infobae", "https://www.infobae.com/arc/outboundfeeds/rss/category/economia/"),
     ("Clarín", "https://www.clarin.com/rss/economia/"),
     ("La Gaceta", "https://www.lagaceta.com.ar/rss/seccion/economia/"),
+    # Bloomberg Línea (Arc XP): se prueba la sección Argentina y, si no hay, el feed general
+    ("Bloomberg Línea", [
+        "https://www.bloomberglinea.com/arc/outboundfeeds/rss/category/latinoamerica/argentina/?outputType=xml",
+        "https://www.bloomberglinea.com/arc/outboundfeeds/rss/?outputType=xml",
+    ]),
 ]
 PER_FEED = 8
 MAX_ITEMS = 30
 UA = "Mozilla/5.0 (compatible; argecon.ar news fetcher; +https://argecon.ar)"
 # Notas de cotizaciones de otros países (ej. "Euro hoy en Venezuela"): no aportan
 EXCLUDE = re.compile(
-    r"\bhoy en (Venezuela|Paraguay|Uruguay|Chile|México|Colombia|Perú|Bolivia|Brasil|Ecuador|España|Estados Unidos)\b",
-    re.IGNORECASE,
+    r"^(Euro|Dólar|Dolar|Real|Peso|Libra|Yuan|Yen|Bitcoin)\b.*\bhoy en (?!Argentina\b)[A-ZÁÉÍÓÚ]"
 )
 OUT = os.path.join(os.path.dirname(__file__), "..", "news.json")
 
 
 def main():
     items, ok = [], []
-    for source, url in FEEDS:
-        try:
-            d = feedparser.parse(url, agent=UA)
-        except Exception as e:  # noqa: BLE001
-            print(f"[{source}] error: {e}", file=sys.stderr)
+    for source, urls in FEEDS:
+        d = None
+        for url in [urls] if isinstance(urls, str) else urls:
+            try:
+                d = feedparser.parse(url, agent=UA)
+            except Exception as e:  # noqa: BLE001
+                print(f"[{source}] error {url}: {e}", file=sys.stderr)
+                continue
+            print(f"[{source}] {url} -> status={d.get('status')} entries={len(d.entries)}", file=sys.stderr)
+            if d.entries:
+                break
+        if d is None:
             continue
         n = 0
         for e in d.entries[:PER_FEED]:
