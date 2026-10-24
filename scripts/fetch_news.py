@@ -8,6 +8,7 @@ el news.json anterior.
 import calendar
 import json
 import os
+import re
 import sys
 from datetime import datetime, timezone
 
@@ -23,6 +24,11 @@ FEEDS = [
 PER_FEED = 8
 MAX_ITEMS = 30
 UA = "Mozilla/5.0 (compatible; argecon.ar news fetcher; +https://argecon.ar)"
+# Notas de cotizaciones de otros países (ej. "Euro hoy en Venezuela"): no aportan
+EXCLUDE = re.compile(
+    r"\bhoy en (Venezuela|Paraguay|Uruguay|Chile|México|Colombia|Perú|Bolivia|Brasil|Ecuador|España|Estados Unidos)\b",
+    re.IGNORECASE,
+)
 OUT = os.path.join(os.path.dirname(__file__), "..", "news.json")
 
 
@@ -38,7 +44,7 @@ def main():
         for e in d.entries[:PER_FEED]:
             title = (e.get("title") or "").strip()
             link = (e.get("link") or "").strip()
-            if not title or not link.startswith("http"):
+            if not title or not link.startswith("http") or EXCLUDE.search(title):
                 continue
             t = e.get("published_parsed") or e.get("updated_parsed")
             pub = (
