@@ -292,11 +292,14 @@ X @argecondatos
 
 <!-- MERCADOS Y RIESGO -->
 <div class="slbl">Mercados · argentinadatos.com</div>
-<div class="mg mg-4">
+<div class="mg mg-7">
   <div class="mc"><div class="lbl">⚠️ Riesgo país (EMBI+)</div><div class="val" id="v-riesgo">—</div><div class="sub" id="d-riesgo"></div><div class="dlt" id="dt-riesgo"></div><div class="src">argentinadatos.com · JP Morgan</div></div>
   <div class="mc"><div class="lbl">🏠 UVA</div><div class="val" id="v-uva">—</div><div class="sub" id="d-uva"></div><div class="src">argentinadatos.com · BCRA</div></div>
-  <div class="mc"><div class="lbl">📈 Merval — var. diaria</div><div class="val" id="v-merval">—</div><div class="sub" id="d-merval"></div><div class="dlt" id="dt-merval"></div><div class="src">Ámbito · Worker</div></div>
+  <div class="mc"><div class="lbl">🇦🇷 Merval — var. diaria</div><div class="val" id="v-merval">—</div><div class="sub" id="d-merval"></div><div class="dlt" id="dt-merval"></div><div class="src">Ámbito · Worker</div></div>
   <div class="mc"><div class="lbl">🇺🇸 S&amp;P 500 — var. diaria</div><div class="val" id="v-sp500">—</div><div class="sub" id="d-sp500"></div><div class="dlt" id="dt-sp500"></div><div class="src">Ámbito · Worker</div></div>
+  <div class="mc"><div class="lbl">🇺🇸 Dow Jones</div><div class="val" id="v-dowjones">—</div><div class="sub" id="d-dowjones"></div><div class="dlt" id="dt-dowjones"></div><div class="src">Yahoo · Worker</div></div>
+  <div class="mc"><div class="lbl">🇺🇸 Nasdaq Composite</div><div class="val" id="v-nasdaq">—</div><div class="sub" id="d-nasdaq"></div><div class="dlt" id="dt-nasdaq"></div><div class="src">Yahoo · Worker</div></div>
+  <div class="mc"><div class="lbl">🇧🇷 Bovespa (Ibovespa)</div><div class="val" id="v-bovespa">—</div><div class="sub" id="d-bovespa"></div><div class="dlt" id="dt-bovespa"></div><div class="src">Yahoo · Worker</div></div>
 </div>
 
 <!-- FISCAL -->
@@ -450,6 +453,7 @@ X @argecondatos
   <div class="fp"><div class="fd" style="background:#0F6E56"></div>BCRA — api.bcra.gob.ar v4.0 (reservas, base monetaria, M2, BADLAR, IPC)</div>
   <div class="fp"><div class="fd" style="background:#D85A30"></div>INDEC — apis.datos.gob.ar (EMAE, ISAC, IPI, ventas supermercados)</div>
   <div class="fp"><div class="fd" style="background:#BA7517"></div>Si una fuente no responde se muestra el último dato real guardado, marcado en ámbar con su fecha</div>
+  <div class="fp"><div class="fd" style="background:#1D9E75"></div>Yahoo Finance vía Worker — Dow Jones, Nasdaq, Bovespa, commodities</div>
   <div class="fp"><div class="fd" style="background:#993556"></div>Sec. Finanzas (deuda, manual) + AFIP/ARCA vía datos.gob.ar (recaudación)</div>
   <div class="fp" style="margin-left:auto">
     <a href="https://x.com/argecondatos" target="_blank" rel="noopener"
@@ -637,6 +641,9 @@ const CARD_CHART={
   'v-oro':      {k:'oro',     c:'#BA7517', title:'Oro (USD/oz)',                          src:'Yahoo Finance · GC=F',  vf:x=>x.valor, bar:false, rngs:[30,90,180,365], yahoo:{sym:'GC=F',  factor:1}},
   'v-merval':   {k:'merval',  c:'#185FA5', title:'Merval (ARS)',                          src:'Yahoo Finance · ^MERV', vf:x=>x.valor, bar:false, rngs:[30,90,180,365], yahoo:{sym:'^MERV', factor:1}},
   'v-sp500':    {k:'sp500',   c:'#0F6E56', title:'S&P 500 (USD)',                         src:'Yahoo Finance · ^GSPC', vf:x=>x.valor, bar:false, rngs:[30,90,180,365], yahoo:{sym:'^GSPC', factor:1}},
+  'v-dowjones': {k:'dowjones',c:'#185FA5', title:'Dow Jones Industrial Average (pts)',    src:'Yahoo Finance · ^DJI',  vf:x=>x.valor, bar:false, rngs:[30,90,180,365], yahoo:{sym:'^DJI',  factor:1}},
+  'v-nasdaq':   {k:'nasdaq',  c:'#534AB7', title:'Nasdaq Composite (pts)',                src:'Yahoo Finance · ^IXIC', vf:x=>x.valor, bar:false, rngs:[30,90,180,365], yahoo:{sym:'^IXIC', factor:1}},
+  'v-bovespa':  {k:'bovespa', c:'#0F6E56', title:'Ibovespa — Bolsa de San Pablo (pts)',   src:'Yahoo Finance · ^BVSP', vf:x=>x.valor, bar:false, rngs:[30,90,180,365], yahoo:{sym:'^BVSP', factor:1}},
 };
 
 // Labels de rango
@@ -1132,6 +1139,21 @@ async function loadAll(){
       if(!r.live)markStale('v-pyg',mk.pyg.fecha);
     }else noData('v-pyg');
     if(!r.live)fails++;
+  }
+
+  // 8b ── Índices bursátiles (Dow Jones, Nasdaq, Bovespa): último cierre diario
+  // y variación contra el cierre anterior, desde el historial Yahoo del Worker
+  for(const [id,sym] of [['dowjones','^DJI'],['nasdaq','^IXIC'],['bovespa','^BVSP']]){
+    const r=await getData('idx_'+id,async()=>{
+      const j=await fetchJSON(`${WORKER}/historico?sym=${encodeURIComponent(sym)}&days=10&factor=1`);
+      return(j.data||[]).filter(x=>x&&x.valor!=null);
+    },30);
+    if(!r.live)fails++;
+    const l=last(r.data),p=prev(r.data),vid='v-'+id;
+    if(!l){noData(vid);continue;}
+    setMC(vid,'d-'+id,'dt-'+id,n2(l.valor,0)+' pts',l.fecha,p?((l.valor-p.valor)/p.valor*100):null);
+    $id('d-'+id).textContent='cierre '+fmtF(l.fecha);
+    if(!r.live)markStale(vid,l.fecha);else warnIfOld(vid,l.fecha,5);
   }
 
   // 9 ── SMVM (carga manual con aviso de desactualización)
