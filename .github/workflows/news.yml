@@ -1,0 +1,40 @@
+name: Actualizar noticias
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - scripts/fetch_news.py
+      - .github/workflows/news.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: news
+  cancel-in-progress: false
+
+jobs:
+  news:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install feedparser==6.0.11
+      - run: python scripts/fetch_news.py
+      - name: Commit si cambió
+        run: |
+          if [ -n "$(git status --porcelain news.json)" ]; then
+            git config user.name "argecon-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add news.json
+            git commit -m "Noticias: actualización automática"
+            git pull --rebase -q origin main
+            git push
+          fi

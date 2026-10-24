@@ -318,7 +318,7 @@ X @argecondatos
 </div>
 
 <!-- NOTICIAS -->
-<div class="slbl">Noticias del día · Ámbito · iProfesional · La Gaceta</div>
+<div class="slbl">Noticias de economía · Ámbito · iProfesional · Infobae · Clarín</div>
 <div class="card" style="margin-bottom:14px">
   <div id="news-list" class="news-list">
     <div class="news-loading"><span class="spin"></span>Cargando noticias...</div>
@@ -1176,28 +1176,22 @@ if('serviceWorker' in navigator){
 }
 
 // ── Ticker de noticias ─────────────────────────────────────────────
-const FEEDS=[
-  'https://www.ambito.com/rss/pages/economia.xml',
-  'https://www.iprofesional.com/rss/economia',
-  'https://www.lagaceta.com.ar/rss/seccion/economia/',
-];
-const RSS2JSON='https://api.rss2json.com/v1/api.json?rss_url=';
+// Las noticias las baja cada 15 min una GitHub Action (scripts/fetch_news.py)
+// y quedan en /news.json, en el mismo dominio: sin CORS ni servicios intermedios.
+async function getNews(){
+  const r=await getData('news',async()=>{
+    const j=await fetchJSON('news.json?t='+Date.now());
+    return Array.isArray(j.items)?j.items:[];
+  },60);
+  return r.data||[];
+}
 // Escapar texto que viene de feeds externos antes de meterlo en el HTML
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function safeUrl(u){return/^https?:\/\//i.test(u)?esc(u):'#'}
 
 async function loadTicker(){
   const track=document.getElementById('ticker-track');
-  const items=[];
-  for(const feed of FEEDS){
-    try{
-      const r=await fetch(RSS2JSON+encodeURIComponent(feed));
-      const j=await r.json();
-      if(j.items) j.items.slice(0,8).forEach(x=>{
-        if(x.title&&x.link) items.push({title:x.title.trim(),link:x.link});
-      });
-    }catch(e){}
-  }
+  const items=(await getNews()).slice(0,24);
   if(!items.length){
     track.innerHTML='<span class="ticker-loading">Sin noticias disponibles en este momento</span>';
     return;
@@ -1223,21 +1217,7 @@ setInterval(loadTicker, 15*60*1000);
 async function loadNews(){
   const container=document.getElementById('news-list');
   if(!container)return;
-  const allItems=[];
-  for(const feed of FEEDS){
-    try{
-      const r=await fetch(RSS2JSON+encodeURIComponent(feed));
-      const j=await r.json();
-      if(j.items) j.items.slice(0,5).forEach(x=>{
-        if(x.title&&x.link) allItems.push({
-          title:x.title.trim(),
-          link:x.link,
-          source:j.feed?.title||new URL(feed).hostname.replace('www.',''),
-          pubDate:x.pubDate||''
-        });
-      });
-    }catch(e){}
-  }
+  const allItems=await getNews();
   if(!allItems.length){
     container.innerHTML='<div class="news-loading">Sin noticias disponibles en este momento</div>';
     return;
@@ -1251,7 +1231,10 @@ async function loadNews(){
     if(item.pubDate){
       try{
         const d=new Date(item.pubDate);
-        timeStr=d.toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'});
+        if(!isNaN(d)){
+          const hm=d.toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit',hour12:false});
+          timeStr=d.toDateString()===new Date().toDateString()?hm:d.toLocaleDateString('es-AR',{day:'2-digit',month:'2-digit'})+' '+hm;
+        }
       }catch(e){}
     }
     return `<a class="news-item" href="${safeUrl(item.link)}" target="_blank" rel="noopener">
