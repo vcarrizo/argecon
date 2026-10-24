@@ -53,23 +53,6 @@
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh}
 .page{max-width:1200px;margin:0 auto;padding:16px 12px 80px}
 
-/* Banner clima */
-.clima-banner{display:flex;align-items:center;gap:10px;padding:7px 14px;background:var(--sur);border-bottom:.5px solid var(--bd);font-size:12px;color:var(--tx2);min-height:34px}
-.clima-banner .clima-icon{font-size:16px;line-height:1}
-.clima-banner .clima-temp{font-weight:600;color:var(--tx);font-size:13px}
-.clima-banner .clima-sep{color:var(--bd2);margin:0 2px}
-.clima-banner .clima-loc{color:var(--tx3);font-size:11px}
-.clima-banner.hidden{display:none}
-/* Pronóstico 5 días */
-.clima-forecast{display:flex;gap:0;background:var(--sur);border-bottom:.5px solid var(--bd);overflow:hidden}
-.clima-forecast.hidden{display:none}
-.clima-day{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 4px;border-right:.5px solid var(--bd);font-size:10px;color:var(--tx2)}
-.clima-day:last-child{border-right:none}
-.clima-day .cf-dow{font-weight:600;color:var(--tx);font-size:10px;text-transform:uppercase;letter-spacing:.3px}
-.clima-day .cf-icon{font-size:18px;line-height:1.2}
-.clima-day .cf-max{font-weight:600;color:var(--tx);font-size:11px}
-.clima-day .cf-min{color:var(--tx3);font-size:10px}
-
 .hdr{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:14px;border-bottom:.5px solid var(--bd2);margin-bottom:16px;flex-wrap:wrap}
 .hdr-logo{font-size:20px;font-weight:700;letter-spacing:-.5px;color:var(--tx);line-height:1.2}
 .hdr-logo span{color:var(--blue)}
@@ -238,20 +221,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </head>
 <body>
 
-
-<!-- Banner clima -->
-<div class="clima-banner hidden" id="clima-banner">
-  <span class="clima-icon" id="clima-icon">🌤️</span>
-  <span class="clima-temp" id="clima-temp">—</span>
-  <span class="clima-sep">·</span>
-  <span id="clima-desc">—</span>
-  <span class="clima-sep">·</span>
-  <span id="clima-minmax">—</span>
-  <span class="clima-sep">·</span>
-  <span class="clima-loc" id="clima-loc">Obteniendo ubicación...</span>
-</div>
-<!-- Pronóstico 5 días -->
-<div class="clima-forecast hidden" id="clima-forecast"></div>
 
 <!-- Ticker noticias -->
 <div class="ticker-wrap">
@@ -1564,76 +1533,6 @@ function calcPrestamo(){
 loadNews();
 setInterval(loadNews, 15*60*1000);
 
-// ── Banner Clima (Open-Meteo, sin API key) ────────────────────────────────
-const WMO = {
-  0:'Despejado',1:'Mayormente despejado',2:'Parcialmente nublado',3:'Nublado',
-  45:'Neblina',48:'Neblina con escarcha',
-  51:'Llovizna leve',53:'Llovizna',55:'Llovizna fuerte',
-  61:'Lluvia leve',63:'Lluvia',65:'Lluvia fuerte',
-  71:'Nevada leve',73:'Nevada',75:'Nevada fuerte',
-  77:'Granizo',80:'Chaparrones',81:'Chaparrones fuertes',82:'Chaparrones muy fuertes',
-  85:'Nevadas',86:'Nevadas fuertes',
-  95:'Tormenta',96:'Tormenta con granizo',99:'Tormenta fuerte',
-};
-const WMO_ICON = {
-  0:'☀️',1:'🌤️',2:'⛅',3:'☁️',
-  45:'🌫️',48:'🌫️',
-  51:'🌦️',53:'🌦️',55:'🌧️',
-  61:'🌧️',63:'🌧️',65:'🌧️',
-  71:'🌨️',73:'🌨️',75:'🌨️',77:'🌨️',
-  80:'🌦️',81:'🌧️',82:'🌧️',
-  85:'❄️',86:'❄️',
-  95:'⛈️',96:'⛈️',99:'⛈️',
-};
-
-async function loadClima() {
-  if (!navigator.geolocation) return;
-  navigator.geolocation.getCurrentPosition(async pos => {
-    try {
-      const { latitude: lat, longitude: lon } = pos.coords;
-      // Open-Meteo: temperatura actual, código clima, máx/mín del día
-      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weathercode&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=auto&forecast_days=6`;
-      const res = await fetch(url);
-      const d = await res.json();
-      const temp = Math.round(d.current.temperature_2m);
-      const code = d.current.weathercode;
-      const tmax = Math.round(d.daily.temperature_2m_max[0]);
-      const tmin = Math.round(d.daily.temperature_2m_min[0]);
-      // Nombre de ciudad via Open-Meteo geocoding (reverse)
-      let ciudad = '';
-      try {
-        const geo = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`);
-        const gd = await geo.json();
-        ciudad = gd.address?.city || gd.address?.town || gd.address?.village || gd.address?.county || '';
-      } catch(e) {}
-      // Mostrar banner
-      document.getElementById('clima-icon').textContent = WMO_ICON[code] ?? '🌡️';
-      document.getElementById('clima-temp').textContent = `${temp}°C`;
-      document.getElementById('clima-desc').textContent = WMO[code] ?? '';
-      document.getElementById('clima-minmax').textContent = `↑${tmax}° ↓${tmin}°`;
-      document.getElementById('clima-loc').textContent = ciudad;
-      document.getElementById('clima-banner').classList.remove('hidden');
-
-      // Pronóstico 5 días (días 1 a 5, saltando hoy = índice 0)
-      const DIAS = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
-      const forecastEl = document.getElementById('clima-forecast');
-      forecastEl.innerHTML = d.daily.time.slice(1, 6).map((fecha, i) => {
-        const dow = DIAS[new Date(fecha + 'T12:00:00').getDay()];
-        const icon = WMO_ICON[d.daily.weathercode[i+1]] ?? '🌡️';
-        const max = Math.round(d.daily.temperature_2m_max[i+1]);
-        const min = Math.round(d.daily.temperature_2m_min[i+1]);
-        return `<div class="clima-day">
-          <span class="cf-dow">${dow}</span>
-          <span class="cf-icon">${icon}</span>
-          <span class="cf-max">${max}°</span>
-          <span class="cf-min">${min}°</span>
-        </div>`;
-      }).join('');
-      forecastEl.classList.remove('hidden');
-    } catch(e) {}
-  }, () => {}, { timeout: 8000 });
-}
-loadClima();
 </script>
 </body>
 </html>
