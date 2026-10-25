@@ -3,39 +3,56 @@
   "Ámbito",
   "iProfesional",
   "Infobae",
-  "Clarín",
   "Bloomberg Línea"
  ],
  "items": [
   {
-   "title": "AySA antes de ser privada: tarifas más caras para el 60% de los usuarios y la segmentación por barrios que no hizo el kirchnerismo",
-   "link": "https://www.clarin.com/economia/aysa-privada-tarifas-caras-60-usuarios-segmentacion-barrios-hizo-kirchnerismo_0_MvjlYKwhCC.html",
-   "source": "Clarín",
-   "pubDate": "2026-10-25T08:01:49+00:00"
+   "title": "Jeff Bezos anticipa cómo cambiará el trabajo con la IA: una semana laboral de tres días",
+   "link": "https://www.iprofesional.com/economia/467408-jeff-bezos-anticipa-como-cambiara-el-trabajo-con-la-ia-una-semana-laboral-de-tres-dias",
+   "source": "iProfesional",
+   "pubDate": "2026-10-25T13:15:00+00:00"
+  },
+  {
+   "title": "Cuáles son las 3 pickups que lideran las ventas de automotores en octubre, a una semana del cierre del mes",
+   "link": "https://www.infobae.com/economia/2026/10/25/cuales-son-las-3-pickups-que-lideran-las-ventas-de-automotores-en-octubre-a-una-semana-del-cierre-de-octubre/",
+   "source": "Infobae",
+   "pubDate": "2026-10-25T13:03:51+00:00"
   },
   {
    "title": "Banco por banco: cuánto se gana con un plazo fijo por $1 millón a 30 días",
    "link": "https://www.iprofesional.com/finanzas/467037-banco-por-banco-cuanto-se-gana-con-un-plazo-fijo-por-1-millon-a-30-dias",
    "source": "iProfesional",
-   "pubDate": "2026-10-25T06:45:00+00:00"
+   "pubDate": "2026-10-25T11:45:00+00:00"
   },
   {
    "title": "Planes sociales: qué prevé el Presupuesto 2027 para los beneficiarios de Potenciar Trabajo",
    "link": "https://www.iprofesional.com/economia/467189-planes-sociales-que-preve-el-presupuesto-2027-para-los-beneficiarios-de-potenciar-trabajo",
    "source": "iProfesional",
-   "pubDate": "2026-10-25T06:38:00+00:00"
+   "pubDate": "2026-10-25T11:38:00+00:00"
   },
   {
    "title": "Milei se juega su liderazgo regional con una fuerte apuesta por Bolsonaro en Brasil",
    "link": "https://www.iprofesional.com/politica/467283-milei-hace-una-apuesta-a-todo-o-nada-por-bolsonaro-en-brasil",
    "source": "iProfesional",
-   "pubDate": "2026-10-25T06:32:00+00:00"
+   "pubDate": "2026-10-25T11:32:00+00:00"
   },
   {
-   "title": "Los empresarios de IDEA defienden la libertad de prensa y el debate público sin agravios, tras los nuevos ataques de Milei al periodismo",
-   "link": "https://www.clarin.com/politica/empresarios-idea-defienden-libertad-prensa-debate-publico-agravios-nuevos-ataques-milei-periodismo_0_avcqIJc5Tb.html",
-   "source": "Clarín",
-   "pubDate": "2026-10-25T06:12:41+00:00"
+   "title": "¿Cuándo sale GTA 6? Fecha, hora de lanzamiento y cuándo empieza la descarga anticipada",
+   "link": "https://www.bloomberglinea.com/estilo-de-vida/cuando-sale-gta-6-fecha-hora-de-lanzamiento-y-cuando-empieza-la-descarga-anticipada/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-10-25T11:00:01+00:00"
+  },
+  {
+   "title": "Elecciones en Brasil hoy: qué está en juego para la bolsa y el dólar este domingo",
+   "link": "https://www.bloomberglinea.com/mercados/elecciones-en-brasil-hoy-que-esta-en-juego-para-la-bolsa-y-el-dolar-este-domingo/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-10-25T11:00:01+00:00"
+  },
+  {
+   "title": "China y Corea del Sur le están arrebatando el mercado colombiano de vehículos a Brasil y México",
+   "link": "https://www.bloomberglinea.com/latinoamerica/colombia/china-y-corea-del-sur-le-estan-arrebatando-el-mercado-de-vehiculos-colombiano-a-brasil-y-mexico/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-10-25T10:00:00+00:00"
   },
   {
    "title": "Jubilaciones: la Justicia recompuso el centro, pero dejó afuera los extremos",
@@ -80,16 +97,28 @@
    "pubDate": "2026-10-25T04:33:34+00:00"
   },
   {
-   "title": "La “recesión técnica” duró un suspiro, pero viene lo más difícil: reactivar en medio de la incertidumbre electoral",
-   "link": "https://www.infobae.com/economia/2026/10/25/la-recesion-tecnica-duro-un-suspiro-pero-viene-lo-mas-dificil-reactivar-en-medio-de-la-incertidumbre-electoral/",
-   "source": "Infobae",
-   "pubDate": "2026-10-25T04:29:53+00:00"
+   "title": "Mercado, industria y Mercosur: ¿qué pueden cambiar en la Argentina las elecciones en Brasil?",
+   "link": "https://www.ambito.com/economia/mercado-industria-y-mercosur-que-pueden-cambiar-la-argentina-las-elecciones-brasil-n6337533",
+   "source": "Ámbito",
+   "pubDate": "2026-10-25T03:00:00+00:00"
+  },
+  {
+   "title": "Eduardo Crespo, especialista en desarrollo económico: \"El Gobierno va a tener que buscar un reset del programa”",
+   "link": "https://www.ambito.com/economia/eduardo-crespo-especialista-desarrollo-economico-el-gobierno-va-tener-que-buscar-un-reset-del-programa-n6337539",
+   "source": "Ámbito",
+   "pubDate": "2026-10-25T03:00:00+00:00"
   },
   {
    "title": "Milei, confiado de cara a la reelección y consciente de que la inflación baja más lento",
    "link": "https://www.iprofesional.com/politica/467404-milei-confiado-de-cara-a-la-reeleccion-y-consciente-de-que-la-inflacion-baja-mas-lento",
    "source": "iProfesional",
    "pubDate": "2026-10-24T21:44:00+00:00"
+  },
+  {
+   "title": "Cómo usar la IA de Google para ahorrar dinero y tiempo en tus viajes",
+   "link": "https://www.ambito.com/economia/como-usar-la-ia-google-ahorrar-dinero-y-tiempo-tus-viajes-n6336825",
+   "source": "Ámbito",
+   "pubDate": "2026-10-24T20:00:00+00:00"
   },
   {
    "title": "Créditos hipotecarios: Banco Nación otorgó más de 210 préstamos con fondos de ANSES y recibió otros $40.000 millones",
@@ -122,24 +151,6 @@
    "pubDate": "2026-10-24T15:00:00+00:00"
   },
   {
-   "title": "La velada de un banco, secreta y muy exclusiva en el Cabildo",
-   "link": "https://www.clarin.com/economia/velada-banco-secreta-exclusiva-cabildo_0_Y2cWRI7wTj.html",
-   "source": "Clarín",
-   "pubDate": "2026-10-24T14:57:25+00:00"
-  },
-  {
-   "title": "Balotaje en Brasil: ¿Por qué es clave desde Arcor a Despegar y de Mercado Libre a Techint?",
-   "link": "https://www.clarin.com/economia/balotaje-brasil-clave-arcor-despegar-mercado-libre-techint_0_ZtDO4qJ7lH.html",
-   "source": "Clarín",
-   "pubDate": "2026-10-24T14:29:45+00:00"
-  },
-  {
-   "title": "Hasta cuánto podés consumir de electricidad para acceder al subsidio del 75%",
-   "link": "https://www.iprofesional.com/energia/467390-hasta-cuanto-podes-consumir-electricidad-para-acceder-subsidio-75-por-ciento",
-   "source": "iProfesional",
-   "pubDate": "2026-10-24T14:03:00+00:00"
-  },
-  {
    "title": "¿Tenés un crédito hipotecario y querés vender tu casa? Este es el trámite que tenés que hacer",
    "link": "https://www.ambito.com/economia/tenes-un-credito-hipotecario-y-queres-vender-tu-casa-este-es-el-tramite-que-tenes-que-hacer-n6336851",
    "source": "Ámbito",
@@ -150,12 +161,6 @@
    "link": "https://www.bloomberglinea.com/latinoamerica/argentina/lula-critica-la-motosierra-de-milei-y-flavio-defiende-al-argentino-en-el-debate-de-tv-globo/",
    "source": "Bloomberg Línea",
    "pubDate": "2026-10-24T13:59:38+00:00"
-  },
-  {
-   "title": "\"¡A chapotear en el barro!\": la respuesta que recibió un ministro de Economía tras las subas de tasas de EE.UU.",
-   "link": "https://www.clarin.com/economia/chapotear-barro-respuesta-recibio-ministro-economia-subas-tasas-eeuu_0_div5bcjhpW.html",
-   "source": "Clarín",
-   "pubDate": "2026-10-24T13:40:04+00:00"
   },
   {
    "title": "¿Qué riesgos implica invertir en bonos en 2026? Esto muestra la historia reciente",
@@ -180,12 +185,6 @@
    "link": "https://www.bloomberglinea.com/latinoamerica/brasil/por-que-brasil-se-convirtio-en-una-prioridad-global-para-roblox-despues-de-estados-unidos/",
    "source": "Bloomberg Línea",
    "pubDate": "2026-10-24T05:00:00+00:00"
-  },
-  {
-   "title": "Compras hormiga, segundas marcas y el regreso del fiado, los almacenes de barrio se adaptan a la caída de consumo",
-   "link": "https://www.ambito.com/economia/compras-hormiga-segundas-marcas-y-el-regreso-del-fiado-los-almacenes-barrio-se-adaptan-la-caida-consumo-n6337141",
-   "source": "Ámbito",
-   "pubDate": "2026-10-24T03:00:00+00:00"
   }
  ]
 }
