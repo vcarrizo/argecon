@@ -3,9 +3,52 @@
   "Ámbito",
   "iProfesional",
   "Infobae",
+  "Clarín",
   "Bloomberg Línea"
  ],
  "items": [
+  {
+   "title": "Activos brasileños se desploman tras victoria de Lula y anticipan un lunes de pérdidas",
+   "link": "https://www.bloomberglinea.com/mercados/activos-brasilenos-se-desploman-tras-victoria-de-lula-y-anticipan-un-lunes-de-perdidas/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-10-26T00:29:13+00:00"
+  },
+  {
+   "title": "Qué puede pasar con el dólar y la Bolsa tras el triunfo de Lula en Brasil",
+   "link": "https://www.iprofesional.com/finanzas/467426-que-puede-pasar-con-el-dolar-y-la-bolsa-tras-el-triunfo-de-lula-en-brasil",
+   "source": "iProfesional",
+   "pubDate": "2026-10-26T00:20:00+00:00"
+  },
+  {
+   "title": "Dudas en una de las locomotoras de la economía: la incertidumbre electoral es el principal freno a las inversiones del campo",
+   "link": "https://www.infobae.com/economia/2026/10/25/dudas-en-una-de-las-locomotoras-de-la-economia-la-incertidumbre-electoral-es-el-principal-freno-a-las-inversiones-del-campo/",
+   "source": "Infobae",
+   "pubDate": "2026-10-25T23:23:14+00:00"
+  },
+  {
+   "title": "Contrabando: controlarán el origen y por cuál plataforma ingresan los productos al país",
+   "link": "https://www.clarin.com/economia/contrabando-controlaran-origen-plataforma-ingresan-productos-pais_0_4xq50MXmip.html",
+   "source": "Clarín",
+   "pubDate": "2026-10-25T23:06:34+00:00"
+  },
+  {
+   "title": "Presidenta del INE presenta una inédita renuncia al cargo tras acusaciones de corrupción",
+   "link": "https://www.bloomberglinea.com/latinoamerica/mexico/presidenta-del-ine-presenta-una-inedita-renuncia-al-cargo-tras-acusaciones-de-corrupcion/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-10-25T23:04:00+00:00"
+  },
+  {
+   "title": "Balotaje en Brasil 2026: las apuestas dan un 80% de probabilidades de triunfo a Flávio Bolsonaro sobre Lula da Silva",
+   "link": "https://www.ambito.com/economia/balotaje-brasil-2026-las-apuestas-dan-un-80-probabilidades-triunfo-flavio-bolsonaro-lula-da-silva-n6337654",
+   "source": "Ámbito",
+   "pubDate": "2026-10-25T22:45:00+00:00"
+  },
+  {
+   "title": "Lula da Silva es reelegido por cuarta vez presidente de Brasil: vuelve a imponerse a los Bolsonaro",
+   "link": "https://www.bloomberglinea.com/latinoamerica/brasil/resultados-de-las-elecciones-de-segunda-vuelta-en-brasil-asi-avanza-el-escrutinio/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-10-25T22:30:54+00:00"
+  },
   {
    "title": "Cheques, garantías y blockchain, el nuevo mapa financiero que exploran las pyme argentinas",
    "link": "https://www.infobae.com/economia/2026/10/25/cheques-garantias-y-blockchain-el-nuevo-mapa-financiero-que-exploran-las-pyme-argentinas/",
@@ -13,10 +56,22 @@
    "pubDate": "2026-10-25T21:16:46+00:00"
   },
   {
+   "title": "¿Cuánto cuesta ir a ver a Boca en la final de la Copa Sudamericana en Barranquilla?",
+   "link": "https://www.ambito.com/economia/cuanto-cuesta-ir-ver-boca-la-final-la-copa-sudamericana-barranquilla-n6337175",
+   "source": "Ámbito",
+   "pubDate": "2026-10-25T21:00:00+00:00"
+  },
+  {
    "title": "Tribunal electoral de Brasil avaló pedido de Lula para extender votaciones hasta las 19:00",
    "link": "https://www.bloomberglinea.com/latinoamerica/tribunal-electoral-de-brasil-avalo-pedido-de-lula-para-extender-votaciones-hasta-las-1900/",
    "source": "Bloomberg Línea",
    "pubDate": "2026-10-25T20:28:36+00:00"
+  },
+  {
+   "title": "Qué plazo fijo lidera el ranking de inversiones más elegidas por los argentinos",
+   "link": "https://www.ambito.com/economia/que-plazo-fijo-lidera-el-ranking-inversiones-mas-elegidas-los-argentinos-n6337286",
+   "source": "Ámbito",
+   "pubDate": "2026-10-25T20:00:00+00:00"
   },
   {
    "title": "El Banco Central pone a punto una de las herramientas que usará para contener el dólar en 2027",
@@ -73,18 +128,6 @@
    "pubDate": "2026-10-25T17:31:00+00:00"
   },
   {
-   "title": "Los 5 errores más comunes al viajar a Brasil desde Argentina y cómo prevenirlos",
-   "link": "https://www.ambito.com/economia/los-5-errores-mas-comunes-al-viajar-brasil-argentina-y-como-prevenirlos-n6336911",
-   "source": "Ámbito",
-   "pubDate": "2026-10-25T17:00:00+00:00"
-  },
-  {
-   "title": "Balotaje en Brasil 2026: las apuestas dan un 80% de probabilidades de triunfo a Flávio Bolsonaro sobre Lula da Silva",
-   "link": "https://www.ambito.com/economia/balotaje-brasil-2026-las-apuestas-dan-un-80-probabilidades-triunfo-flavio-bolsonaro-lula-da-silva-n6337654",
-   "source": "Ámbito",
-   "pubDate": "2026-10-25T15:57:00+00:00"
-  },
-  {
    "title": "El boom de Vaca Muerta no para: aporta más del 70% del crudo y empuja a la Argentina hacia el millón de barriles diarios",
    "link": "https://www.infobae.com/economia/2026/10/25/el-boom-de-vaca-muerta-no-para-aporta-mas-del-70-del-crudo-y-empuja-a-la-argentina-hacia-el-millon-de-barriles-diarios/",
    "source": "Infobae",
@@ -95,12 +138,6 @@
    "link": "https://www.infobae.com/economia/2026/10/25/ahogo-impositivo-las-pymes-argentinas-tienen-que-pagar-al-menos-34-tributos-distintos-a-nacion-provincias-y-municipios/",
    "source": "Infobae",
    "pubDate": "2026-10-25T14:38:56+00:00"
-  },
-  {
-   "title": "Las exportaciones de los últimos 12 meses superaron los USD 100.000 millones y la Argentina recupera participación en el total mundial",
-   "link": "https://www.infobae.com/economia/2026/10/25/las-exportaciones-de-los-ultimos-12-meses-superaron-los-usd-100000-millones-y-la-argentina-recupera-participacion-en-el-total-mundial/",
-   "source": "Infobae",
-   "pubDate": "2026-10-25T13:52:21+00:00"
   },
   {
    "title": "Jeff Bezos anticipa cómo cambiará el trabajo con la IA: una semana laboral de tres días",
@@ -145,46 +182,10 @@
    "pubDate": "2026-10-25T10:00:00+00:00"
   },
   {
-   "title": "Mercado, industria y Mercosur: ¿qué pueden cambiar en la Argentina las elecciones en Brasil?",
-   "link": "https://www.ambito.com/economia/mercado-industria-y-mercosur-que-pueden-cambiar-la-argentina-las-elecciones-brasil-n6337533",
-   "source": "Ámbito",
-   "pubDate": "2026-10-25T03:00:00+00:00"
-  },
-  {
    "title": "Milei, confiado de cara a la reelección y consciente de que la inflación baja más lento",
    "link": "https://www.iprofesional.com/politica/467404-milei-confiado-de-cara-a-la-reeleccion-y-consciente-de-que-la-inflacion-baja-mas-lento",
    "source": "iProfesional",
    "pubDate": "2026-10-24T21:44:00+00:00"
-  },
-  {
-   "title": "Los CEDEARs que prometen mayor recorrido alcista tras las elecciones en Brasil",
-   "link": "https://www.iprofesional.com/finanzas/467373-que-cedears-prometen-mayor-recorrido-alcista-tras-elecciones-en-brasil",
-   "source": "iProfesional",
-   "pubDate": "2026-10-24T16:11:00+00:00"
-  },
-  {
-   "title": "El mercado ya votó por Bolsonaro y la City palpita un \"efecto contagio\" en Argentina",
-   "link": "https://www.iprofesional.com/politica/467366-en-la-city-esperan-triunfo-de-bolsonaro-y-un-contagio-financiero-en-argentina",
-   "source": "iProfesional",
-   "pubDate": "2026-10-24T16:00:00+00:00"
-  },
-  {
-   "title": "El programa económico que tienen Lula y Bolsonaro y que definirá el futuro de Brasil",
-   "link": "https://www.iprofesional.com/impuestos/467352-elecciones-brasil-programas-economicos-lula-bolsonaro",
-   "source": "iProfesional",
-   "pubDate": "2026-10-24T15:46:00+00:00"
-  },
-  {
-   "title": "Lula critica la “motosierra” de Milei y Flávio defiende al argentino en el debate de TV Globo",
-   "link": "https://www.bloomberglinea.com/latinoamerica/argentina/lula-critica-la-motosierra-de-milei-y-flavio-defiende-al-argentino-en-el-debate-de-tv-globo/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-10-24T13:59:38+00:00"
-  },
-  {
-   "title": "¿Qué riesgos implica invertir en bonos en 2026? Esto muestra la historia reciente",
-   "link": "https://www.bloomberglinea.com/mercados/que-riesgos-implica-invertir-en-bonos-en-2026-esto-muestra-la-historia-reciente/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-10-24T11:00:01+00:00"
   }
  ]
 }
