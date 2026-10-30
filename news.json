@@ -8,28 +8,94 @@
  ],
  "items": [
   {
-   "title": "Daniel González, a días de renunciar a su cargo en el Gobierno: “El RIGI no puede  solucionar todos los problemas de los argentinos”",
-   "link": "https://www.infobae.com/economia/2026/10/30/daniel-gonzalez-a-dias-de-renunciar-a-su-cargo-en-el-gobierno-el-rigi-no-puede-solucionar-todos-los-problemas-de-los-argentinos/",
-   "source": "Infobae",
-   "pubDate": "2026-10-30T01:41:15+00:00"
+   "title": "La bolsa brasileña ya se hundió 18% y analistas ven oportunidades entre los \"escombros\"",
+   "link": "https://www.iprofesional.com/finanzas/467776-mercado-de-brasil-picada-cuando-volveran-a-apostar-los-inversores-por-acciones-y-cedears",
+   "source": "iProfesional",
+   "pubDate": "2026-10-30T10:00:00+00:00"
   },
   {
-   "title": "Binance investiga un hackeo que podría superar los USD 5.000 millones: retiros suspendidos y fuerte caída del precio de bitcoin",
-   "link": "https://www.infobae.com/economia/2026/10/30/binance-investiga-posible-hackeo-de-mas-de-usd-5000-millones-bloqueos-retiros-suspendidos-y-fuerte-caida-del-precio-de-bitcoin/",
+   "title": "América Latina recibe más inversión extranjera, pero caen los anuncios de nuevos proyectos: UNCTAD",
+   "link": "https://www.bloomberglinea.com/economia/america-latina-recibe-mas-inversion-extranjera-pero-caen-los-anuncios-de-nuevos-proyectos-unctad/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-10-30T09:06:42+00:00"
+  },
+  {
+   "title": "ANSES: quiénes cobran hoy, viernes 30 de octubre de 2026",
+   "link": "https://www.infobae.com/economia/2026/10/30/anses-quienes-cobran-hoy-viernes-30-de-octubre-de-2026/",
    "source": "Infobae",
-   "pubDate": "2026-10-30T01:38:12+00:00"
+   "pubDate": "2026-10-30T09:00:01+00:00"
+  },
+  {
+   "title": "El mercado de criptomonedas cayó tras el informe de Binance sobre el hackeo a la plataforma: bitcoin y BNB se deprecian",
+   "link": "https://www.infobae.com/economia/2026/10/30/el-mercado-de-criptomonedas-cayo-tras-el-informe-de-binance-sobre-el-hackeo-a-la-plataforma-el-bitcoin-y-bnb-se-deprecian/",
+   "source": "Infobae",
+   "pubDate": "2026-10-30T08:54:30+00:00"
+  },
+  {
+   "title": "En qué invertir en Argentina tras las elecciones de Brasil",
+   "link": "https://www.bloomberglinea.com/latinoamerica/argentina/en-que-invertir-en-argentina-tras-las-elecciones-de-brasil/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-10-30T08:25:00+00:00"
+  },
+  {
+   "title": "Provincias argentinas sostienen el superávit, pero menores ingresos ajustan margen fiscal",
+   "link": "https://www.bloomberglinea.com/latinoamerica/argentina/provincias-argentinas-sostienen-el-superavit-pero-menores-ingresos-ajustan-margen-fiscal/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-10-30T08:15:00+00:00"
+  },
+  {
+   "title": "El Gobierno volvió a postergar la suba de impuestos a los combustibles: qué pasará con la nafta y el gasoil",
+   "link": "https://www.clarin.com/economia/gobierno-volvio-postergar-suba-impuestos-combustibles-pasara-nafta-gasoil_0_KIBdnL7tLr.html",
+   "source": "Clarín",
+   "pubDate": "2026-10-30T07:37:35+00:00"
+  },
+  {
+   "title": "El hackeo a Binance, valuado en más de USD 6.000 millones, quedó entre los mayores robos de criptomonedas de la historia",
+   "link": "https://www.infobae.com/economia/2026/10/30/el-hackeo-a-binance-valuado-en-mas-de-usd-6000-millones-quedo-entre-los-mayores-robos-de-criptomonedas-de-la-historia/",
+   "source": "Infobae",
+   "pubDate": "2026-10-30T07:34:56+00:00"
+  },
+  {
+   "title": "Qué se sabe sobre el hackeo a Binance y cuándo se habilitaría el retiro de fondos",
+   "link": "https://www.infobae.com/economia/2026/10/30/que-se-sabe-sobre-el-hackeo-a-binance-y-cuando-se-habilitaria-el-retiro-de-fondos/",
+   "source": "Infobae",
+   "pubDate": "2026-10-30T07:33:03+00:00"
+  },
+  {
+   "title": "Aumentos de luz y gas: oficializaron las subas de las tarifas para el mes de noviembre",
+   "link": "https://www.infobae.com/economia/2026/10/30/aumentos-de-luz-y-gas-oficializaron-las-subas-de-las-tarifas-para-el-mes-de-noviembre/",
+   "source": "Infobae",
+   "pubDate": "2026-10-30T06:06:25+00:00"
+  },
+  {
+   "title": "El Banco Central celebró que el dólar subió solo 1% pese al shock de Brasil y volvió a negar atraso cambiario",
+   "link": "https://www.infobae.com/economia/2026/10/30/el-banco-central-celebro-que-el-dolar-subio-solo-1-pese-al-shock-de-brasil-y-volvio-a-negar-atraso-cambiario/",
+   "source": "Infobae",
+   "pubDate": "2026-10-30T05:37:02+00:00"
+  },
+  {
+   "title": "Tres países concentraron el 87% de la inversión extranjera en el Caribe en 2025",
+   "link": "https://www.bloomberglinea.com/economia/tres-paises-concentraron-el-87-de-la-inversion-extranjera-en-el-caribe-en-2025/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-10-30T05:00:00+00:00"
+  },
+  {
+   "title": "Radiografía de Galperin, el argentino más rico: radicalización tuitera, apoyo a Milei y su rol como tecno magnate latino",
+   "link": "https://www.infobae.com/economia/2026/10/23/radiografia-de-galperin-el-argentino-mas-rico-radicalizacion-tuitera-apoyo-a-milei-y-su-rol-como-tecno-magnate-latino/",
+   "source": "Infobae",
+   "pubDate": "2026-10-30T04:47:59+00:00"
+  },
+  {
+   "title": "Cuántas onzas hay, dónde están y la estrategia “zero cost collar”: 20 frases de Santiago Bausili sobre el polémico oro del BCRA",
+   "link": "https://www.infobae.com/economia/2026/10/30/cuantas-onzas-hay-donde-estan-y-la-estrategia-zero-cost-collar-20-frases-de-santiago-bausili-sobre-el-polemico-oro-del-bcra/",
+   "source": "Infobae",
+   "pubDate": "2026-10-30T04:47:48+00:00"
   },
   {
    "title": "México amplía hasta marzo de 2027 convocatoria de centrales y baterías eléctricas un día antes del cierre",
    "link": "https://www.bloomberglinea.com/latinoamerica/mexico/mexico-amplia-hasta-marzo-de-2027-convocatoria-de-centrales-y-baterias-electricas-un-dia-antes-del-cierre/",
    "source": "Bloomberg Línea",
    "pubDate": "2026-10-30T00:25:46+00:00"
-  },
-  {
-   "title": "Ronda RIGI: la UIA pidió trabajar para que toda la cadena de valor sea competitiva",
-   "link": "https://www.infobae.com/economia/2026/10/29/ronda-rigi-la-uia-advirtio-que-las-grandes-inversiones-no-alcanzan-y-pidio-fortalecer-a-los-proveedores-locales/",
-   "source": "Infobae",
-   "pubDate": "2026-10-30T00:15:46+00:00"
   },
   {
    "title": "El Gobierno aumentará los subsidios a los colectivos para evitar que suba el boleto",
@@ -44,18 +110,6 @@
    "pubDate": "2026-10-29T23:46:19+00:00"
   },
   {
-   "title": "Colectivos: el Gobierno le va a dar más subsidios a las empresas para no aumentar el boleto a nivel nacional",
-   "link": "https://www.infobae.com/economia/2026/10/29/colectivos-el-gobierno-le-va-a-dar-mas-subsidios-a-las-empresas-para-no-aumentar-el-boleto-a-nivel-nacional/",
-   "source": "Infobae",
-   "pubDate": "2026-10-29T23:39:33+00:00"
-  },
-  {
-   "title": "Leve alivio para el bolsillo de los argentinos: bajó la mora de las familias mientras crece la refinanciación",
-   "link": "https://www.infobae.com/economia/2026/10/29/leve-alivio-para-el-bolsillo-de-los-argentinos-bajo-la-mora-de-las-familias-mientras-crece-la-refinanciacion/",
-   "source": "Infobae",
-   "pubDate": "2026-10-29T23:33:53+00:00"
-  },
-  {
    "title": "Dólares del colchón: ARCA postergó por sexta vez la presentación de la DD.JJ. de Ganancias",
    "link": "https://www.ambito.com/economia/dolares-del-colchon-arca-postergo-sexta-vez-la-presentacion-la-ddjj-ganancias-n6339476",
    "source": "Ámbito",
@@ -68,12 +122,6 @@
    "pubDate": "2026-10-29T23:06:00+00:00"
   },
   {
-   "title": "Jornada financiera: subieron los bonos argentinos y cayó el riesgo país, pero las acciones cedieron por cuarto día seguido",
-   "link": "https://www.infobae.com/economia/2026/10/29/jornada-financiera-subieron-los-bonos-argentinos-y-cayo-el-riesgo-pais-pero-las-acciones-cedieron-por-cuarto-dia-seguido/",
-   "source": "Infobae",
-   "pubDate": "2026-10-29T22:51:39+00:00"
-  },
-  {
    "title": "ARCA controla las transferencias en noviembre: desde qué monto y qué pasa si lo superás",
    "link": "https://www.iprofesional.com/economia/467865-arca-vigila-transferencias-noviembre-2026-a-partir-de-que-monto",
    "source": "iProfesional",
@@ -84,12 +132,6 @@
    "link": "https://www.bloomberglinea.com/latinoamerica/colombia/esta-es-la-reforma-tributaria-con-la-que-el-gobierno-de-la-espriella-busca-recortar-gastos-y-reorganizar-el-estado/",
    "source": "Bloomberg Línea",
    "pubDate": "2026-10-29T22:21:13+00:00"
-  },
-  {
-   "title": "El presidente del BCRA explicó como podría usar los swap con China y EEUU en 2027 y volvió a hablar del oro: “No tenemos nada en Inglaterra”",
-   "link": "https://www.infobae.com/economia/2026/10/29/el-presidente-del-bcra-explico-como-podria-usar-los-swap-con-china-y-eeuu-y-volvio-a-hablar-del-oro-no-tenemos-nada-en-inglaterra/",
-   "source": "Infobae",
-   "pubDate": "2026-10-29T22:04:05+00:00"
   },
   {
    "title": "Bausili dijo que no tiene una \"proyección de corrida\" para 2027 y habló del oro del BCRA",
@@ -122,18 +164,6 @@
    "pubDate": "2026-10-29T21:02:00+00:00"
   },
   {
-   "title": "El dólar bajó en el mercado local, mientras que en Brasil volvió a subir frente al real",
-   "link": "https://www.infobae.com/economia/2026/10/29/el-dolar-bajo-en-el-mercado-local-mientras-que-en-brasil-volvio-a-subir-frente-al-real/",
-   "source": "Infobae",
-   "pubDate": "2026-10-29T20:48:33+00:00"
-  },
-  {
-   "title": "Acciones de Ambev caen tras resultados: ¿comprar, vender o mantener? Esto dice Wall Street",
-   "link": "https://www.bloomberglinea.com/mercados/acciones-de-ambev-caen-tras-resultados-comprar-vender-o-mantener-esto-dice-wall-street/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-10-29T20:44:25+00:00"
-  },
-  {
    "title": "Cómo invertir desde $25.000 en Mercado Pago para apostar a su crecimiento en el país",
    "link": "https://www.iprofesional.com/economia/467855-como-invertir-desde-25000-en-mercado-pago-para-apostar-a-su-crecimiento-en-el-pais",
    "source": "iProfesional",
@@ -146,46 +176,16 @@
    "pubDate": "2026-10-29T20:42:00+00:00"
   },
   {
-   "title": "La MacBook Pro con pantalla táctil llega a México, Chile y Brasil el 6 de noviembre: esto cuesta en cada país",
-   "link": "https://www.bloomberglinea.com/estilo-de-vida/la-macbook-pro-con-pantalla-tactil-llega-a-mexico-chile-y-brasil-el-6-de-noviembre-esto-cuesta-en-cada-pais/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-10-29T20:41:51+00:00"
-  },
-  {
-   "title": "Alphabet registra su mayor caída en bolsa, mientras Microsoft limita sus pérdidas: 5 claves sobre la IA",
-   "link": "https://www.bloomberglinea.com/mercados/alphabet-se-desploma-y-microsoft-avanza-5-claves-del-impacto-desigual-de-la-ia-en-wall-street/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-10-29T20:40:21+00:00"
-  },
-  {
-   "title": "Qué cambiará para los usuarios cuando Mercado Pago se convierta en banco",
-   "link": "https://www.iprofesional.com/finanzas/467849-que-cambiara-para-los-usuarios-si-mercado-pago-se-convierte-en-banco",
-   "source": "iProfesional",
-   "pubDate": "2026-10-29T20:22:00+00:00"
-  },
-  {
    "title": "La economía de EEUU creció a su ritmo más rápido en un año de la mano del consumo interno y la inversión en IA",
    "link": "https://www.ambito.com/economia/la-eeuu-crecio-su-ritmo-mas-rapido-un-ano-la-mano-del-consumo-interno-y-la-inversion-ia-n6339413",
    "source": "Ámbito",
    "pubDate": "2026-10-29T20:19:00+00:00"
   },
   {
-   "title": "Wall Street cierra en rojo por el desplome de Alphabet y dudas sobre las inversiones en IA",
-   "link": "https://www.bloomberglinea.com/mercados/el-sp-500-y-el-nasdaq-caen-con-el-desplome-de-alphabet-tras-nuevas-dudas-sobre-la-ia/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-10-29T20:04:30+00:00"
-  },
-  {
    "title": "Plazo fijo UVA en 2026: por qué es la inversión más rentable del año en Argentina",
    "link": "https://www.ambito.com/economia/plazo-fijo-uva-2026-que-es-la-inversion-mas-rentable-del-ano-argentina-n6338937",
    "source": "Ámbito",
    "pubDate": "2026-10-29T20:00:00+00:00"
-  },
-  {
-   "title": "Sin aumentos del boleto de colectivos: desde el domingo el Gobierno dará más subsidios para evitar nuevos incrementos",
-   "link": "https://www.clarin.com/economia/gobierno-negocia-aumento-subsidios-colectivos-contener-precio-boleto_0_JiN0U5jRD3.html",
-   "source": "Clarín",
-   "pubDate": "2026-10-29T19:59:37+00:00"
   }
  ]
 }
