@@ -8,16 +8,142 @@
  ],
  "items": [
   {
+   "title": "María Fernanda Suárez asume como presidente de Banco de Bogotá tras renuncia de Echeverry",
+   "link": "https://www.bloomberglinea.com/latinoamerica/colombia/maria-fernanda-suarez-asume-como-presidente-de-banco-de-bogota-tras-renuncia-de-echeverry/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-10-31T00:00:16+00:00"
+  },
+  {
+   "title": "Paritarias en concesionarias: Smata acordó un aumento trimestral del 5,06%",
+   "link": "https://www.ambito.com/economia/paritarias-concesionarias-smata-acordo-un-aumento-trimestral-del-506-n6339986",
+   "source": "Ámbito",
+   "pubDate": "2026-10-31T00:00:00+00:00"
+  },
+  {
+   "title": "Grupo financiero de Costantini recalibra su estrategia con bonos y rota cartera",
+   "link": "https://www.iprofesional.com/finanzas/466961-grupo-financiero-de-costantini-recalibra-su-estrategia-con-bonos-y-rota-cartera",
+   "source": "iProfesional",
+   "pubDate": "2026-10-30T23:37:00+00:00"
+  },
+  {
+   "title": "Cinco acciones argentinas con mayor potencial de suba en el último bimestre, según Allaria",
+   "link": "https://www.iprofesional.com/finanzas/467563-5-acciones-argentinas-con-mayor-potencial-de-suba-en-el-ultimo-bimestre",
+   "source": "iProfesional",
+   "pubDate": "2026-10-30T23:34:00+00:00"
+  },
+  {
+   "title": "Acción de plataforma brasileña de inversiones XP se hundió 52% y JP Morgan dice qué hacer",
+   "link": "https://www.iprofesional.com/finanzas/467881-que-hacer-con-las-acciones-de-la-empresa-brasilena-que-se-derrumbo",
+   "source": "iProfesional",
+   "pubDate": "2026-10-30T23:28:00+00:00"
+  },
+  {
+   "title": "YPF pidió un RIGI para el norte de Vaca Muerta: invertirá USD 8.700 millones y prevé exportar USD 25.000 millones entre 2027 y 2055",
+   "link": "https://www.infobae.com/economia/2026/10/30/ypf-pidio-un-rigi-para-el-norte-de-vaca-muerta-invertira-usd-8700-millones-y-preve-exportar-usd-25000-millones-entre-2027-y-2055/",
+   "source": "Infobae",
+   "pubDate": "2026-10-30T23:18:58+00:00"
+  },
+  {
+   "title": "La compra de dólar ahorro se mantuvo casi estable en septiembre, cerca de los u$s3.000 millones",
+   "link": "https://www.ambito.com/economia/la-compra-dolar-ahorro-se-mantuvo-casi-estable-septiembre-cerca-los-us3000-millones-n6339969",
+   "source": "Ámbito",
+   "pubDate": "2026-10-30T22:52:00+00:00"
+  },
+  {
+   "title": "Los argentinos compraron casi USD 2.900 millones cash y el acumulado desde la salida del cepo superó los USD 50.000 millones",
+   "link": "https://www.infobae.com/economia/2026/10/30/los-argentinos-compraron-casi-usd-2900-millones-cash-y-el-acumulado-desde-la-salida-del-cepo-supero-los-usd-50000-millones/",
+   "source": "Infobae",
+   "pubDate": "2026-10-30T22:50:17+00:00"
+  },
+  {
+   "title": "Coparticipación: los envíos a las provincias repuntaron levemente en octubre, impulsados por Ganancias",
+   "link": "https://www.ambito.com/economia/coparticipacion-los-envios-las-provincias-repuntaron-levemente-octubre-impulsados-ganancias-n6339976",
+   "source": "Ámbito",
+   "pubDate": "2026-10-30T22:50:00+00:00"
+  },
+  {
+   "title": "Macro Private Bank es la nueva propuesta de banca privada para clientes premium de alto patrimonio",
+   "link": "https://www.infobae.com/economia/2026/10/29/macro-private-bank-es-la-nueva-propuesta-de-banca-privada-para-clientes-premium-de-alto-patrimonio/",
+   "source": "Infobae",
+   "pubDate": "2026-10-30T22:28:10+00:00"
+  },
+  {
+   "title": "El riesgo país subió 5,5% y volvió a ubicarse en la zona de los 800 puntos después de un año",
+   "link": "https://www.infobae.com/economia/2026/10/30/el-riesgo-pais-subio-55-y-volvio-a-ubicarse-en-la-zona-de-los-800-puntos-despues-de-un-ano/",
+   "source": "Infobae",
+   "pubDate": "2026-10-30T22:08:20+00:00"
+  },
+  {
+   "title": "YPF presentó un RIGI de u$s8.729 millones para un bloque de crudo y gas en Vaca Muerta",
+   "link": "https://www.iprofesional.com/energia/467972-ypf-presenta-un-nuevo-rigi-para-vaca-muerta-por-us8729-millones",
+   "source": "iProfesional",
+   "pubDate": "2026-10-30T22:00:00+00:00"
+  },
+  {
+   "title": "Checo Pérez llega al Gran Premio de México con una fortuna estimada en US$50 millones: cuánto gana en Cadillac",
+   "link": "https://www.bloomberglinea.com/linea-deportiva/checo-perez-llega-al-gran-premio-de-mexico-con-una-fortuna-estimada-en-us50-millones-cuanto-gana-en-cadillac/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-10-30T21:57:54+00:00"
+  },
+  {
+   "title": "Allaria advierte cuáles son las 3 acciones líderes que tienen menos margen para subir",
+   "link": "https://www.iprofesional.com/finanzas/467452-allaria-marca-3-acciones-lideres-que-tienen-menos-margen-para-subir",
+   "source": "iProfesional",
+   "pubDate": "2026-10-30T21:55:00+00:00"
+  },
+  {
+   "title": "¿Por qué el oro acumula una caída cercana al 30%?",
+   "link": "https://www.bloomberglinea.com/mercados/por-que-el-oro-acumula-una-caida-cercana-al-30/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-10-30T21:48:53+00:00"
+  },
+  {
+   "title": "Acciones cayeron hasta 29% y para noviembre lideran las preferencias YPF y Pampa Energía",
+   "link": "https://www.iprofesional.com/finanzas/467962-que-acciones-y-bonos-recomienda-la-city-para-noviembre-tras-desplome",
+   "source": "iProfesional",
+   "pubDate": "2026-10-30T21:46:00+00:00"
+  },
+  {
+   "title": "La demanda de dólares se mantuvo firme también en septiembre: los argentinos compraron US$ 3.410 millones",
+   "link": "https://www.clarin.com/economia/demanda-dolares-mantuvo-firme-septiembre-argentinos-compraron-us-3410-millones_0_GgrkOBaeyW.html",
+   "source": "Clarín",
+   "pubDate": "2026-10-30T21:36:26+00:00"
+  },
+  {
+   "title": "En plena \"batalla\" fintech, Cocos vende dólares más baratos para captar más clientes",
+   "link": "https://www.iprofesional.com/finanzas/467845-en-plena-batalla-fintech-cocos-vende-dolares-mas-baratos-para-captar-mas-clientes",
+   "source": "iProfesional",
+   "pubDate": "2026-10-30T21:31:00+00:00"
+  },
+  {
+   "title": "Las acciones tecnológicas volvieron a caer en Wall Street y arrastraron a la baja a los activos de la Argentina",
+   "link": "https://www.infobae.com/economia/2026/10/30/las-acciones-tecnologicas-vuelven-a-caer-en-wall-street-y-arrastran-a-la-baja-a-los-activos-de-la-argentina/",
+   "source": "Infobae",
+   "pubDate": "2026-10-30T21:22:54+00:00"
+  },
+  {
+   "title": "La demanda de dólar ahorro sigue elevada y las compras llegaron a los u$s2.500 millones",
+   "link": "https://www.iprofesional.com/finanzas/467963-ahorristas-le-arrebataron-al-bcra-casi-2500-millones-de-dolares",
+   "source": "iProfesional",
+   "pubDate": "2026-10-30T21:20:00+00:00"
+  },
+  {
+   "title": "Binance prometió un “informe post mortem” del hackeo y dijo cuáles son sus 4 prioridades urgentes tras el robo de USD 6.300 millones",
+   "link": "https://www.infobae.com/economia/2026/10/30/binance-prometio-un-informe-post-mortem-del-hackeo-y-dijo-cuales-son-sus-4-prioridades-urgentes-tras-el-robo-de-usd-6300-millones/",
+   "source": "Infobae",
+   "pubDate": "2026-10-30T21:07:13+00:00"
+  },
+  {
    "title": "El riesgo país argentino subió a 790 puntos, un nuevo máximo en lo que va del año",
    "link": "https://www.infobae.com/economia/2026/10/30/el-riesgo-pais-argentino-subio-a-777-puntos-un-nuevo-maximo-en-lo-que-va-del-ano/",
    "source": "Infobae",
    "pubDate": "2026-10-30T20:54:49+00:00"
   },
   {
-   "title": "Las acciones tecnológicas volvieron a caer en Wall Street y arrastraron a la baja a los activos de la Argentina",
-   "link": "https://www.infobae.com/economia/2026/10/30/las-acciones-tecnologicas-vuelven-a-caer-en-wall-street-y-arrastran-a-la-baja-a-los-activos-de-la-argentina/",
-   "source": "Infobae",
-   "pubDate": "2026-10-30T20:50:44+00:00"
+   "title": "\"No hay tiempo que perder\":  la industria del bioetanol marca la cancha y pide una ley de Biocombustible propia si no hay acuerdo por el biodiésel",
+   "link": "https://www.clarin.com/rural/tiempo-perder-industria-bioetanol-marca-cancha-pide-ley-biocombustible-propia-acuerdo-biodiesel_0_gNfo8jE9tB.html",
+   "source": "Clarín",
+   "pubDate": "2026-10-30T20:35:56+00:00"
   },
   {
    "title": "Hacienda descarta volver a utilizar P-Caps para apoyar finanzas de Pemex",
@@ -32,21 +158,15 @@
    "pubDate": "2026-10-30T20:30:05+00:00"
   },
   {
-   "title": "Cedió el dólar y las reservas cayeron casi u$s1.600 millones, pese a compras del BCRA",
-   "link": "https://www.iprofesional.com/economia/467957-cedio-el-dolar-y-las-reservas-cayeron-casi-us1-600-millones-pese-a-compras-del-bcra",
-   "source": "iProfesional",
-   "pubDate": "2026-10-30T20:22:00+00:00"
-  },
-  {
    "title": "Nasdaq 100 roza la corrección tras desplome de Intel, hackeo a Binance golpea al bitcoin y el oro se hunde",
    "link": "https://www.bloomberglinea.com/mercados/sp-500-cae-arrastrado-por-intel-y-amazon-mientras-el-bitcoin-retrocede-tras-hackeo-a-binance/",
    "source": "Bloomberg Línea",
    "pubDate": "2026-10-30T20:05:50+00:00"
   },
   {
-   "title": "Los factores que hacen subir el riesgo país y hasta qué nivel puede trepar, según la City",
-   "link": "https://www.iprofesional.com/finanzas/467950-los-factores-detras-del-salto-del-riesgo-pais-y-hasta-donde-puede-escalar",
-   "source": "iProfesional",
+   "title": "Cuánto cuesta la pelota del Superclásico Boca vs. River y dónde comprar la Argentum Gambeta Derbi",
+   "link": "https://www.ambito.com/economia/cuanto-cuesta-la-pelota-del-superclasico-boca-vs-river-y-donde-comprar-la-argentum-gambeta-derbi-n6339225",
+   "source": "Ámbito",
    "pubDate": "2026-10-30T20:00:00+00:00"
   },
   {
@@ -62,130 +182,10 @@
    "pubDate": "2026-10-30T19:35:19+00:00"
   },
   {
-   "title": "En medio de un desplome global de los mercados, el riesgo país vuelve a trepar y quedó cerca de los 800 puntos",
+   "title": "En medio de un desplome global de los mercados, el riesgo país volvió a trepar y quedó cerca de los 800 puntos",
    "link": "https://www.clarin.com/economia/medio-desplome-global-mercados-riesgo-pais-vuelve-trepar-quedo-cerca-800-puntos_0_XAw13IUT0Y.html",
    "source": "Clarín",
    "pubDate": "2026-10-30T19:07:03+00:00"
-  },
-  {
-   "title": "Japón desembarca en San Juan con camiones gigantes para una mina millonaria",
-   "link": "https://www.iprofesional.com/economia/467942-japon-desembarca-en-san-juan-con-camiones-gigantes-para-mina-millonaria",
-   "source": "iProfesional",
-   "pubDate": "2026-10-30T19:05:00+00:00"
-  },
-  {
-   "title": "Cerró  fábrica de maquinaria agrícola Plantium y dejó sin trabajo a más de 100 personas",
-   "link": "https://www.iprofesional.com/negocios/467945-cerro-fabrica-de-maquinaria-agricola-plantium-y-dejo-sin-trabajo-a-mas-de-100-personas",
-   "source": "iProfesional",
-   "pubDate": "2026-10-30T19:01:00+00:00"
-  },
-  {
-   "title": "Presión sobre bonos argentinos, riesgo país y dólar, lo que viene tras medida de la Fed",
-   "link": "https://www.iprofesional.com/finanzas/467747-presion-sobre-bonos-riesgo-pais-y-dolar-lo-que-viene-tras-medida-de-la-fed",
-   "source": "iProfesional",
-   "pubDate": "2026-10-30T18:40:00+00:00"
-  },
-  {
-   "title": "El robo de USD 6.000 millones a Binance sacude el mundo de las criptomonedas y atrae la atención del FBI",
-   "link": "https://www.infobae.com/america/mundo/2026/10/30/el-robo-de-usd-6000-millones-a-binance-sacude-el-mundo-de-las-criptomonedas-y-atrae-la-atencion-del-fbi/",
-   "source": "Infobae",
-   "pubDate": "2026-10-30T18:39:32+00:00"
-  },
-  {
-   "title": "Banco central colombiano no sorprendió al mercado: mantuvo tasas en 12,25%",
-   "link": "https://www.bloomberglinea.com/latinoamerica/colombia/banco-central-colombiano-no-sorprendio-al-mercado-mantuvo-tasas-en-1225/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-10-30T18:24:27+00:00"
-  },
-  {
-   "title": "Cyber Monday: casi 800 marcas participarán y el mercado pone a prueba el consumo",
-   "link": "https://www.bloomberglinea.com/latinoamerica/argentina/cyber-monday-casi-800-marcas-participaran-y-el-mercado-pone-a-prueba-el-consumo/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-10-30T18:09:23+00:00"
-  },
-  {
-   "title": "Binance en la Argentina: qué impacto local ven los expertos y qué recomiendan a los usuarios de la plataforma hackeada",
-   "link": "https://www.infobae.com/economia/2026/10/30/binance-en-la-argentina-que-impacto-local-ven-los-expertos-y-que-recomiendan-a-los-usuarios-de-la-plataforma-hackeada/",
-   "source": "Infobae",
-   "pubDate": "2026-10-30T18:05:50+00:00"
-  },
-  {
-   "title": "Luis María Urriza fue elegido como nuevo presidente de Maizar",
-   "link": "https://www.clarin.com/rural/luis-maria-urriza-elegido-nuevo-presidente-maizar_0_7Yy7IWyTGR.html",
-   "source": "Clarín",
-   "pubDate": "2026-10-30T17:54:27+00:00"
-  },
-  {
-   "title": "Por qué se derrumban las acciones tecnológicas de Wall Street y sacuden a los mercados del mundo",
-   "link": "https://www.infobae.com/economia/2026/10/30/por-que-se-derrumban-las-acciones-tecnologicas-de-wall-street-y-sacuden-a-los-mercados-del-mundo/",
-   "source": "Infobae",
-   "pubDate": "2026-10-30T17:43:28+00:00"
-  },
-  {
-   "title": "Una provincia anunció que destinará el 100 % del Impuesto Inmobiliario Rural a infraestructura para el campo",
-   "link": "https://www.clarin.com/rural/provincia-anuncio-destinara-100-impuesto-inmobiliario-rural-infraestructura-campo_0_boLEMNSdzG.html",
-   "source": "Clarín",
-   "pubDate": "2026-10-30T17:42:34+00:00"
-  },
-  {
-   "title": "BCRA asegura que ya no hay freno monetario para la economía, pero la reactivación no llega",
-   "link": "https://www.iprofesional.com/economia/467939-banco-central-elimina-freno-monetario-cuando-se-notara-economia-octubre-2026",
-   "source": "iProfesional",
-   "pubDate": "2026-10-30T17:40:00+00:00"
-  },
-  {
-   "title": "Las nuevas jubilaciones cayeron 43% en 2026 con el fin de la moratoria",
-   "link": "https://www.iprofesional.com/economia/467921-las-nuevas-jubilaciones-cayeron-43-por-ciento-en-2026-con-el-fin-de-la-moratoria",
-   "source": "iProfesional",
-   "pubDate": "2026-10-30T17:28:00+00:00"
-  },
-  {
-   "title": "Qué provincias tienen las cuentas más sólidas y cuáles enfrentan dificultades fiscales",
-   "link": "https://www.iprofesional.com/economia/467928-que-provincias-tienen-las-cuentas-mas-solidas-y-cuales-enfrentan-dificultades-fiscales",
-   "source": "iProfesional",
-   "pubDate": "2026-10-30T17:28:00+00:00"
-  },
-  {
-   "title": "El triunfo de Lula puede mejorar el acceso de los productos argentinos al mercado de EEUU, según la Bolsa de Cereales",
-   "link": "https://www.infobae.com/economia/2026/10/30/el-triunfo-de-lula-puede-mejorar-el-acceso-de-los-productos-argentinos-al-mercado-de-eeuu-segun-la-bolsa-de-cereales/",
-   "source": "Infobae",
-   "pubDate": "2026-10-30T17:21:00+00:00"
-  },
-  {
-   "title": "Salarios en Vaca Muerta: cuánto cobran los petroleros y otros trabajadores de Neuquén",
-   "link": "https://www.infobae.com/economia/2026/10/30/salarios-en-vaca-muerta-cuanto-cobran-los-petroleros-y-otros-trabajadores-de-neuquen/",
-   "source": "Infobae",
-   "pubDate": "2026-10-30T17:18:49+00:00"
-  },
-  {
-   "title": "Santa Fe celebra el éxito de las primeras Rondas RIGI: 2.500 proveedores, 4.500 personas y 3.300 reuniones de negocios",
-   "link": "https://www.ambito.com/economia/santa-fe-celebra-el-exito-las-primeras-rondas-rigi-2500-proveedores-4500-personas-y-3300-reuniones-negocios-n6339818",
-   "source": "Ámbito",
-   "pubDate": "2026-10-30T16:48:38+00:00"
-  },
-  {
-   "title": "La city se prepara para las elecciones en EEUU y evalúa qué impacto tendrán en el frente financiero argentino",
-   "link": "https://www.ambito.com/economia/la-city-se-prepara-las-elecciones-eeuu-y-evalua-que-impacto-tendran-el-frente-financiero-argentino-n6339680",
-   "source": "Ámbito",
-   "pubDate": "2026-10-30T16:15:00+00:00"
-  },
-  {
-   "title": "Francia alerta de que su economía está \"paralizada\" y podría \"estrellarse\" si no ordena las cuentas públicas",
-   "link": "https://www.ambito.com/economia/francia-alerta-que-su-esta-paralizada-y-podria-estrellarse-si-no-ordena-las-cuentas-publicas-n6339782",
-   "source": "Ámbito",
-   "pubDate": "2026-10-30T16:02:55+00:00"
-  },
-  {
-   "title": "El gigante tecnológico Intel tuvo su caída de acciones más grande en 45 años y arrastra a todo Wall Street",
-   "link": "https://www.clarin.com/economia/gigante-tecnologico-intel-caida-acciones-grande-45-anos-arrastra-wall-street_0_iigyGCAURV.html",
-   "source": "Clarín",
-   "pubDate": "2026-10-30T15:41:18+00:00"
-  },
-  {
-   "title": "Plazo fijo: cuánto ganás si depositás $1.500.000 a 30 días",
-   "link": "https://www.ambito.com/economia/plazo-fijo-cuanto-ganas-si-depositas-1500000-30-dias-n6339025",
-   "source": "Ámbito",
-   "pubDate": "2026-10-30T15:00:00+00:00"
   }
  ]
 }
