@@ -3,27 +3,74 @@
   "Ámbito",
   "iProfesional",
   "Infobae",
-  "Clarín",
   "Bloomberg Línea"
  ],
  "items": [
+  {
+   "title": "Desde que asumió el gobierno de Javier Milei, más de 23.400 personas dejaron de trabajar para empresas del Estado",
+   "link": "https://www.infobae.com/economia/2026/10/31/desde-que-asumio-el-gobierno-de-javier-milei-mas-de-23400-personas-dejaron-de-trabajar-para-empresas-del-estado/",
+   "source": "Infobae",
+   "pubDate": "2026-10-31T12:49:54+00:00"
+  },
+  {
+   "title": "AUH de ANSES: qué familias pueden sumar $60.203 extra en noviembre",
+   "link": "https://www.iprofesional.com/economia/467658-auh-de-anses-que-familias-pueden-sumar-60-203-extra-en-noviembre",
+   "source": "iProfesional",
+   "pubDate": "2026-10-31T11:18:00+00:00"
+  },
+  {
+   "title": "AUH de ANSES: qué deben hacer las familias en noviembre para cobrar el 20% retenido",
+   "link": "https://www.iprofesional.com/economia/467659-auh-de-anses-que-deben-hacer-las-familias-en-noviembre-para-cobrar-el-20-por-ciento-retenido",
+   "source": "iProfesional",
+   "pubDate": "2026-10-31T11:13:00+00:00"
+  },
+  {
+   "title": "Crédito hipotecario UVA: qué pasa si dejás de pagar una cuota",
+   "link": "https://www.iprofesional.com/economia/467601-credito-hipotecario-uva-que-pasa-si-dejas-de-pagar-una-cuota",
+   "source": "iProfesional",
+   "pubDate": "2026-10-31T11:10:00+00:00"
+  },
+  {
+   "title": "Pensión para madres de 7 hijos y AUH: qué dice ANSES y qué resolvió la Justicia",
+   "link": "https://www.iprofesional.com/economia/467736-pension-para-madres-de-7-hijos-y-auh-que-dice-anses-y-que-resolvio-la-justicia",
+   "source": "iProfesional",
+   "pubDate": "2026-10-31T11:08:00+00:00"
+  },
+  {
+   "title": "Lluvia de dólares crece con el comercio exterior pero no alcanza para bajar riesgo país",
+   "link": "https://www.iprofesional.com/economia/466973-lluvia-de-dolares-no-alcanza-para-bajar-riesgo-pais",
+   "source": "iProfesional",
+   "pubDate": "2026-10-31T11:01:00+00:00"
+  },
+  {
+   "title": "Los 10 dulces más populares de Halloween 2026: el dulce negocio de US$4.100 millones",
+   "link": "https://www.bloomberglinea.com/estilo-de-vida/los-10-dulces-mas-populares-de-halloween-2026-el-dulce-negocio-de-us4100-millones/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-10-31T11:00:00+00:00"
+  },
+  {
+   "title": "Por qué la caída del real brasileño frente al dólar no va a castigar al mercado argentino",
+   "link": "https://www.iprofesional.com/finanzas/467941-por-que-caida-del-real-brasileno-frente-al-dolar-no-condenara-a-la-argentina",
+   "source": "iProfesional",
+   "pubDate": "2026-10-31T10:55:00+00:00"
+  },
+  {
+   "title": "Nuevos impuestos en Colombia: juegos de azar alistan propuesta sobre cómo tributar",
+   "link": "https://www.bloomberglinea.com/latinoamerica/colombia/nuevos-impuestos-en-colombia-juegos-de-azar-alistan-propuesta-sobre-como-tributar/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-10-31T10:00:00+00:00"
+  },
+  {
+   "title": "Solo tres monedas de América Latina superaron al dólar en octubre: cuáles ganaron y perdieron",
+   "link": "https://www.bloomberglinea.com/mercados/solo-tres-monedas-de-america-latina-superaron-al-dolar-en-octubre-cuales-ganaron-y-perdieron/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-10-31T08:00:00+00:00"
+  },
   {
    "title": "Qué cosas de Alphabet, empresa matriz de Google, debe mirar con cautela a la hora de invertir",
    "link": "https://www.bloomberglinea.com/mercados/que-cosas-de-alphabet-empresa-matriz-de-google-debe-mirar-con-cautela-a-la-hora-de-invertir/",
    "source": "Bloomberg Línea",
    "pubDate": "2026-10-31T05:00:00+00:00"
-  },
-  {
-   "title": "La lucidez de Claudia Sheinbaum profundiza \nla integración de México con EE.UU.",
-   "link": "https://www.clarin.com/economia/lucidez-claudia-sheinbaum-profundiza-integracion-mexico-eeuu_0_KsgDuDVRGb.html",
-   "source": "Clarín",
-   "pubDate": "2026-10-31T03:37:18+00:00"
-  },
-  {
-   "title": "El Presupuesto en zona de incertidumbre a cambio del fin de las PASO",
-   "link": "https://www.clarin.com/economia/presupuesto-zona-incertidumbre-cambio-fin-paso_0_oriHDB4NjM.html",
-   "source": "Clarín",
-   "pubDate": "2026-10-31T03:13:18+00:00"
   },
   {
    "title": "Ganadores y perdedores del efecto Brasil: los tres sectores argentinos más amenazados y los que podrían salir favorecidos",
@@ -68,22 +115,10 @@
    "pubDate": "2026-10-31T03:06:30+00:00"
   },
   {
-   "title": "Una economía a dos velocidades: lo que enseña el mundo sobre la convergencia",
-   "link": "https://www.infobae.com/opinion/2026/10/31/una-economia-a-dos-velocidades-lo-que-ensena-el-mundo-sobre-la-convergencia/",
-   "source": "Infobae",
-   "pubDate": "2026-10-31T03:06:10+00:00"
-  },
-  {
    "title": "Los 4 ejes de la Ley Integral Pyme: la propuesta para frenar el cierre de empresas que no encuentra interlocutor oficial",
    "link": "https://www.ambito.com/economia/los-4-ejes-la-ley-integral-pyme-la-propuesta-frenar-el-cierre-empresas-que-no-encuentra-interlocutor-oficial-n6339999",
    "source": "Ámbito",
    "pubDate": "2026-10-31T01:25:00+00:00"
-  },
-  {
-   "title": "\"Hace 723 días que no imprimo pesos\": Bausili proyectó otro trimestre con más actividad y un BCRA con \"más munición\" para las elecciones",
-   "link": "https://www.clarin.com/economia/hace-723-dias-imprimo-pesos-santiago-bausili-proyecto-cuarto-trimestre-actividad-bcra-municion-elecciones-2027_0_UZs5wFV79a.html",
-   "source": "Clarín",
-   "pubDate": "2026-10-31T00:46:03+00:00"
   },
   {
    "title": "María Fernanda Suárez asume como presidente de Banco de Bogotá tras renuncia de Echeverry",
@@ -110,12 +145,6 @@
    "pubDate": "2026-10-30T23:34:00+00:00"
   },
   {
-   "title": "Acción de plataforma brasileña de inversiones XP se hundió 52% y JP Morgan dice qué hacer",
-   "link": "https://www.iprofesional.com/finanzas/467881-que-hacer-con-las-acciones-de-la-empresa-brasilena-que-se-derrumbo",
-   "source": "iProfesional",
-   "pubDate": "2026-10-30T23:28:00+00:00"
-  },
-  {
    "title": "La compra de dólar ahorro se mantuvo casi estable en septiembre, cerca de los u$s3.000 millones",
    "link": "https://www.ambito.com/economia/la-compra-dolar-ahorro-se-mantuvo-casi-estable-septiembre-cerca-los-us3000-millones-n6339969",
    "source": "Ámbito",
@@ -128,22 +157,10 @@
    "pubDate": "2026-10-30T22:50:00+00:00"
   },
   {
-   "title": "YPF presentó un RIGI de u$s8.729 millones para un bloque de crudo y gas en Vaca Muerta",
-   "link": "https://www.iprofesional.com/energia/467972-ypf-presenta-un-nuevo-rigi-para-vaca-muerta-por-us8729-millones",
-   "source": "iProfesional",
-   "pubDate": "2026-10-30T22:00:00+00:00"
-  },
-  {
    "title": "Checo Pérez llega al Gran Premio de México con una fortuna estimada en US$50 millones: cuánto gana en Cadillac",
    "link": "https://www.bloomberglinea.com/linea-deportiva/checo-perez-llega-al-gran-premio-de-mexico-con-una-fortuna-estimada-en-us50-millones-cuanto-gana-en-cadillac/",
    "source": "Bloomberg Línea",
    "pubDate": "2026-10-30T21:57:54+00:00"
-  },
-  {
-   "title": "Allaria advierte cuáles son las 3 acciones líderes que tienen menos margen para subir",
-   "link": "https://www.iprofesional.com/finanzas/467452-allaria-marca-3-acciones-lideres-que-tienen-menos-margen-para-subir",
-   "source": "iProfesional",
-   "pubDate": "2026-10-30T21:55:00+00:00"
   },
   {
    "title": "¿Por qué el oro acumula una caída cercana al 30%?",
@@ -152,40 +169,22 @@
    "pubDate": "2026-10-30T21:48:53+00:00"
   },
   {
-   "title": "Acciones cayeron hasta 29% y para noviembre lideran las preferencias YPF y Pampa Energía",
-   "link": "https://www.iprofesional.com/finanzas/467962-que-acciones-y-bonos-recomienda-la-city-para-noviembre-tras-desplome",
-   "source": "iProfesional",
-   "pubDate": "2026-10-30T21:46:00+00:00"
+   "title": "Cuánto cuesta la pelota del Superclásico Boca vs. River y dónde comprar la Argentum Gambeta Derbi",
+   "link": "https://www.ambito.com/economia/cuanto-cuesta-la-pelota-del-superclasico-boca-vs-river-y-donde-comprar-la-argentum-gambeta-derbi-n6339225",
+   "source": "Ámbito",
+   "pubDate": "2026-10-30T20:00:00+00:00"
   },
   {
-   "title": "La demanda de dólares se mantuvo firme también en septiembre: los argentinos compraron US$ 3.410 millones",
-   "link": "https://www.clarin.com/economia/demanda-dolares-mantuvo-firme-septiembre-argentinos-compraron-us-3410-millones_0_GgrkOBaeyW.html",
-   "source": "Clarín",
-   "pubDate": "2026-10-30T21:36:26+00:00"
-  },
-  {
-   "title": "En plena \"batalla\" fintech, Cocos vende dólares más baratos para captar más clientes",
-   "link": "https://www.iprofesional.com/finanzas/467845-en-plena-batalla-fintech-cocos-vende-dolares-mas-baratos-para-captar-mas-clientes",
-   "source": "iProfesional",
-   "pubDate": "2026-10-30T21:31:00+00:00"
-  },
-  {
-   "title": "La demanda de dólar ahorro sigue elevada y las compras llegaron a los u$s2.500 millones",
-   "link": "https://www.iprofesional.com/finanzas/467963-ahorristas-le-arrebataron-al-bcra-casi-2500-millones-de-dolares",
-   "source": "iProfesional",
-   "pubDate": "2026-10-30T21:20:00+00:00"
-  },
-  {
-   "title": "\"No hay tiempo que perder\":  la industria del bioetanol marca la cancha y pide una ley de Biocombustible propia si no hay acuerdo por el biodiésel",
-   "link": "https://www.clarin.com/rural/tiempo-perder-industria-bioetanol-marca-cancha-pide-ley-biocombustible-propia-acuerdo-biodiesel_0_gNfo8jE9tB.html",
-   "source": "Clarín",
-   "pubDate": "2026-10-30T20:35:56+00:00"
-  },
-  {
-   "title": "Hacienda descarta volver a utilizar P-Caps para apoyar finanzas de Pemex",
-   "link": "https://www.bloomberglinea.com/latinoamerica/mexico/hacienda-descarta-volver-a-utilizar-p-caps-para-apoyar-finanzas-de-pemex/",
+   "title": "Banco central colombiano no sorprendió al mercado: mantuvo tasas en 12,25%",
+   "link": "https://www.bloomberglinea.com/latinoamerica/colombia/banco-central-colombiano-no-sorprendio-al-mercado-mantuvo-tasas-en-1225/",
    "source": "Bloomberg Línea",
-   "pubDate": "2026-10-30T20:30:11+00:00"
+   "pubDate": "2026-10-30T18:24:27+00:00"
+  },
+  {
+   "title": "Santa Fe celebra el éxito de las primeras Rondas RIGI: 2.500 proveedores, 4.500 personas y 3.300 reuniones de negocios",
+   "link": "https://www.ambito.com/economia/santa-fe-celebra-el-exito-las-primeras-rondas-rigi-2500-proveedores-4500-personas-y-3300-reuniones-negocios-n6339818",
+   "source": "Ámbito",
+   "pubDate": "2026-10-30T16:48:38+00:00"
   }
  ]
 }
