@@ -3,9 +3,76 @@
   "Ámbito",
   "iProfesional",
   "Infobae",
+  "Clarín",
   "Bloomberg Línea"
  ],
  "items": [
+  {
+   "title": "Despidos en el agro: una empresa de tecnología para maquinaria recortó 100 empleos y se achica",
+   "link": "https://www.clarin.com/economia/despidos-agro-empresa-tecnologia-maquinaria-recorto-100-empleos_0_ThPpTfqvkF.html",
+   "source": "Clarín",
+   "pubDate": "2026-10-31T16:43:15+00:00"
+  },
+  {
+   "title": "Servicios al exterior: cuáles son las actividades que lideran y por qué casi 4 de cada 10 empresas frenaron proyectos",
+   "link": "https://www.infobae.com/economia/2026/10/31/servicios-al-exterior-cuales-son-las-actividades-que-lideran-y-por-que-casi-4-de-cada-10-empresas-frenaron-proyectos/",
+   "source": "Infobae",
+   "pubDate": "2026-10-31T16:06:50+00:00"
+  },
+  {
+   "title": "El Banco Central compró USD 1.395 millones en octubre y reforzó las reservas",
+   "link": "https://www.infobae.com/economia/2026/10/31/el-banco-central-compro-usd-1395-millones-en-octubre-y-reforzo-las-reservas/",
+   "source": "Infobae",
+   "pubDate": "2026-10-31T15:24:42+00:00"
+  },
+  {
+   "title": "Las ventas de autos caen por séptimo mes consecutivo: cuáles son las marcas más vendidas y cómo vienen las chinas",
+   "link": "https://www.clarin.com/economia/ventas-autos-caen-septimo-mes-consecutivo-marcas-vendidas-vienen-chinas_0_AcYhnDqgsy.html",
+   "source": "Clarín",
+   "pubDate": "2026-10-31T15:15:46+00:00"
+  },
+  {
+   "title": "Cuáles fueron los diez autos más vendidos en octubre: tres pick ups al frente y sólo uno en el top ten de los más baratos",
+   "link": "https://www.infobae.com/economia/2026/10/31/cuales-fueron-los-diez-autos-mas-vendidos-en-octubre-tres-pick-ups-al-frente-y-solo-uno-en-el-top-ten-de-los-mas-baratos/",
+   "source": "Infobae",
+   "pubDate": "2026-10-31T15:00:56+00:00"
+  },
+  {
+   "title": "Jubilados cobran con aumento en noviembre: cuánto paga ANSES con el bono de $70.000",
+   "link": "https://www.iprofesional.com/economia/467991-anses-noviembre-2026-cuanto-cobran-los-jubilados-con-aumento-y-bono",
+   "source": "iProfesional",
+   "pubDate": "2026-10-31T14:57:00+00:00"
+  },
+  {
+   "title": "Banco Nación: las refinanciaciones de deudas cayeron un 55,4% en octubre y alcanzaron su menor nivel frente a septiembre",
+   "link": "https://www.ambito.com/economia/banco-nacion-las-refinanciaciones-deudas-cayeron-un-554-octubre-y-alcanzaron-su-menor-nivel-frente-septiembre-n6340058",
+   "source": "Ámbito",
+   "pubDate": "2026-10-31T14:49:00+00:00"
+  },
+  {
+   "title": "La visión de un ex ministro español y banquero europeo: \"El mundo vive una fragmentación acelerada\"",
+   "link": "https://www.clarin.com/economia/vision-ex-ministro-espanol-banquero-europeo-mundo-vive-fragmentacion-acelerada_0_vroGU6LteB.html",
+   "source": "Clarín",
+   "pubDate": "2026-10-31T13:46:16+00:00"
+  },
+  {
+   "title": "La frase de Milton Friedman, por qué los economistas están en cualquiera y por qué vuelve a ser importante la relevancia",
+   "link": "https://www.clarin.com/economia/frase-milton-friedman-economistas-vuelve-importante-relevancia_0_vC6qKBNvko.html",
+   "source": "Clarín",
+   "pubDate": "2026-10-31T13:34:26+00:00"
+  },
+  {
+   "title": "“Ya no puedo seguir”: una reconocida empresa de tecnología para el agro cerró su planta y despidió a casi 100 empleados",
+   "link": "https://www.infobae.com/economia/2026/10/31/ya-no-puedo-seguir-una-reconocida-empresa-de-tecnologia-para-el-agro-cerro-su-planta-y-despidio-a-casi-100-empleados/",
+   "source": "Infobae",
+   "pubDate": "2026-10-31T13:31:41+00:00"
+  },
+  {
+   "title": "En la elección del papamóvil, se optó por la industria argentina",
+   "link": "https://www.clarin.com/economia/eleccion-papamovil-opto-industria-argentina_0_kyRmNCee72.html",
+   "source": "Clarín",
+   "pubDate": "2026-10-31T13:22:11+00:00"
+  },
   {
    "title": "Desde que asumió el gobierno de Javier Milei, más de 23.400 personas dejaron de trabajar para empresas del Estado",
    "link": "https://www.infobae.com/economia/2026/10/31/desde-que-asumio-el-gobierno-de-javier-milei-mas-de-23400-personas-dejaron-de-trabajar-para-empresas-del-estado/",
@@ -55,6 +122,12 @@
    "pubDate": "2026-10-31T10:55:00+00:00"
   },
   {
+   "title": "Recaudación de octubre: Ganancias repuntó, pero el IVA volvió a caer y encendió alertas por el consumo",
+   "link": "https://www.ambito.com/economia/recaudacion-octubre-ganancias-repunto-pero-el-iva-volvio-caer-y-encendio-alertas-el-consumo-n6339995",
+   "source": "Ámbito",
+   "pubDate": "2026-10-31T10:00:00+00:00"
+  },
+  {
    "title": "Nuevos impuestos en Colombia: juegos de azar alistan propuesta sobre cómo tributar",
    "link": "https://www.bloomberglinea.com/latinoamerica/colombia/nuevos-impuestos-en-colombia-juegos-de-azar-alistan-propuesta-sobre-como-tributar/",
    "source": "Bloomberg Línea",
@@ -91,30 +164,6 @@
    "pubDate": "2026-10-31T03:07:57+00:00"
   },
   {
-   "title": "Cronología de un hackeo histórico: paso a paso, qué se sabe del caso Binance, el mayor robo de la historia cripto",
-   "link": "https://www.infobae.com/economia/2026/10/31/cronologia-de-un-hackeo-historico-paso-a-paso-que-se-sabe-del-caso-binance-el-mayor-robo-de-la-historia-cripto/",
-   "source": "Infobae",
-   "pubDate": "2026-10-31T03:07:38+00:00"
-  },
-  {
-   "title": "Números rojos en medio del contagio global: las acciones argentinas tuvieron 5 días de caídas consecutivas y se disparó el riesgo país",
-   "link": "https://www.infobae.com/economia/2026/10/31/numeros-rojos-en-medio-del-contagio-global-las-acciones-argentinas-tuvieron-5-dias-de-caidas-consecutivas-y-se-disparo-el-riesgo-pais/",
-   "source": "Infobae",
-   "pubDate": "2026-10-31T03:07:14+00:00"
-  },
-  {
-   "title": "Sigue para abajo la venta de autos: los patentamientos cayeron en octubre 8,4% contra el mes anterior y 12,8% en la cuenta interanual",
-   "link": "https://www.infobae.com/economia/2026/10/31/sigue-para-abajo-la-venta-de-autos-los-patentamientos-cayeron-en-octubre-84-contra-el-mes-anterior-y-128-en-la-cuenta-interanual/",
-   "source": "Infobae",
-   "pubDate": "2026-10-31T03:06:52+00:00"
-  },
-  {
-   "title": "Sin crédito no hay transición productiva",
-   "link": "https://www.infobae.com/opinion/2026/10/31/sin-credito-no-hay-transicion-productiva/",
-   "source": "Infobae",
-   "pubDate": "2026-10-31T03:06:30+00:00"
-  },
-  {
    "title": "Los 4 ejes de la Ley Integral Pyme: la propuesta para frenar el cierre de empresas que no encuentra interlocutor oficial",
    "link": "https://www.ambito.com/economia/los-4-ejes-la-ley-integral-pyme-la-propuesta-frenar-el-cierre-empresas-que-no-encuentra-interlocutor-oficial-n6339999",
    "source": "Ámbito",
@@ -137,54 +186,6 @@
    "link": "https://www.iprofesional.com/finanzas/466961-grupo-financiero-de-costantini-recalibra-su-estrategia-con-bonos-y-rota-cartera",
    "source": "iProfesional",
    "pubDate": "2026-10-30T23:37:00+00:00"
-  },
-  {
-   "title": "Cinco acciones argentinas con mayor potencial de suba en el último bimestre, según Allaria",
-   "link": "https://www.iprofesional.com/finanzas/467563-5-acciones-argentinas-con-mayor-potencial-de-suba-en-el-ultimo-bimestre",
-   "source": "iProfesional",
-   "pubDate": "2026-10-30T23:34:00+00:00"
-  },
-  {
-   "title": "La compra de dólar ahorro se mantuvo casi estable en septiembre, cerca de los u$s3.000 millones",
-   "link": "https://www.ambito.com/economia/la-compra-dolar-ahorro-se-mantuvo-casi-estable-septiembre-cerca-los-us3000-millones-n6339969",
-   "source": "Ámbito",
-   "pubDate": "2026-10-30T22:52:00+00:00"
-  },
-  {
-   "title": "Coparticipación: los envíos a las provincias repuntaron levemente en octubre, impulsados por Ganancias",
-   "link": "https://www.ambito.com/economia/coparticipacion-los-envios-las-provincias-repuntaron-levemente-octubre-impulsados-ganancias-n6339976",
-   "source": "Ámbito",
-   "pubDate": "2026-10-30T22:50:00+00:00"
-  },
-  {
-   "title": "Checo Pérez llega al Gran Premio de México con una fortuna estimada en US$50 millones: cuánto gana en Cadillac",
-   "link": "https://www.bloomberglinea.com/linea-deportiva/checo-perez-llega-al-gran-premio-de-mexico-con-una-fortuna-estimada-en-us50-millones-cuanto-gana-en-cadillac/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-10-30T21:57:54+00:00"
-  },
-  {
-   "title": "¿Por qué el oro acumula una caída cercana al 30%?",
-   "link": "https://www.bloomberglinea.com/mercados/por-que-el-oro-acumula-una-caida-cercana-al-30/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-10-30T21:48:53+00:00"
-  },
-  {
-   "title": "Cuánto cuesta la pelota del Superclásico Boca vs. River y dónde comprar la Argentum Gambeta Derbi",
-   "link": "https://www.ambito.com/economia/cuanto-cuesta-la-pelota-del-superclasico-boca-vs-river-y-donde-comprar-la-argentum-gambeta-derbi-n6339225",
-   "source": "Ámbito",
-   "pubDate": "2026-10-30T20:00:00+00:00"
-  },
-  {
-   "title": "Banco central colombiano no sorprendió al mercado: mantuvo tasas en 12,25%",
-   "link": "https://www.bloomberglinea.com/latinoamerica/colombia/banco-central-colombiano-no-sorprendio-al-mercado-mantuvo-tasas-en-1225/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-10-30T18:24:27+00:00"
-  },
-  {
-   "title": "Santa Fe celebra el éxito de las primeras Rondas RIGI: 2.500 proveedores, 4.500 personas y 3.300 reuniones de negocios",
-   "link": "https://www.ambito.com/economia/santa-fe-celebra-el-exito-las-primeras-rondas-rigi-2500-proveedores-4500-personas-y-3300-reuniones-negocios-n6339818",
-   "source": "Ámbito",
-   "pubDate": "2026-10-30T16:48:38+00:00"
   }
  ]
 }
