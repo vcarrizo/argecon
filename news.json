@@ -3,188 +3,189 @@
   "Ámbito",
   "iProfesional",
   "Infobae",
+  "Clarín",
   "Bloomberg Línea"
  ],
  "items": [
   {
-   "title": "Paritaria para empleados de concesionarias de autos: cómo quedó la escala salarial",
-   "link": "https://www.iprofesional.com/economia/468005-paritaria-para-empleados-de-concesionarias-de-autos-como-quedo-la-escala-salarial",
+   "title": "Las acciones de Mercado Libre se desploman 13% en Wall Street tras presentar su balance",
+   "link": "https://www.iprofesional.com/finanzas/468371-las-acciones-de-mercado-libre-se-desploman-un-13-en-wall-street-tras-presentar-su-balance",
    "source": "iProfesional",
-   "pubDate": "2026-12-01T11:41:00+00:00"
+   "pubDate": "2026-11-05T18:50:00+00:00"
   },
   {
-   "title": "La incertidumbre política aleja a los inversores de los activos argentinos y el riesgo país alcanzó un nuevo máximo anual",
-   "link": "https://www.infobae.com/economia/2026/11/05/la-incertidumbre-politica-aleja-a-los-inversores-de-los-activos-argentinos-y-el-riesgo-pais-alcanzo-un-nuevo-maximo-anual/",
+   "title": "Se derrumba 5% el índice tecnológico de Wall Street por la fuerte caída de acciones vinculadas a la IA",
+   "link": "https://www.infobae.com/economia/2026/11/05/se-derrumba-5-el-indice-tecnologico-de-wall-street-por-la-fuerte-caida-de-acciones-vinculadas-a-la-ia/",
    "source": "Infobae",
-   "pubDate": "2026-11-05T11:28:03+00:00"
-  },
-  {
-   "title": "ARCA prorrogó hasta junio de 2027 la moratoria para pymes, monotributistas y entidades sin fines de lucro",
-   "link": "https://www.ambito.com/economia/arca-prorrogo-junio-2027-la-moratoria-pymes-monotributistas-y-entidades-fines-lucro-n6341753",
-   "source": "Ámbito",
-   "pubDate": "2026-11-05T11:20:00+00:00"
-  },
-  {
-   "title": "Envían falsos mails con el logo de ARCA para pedir plata y robar datos: cómo detectar los fraudes",
-   "link": "https://www.infobae.com/economia/2026/11/05/envian-falsos-mails-con-el-logo-de-arca-para-pedir-plata-y-robar-datos-como-detectar-los-fraudes/",
-   "source": "Infobae",
-   "pubDate": "2026-11-05T11:05:36+00:00"
-  },
-  {
-   "title": "Día del Bancario: qué pasará con los bancos este viernes 6 de noviembre",
-   "link": "https://www.infobae.com/economia/2026/11/05/dia-del-bancario-que-pasara-con-los-bancos-este-viernes-6-de-noviembre/",
-   "source": "Infobae",
-   "pubDate": "2026-11-05T10:05:08+00:00"
-  },
-  {
-   "title": "ANSES: cuándo cobro en noviembre 2026 si mi DNI termina en 3",
-   "link": "https://www.infobae.com/economia/2026/11/05/anses-cuando-cobro-en-noviembre-2026-si-mi-dni-termina-en-3/",
-   "source": "Infobae",
-   "pubDate": "2026-11-05T10:02:47+00:00"
-  },
-  {
-   "title": "Advierten que el poder de fuego del FMI quedó rezagado",
-   "link": "https://www.ambito.com/economia/advierten-que-el-poder-fuego-del-fmi-quedo-rezagado-n6341691",
-   "source": "Ámbito",
-   "pubDate": "2026-11-05T10:00:00+00:00"
-  },
-  {
-   "title": "¿Puede EEUU volver a rescatar a la Argentina? Dudas tras la ola azul y cuestionamientos por no salir antes al mercado",
-   "link": "https://www.ambito.com/economia/puede-eeuu-volver-rescatar-la-argentina-dudas-la-ola-azul-y-cuestionamientos-no-salir-antes-al-mercado-n6341673",
-   "source": "Ámbito",
-   "pubDate": "2026-11-05T10:00:00+00:00"
+   "pubDate": "2026-11-05T18:45:17+00:00"
   },
   {
    "title": "Riesgo país rumbo a 1.000 puntos: qué pasará con la economía y dólar si trepa la tensión",
    "link": "https://www.iprofesional.com/finanzas/468380-que-pasara-con-la-economia-y-dolar-si-el-riesgo-pais-supera-los-1000-puntos",
    "source": "iProfesional",
-   "pubDate": "2026-11-05T10:00:00+00:00"
+   "pubDate": "2026-11-05T18:39:00+00:00"
   },
   {
-   "title": "Analistas ven más riesgos que beneficios si Banxico decide recortar la tasa de interés",
-   "link": "https://www.bloomberglinea.com/latinoamerica/mexico/analistas-ven-mas-riesgos-que-beneficios-si-banxico-decide-recortar-la-tasa-de-interes/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-11-05T10:00:00+00:00"
-  },
-  {
-   "title": "¿Es rentable construir vivienda en Bogotá? 198 constructoras confían y tienen 400 proyectos en pipeline",
-   "link": "https://www.bloomberglinea.com/latinoamerica/colombia/es-rentable-construir-vivienda-en-bogota-198-constructoras-confian-y-tienen-400-proyectos-en-pipeline/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-11-05T10:00:00+00:00"
-  },
-  {
-   "title": "De la Espriella adapta a Colombia el modelo de Milei de gabelas tributarias a inversionistas",
-   "link": "https://www.bloomberglinea.com/latinoamerica/colombia/de-la-espriella-adapta-a-colombia-el-modelo-de-milei-de-gabelas-tributarias-a-inversionistas/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-11-05T10:00:00+00:00"
-  },
-  {
-   "title": "Riesgo país: qué explica la suba y qué esperan los analistas para los bonos argentinos",
-   "link": "https://www.bloomberglinea.com/latinoamerica/argentina/riesgo-pais-que-explica-la-suba-y-que-esperan-los-analistas-para-los-bonos-argentinos/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-11-05T08:45:00+00:00"
-  },
-  {
-   "title": "Hitachi ve a Argentina como país estratégico en su plan global: inversión millonaria y 3.000 nuevos empleos",
-   "link": "https://www.bloomberglinea.com/latinoamerica/argentina/hitachi-ve-a-argentina-como-pais-estrategico-en-su-plan-global-inversion-millonaria-y-3000-nuevos-empleos/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-11-05T08:45:00+00:00"
-  },
-  {
-   "title": "“Para no dejar morir el reguetón”: el icónico club Perro Negro lanza sello junto a la disquera de Bad Bunny",
-   "link": "https://www.bloomberglinea.com/estilo-de-vida/para-no-dejar-morir-el-regueton-el-iconico-club-perro-negro-lanza-sello-junto-a-la-disquera-de-bad-bunny/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-11-05T08:00:00+00:00"
-  },
-  {
-   "title": "El Gobierno repartió menos del 20% de los fondos de emergencia a las provincias mientras negocia eliminar un impuesto clave",
-   "link": "https://www.infobae.com/economia/2026/11/05/el-gobierno-repartio-menos-del-20-de-los-fondos-de-emergencia-a-las-provincias-mientras-negocia-eliminar-un-impuesto-clave/",
+   "title": "El riesgo país de la Argentina sigue subiendo y rompe la barrera de los 900 puntos básicos",
+   "link": "https://www.infobae.com/economia/2026/11/05/el-riesgo-pais-de-la-argentina-sigue-subiendo-y-rompe-la-barrera-de-los-900-puntos-basicos/",
    "source": "Infobae",
-   "pubDate": "2026-11-05T04:55:56+00:00"
+   "pubDate": "2026-11-05T18:38:46+00:00"
   },
   {
-   "title": "Las claves de la economía que viene, según el mayor banco europeo: cuatro megatendencias y los riesgos que podría enfrentar Argentina",
-   "link": "https://www.infobae.com/economia/2026/11/05/las-claves-de-la-economia-que-viene-segun-el-mayor-banco-europeo-cuatro-megatendencias-y-los-riesgos-que-podria-enfrentar-argentina/",
+   "title": "Advierten que la recaudación de impuestos se sostiene solo por \"factores excepcionales\"",
+   "link": "https://www.ambito.com/economia/advierten-que-la-recaudacion-impuestos-se-sostiene-solo-factores-excepcionales-n6341858",
+   "source": "Ámbito",
+   "pubDate": "2026-11-05T18:37:00+00:00"
+  },
+  {
+   "title": "Se vendió Supermercados Día: la cadena española pasa a manos del grupo liderado por Francisco De Narváez, dueño de Changomás",
+   "link": "https://www.infobae.com/economia/2026/11/05/se-vendio-supermercados-dia-la-cadena-espanola-pasa-a-manos-del-grupo-liderado-por-francisco-de-narvaez-dueno-de-changomas/",
    "source": "Infobae",
-   "pubDate": "2026-11-05T04:55:03+00:00"
+   "pubDate": "2026-11-05T18:30:43+00:00"
   },
   {
-   "title": "Un foro empresarial reúne a figuras del Gobierno, líderes globales y expresidentes para debatir el nuevo orden económico",
-   "link": "https://www.infobae.com/economia/2026/11/05/un-foro-empresarial-reune-a-figuras-del-gobierno-lideres-globales-y-expresidentes-para-debatir-el-nuevo-orden-economico/",
+   "title": "Harina a $800 y fideos a $700: qué ofertas imperdibles hay en el Mercado Central",
+   "link": "https://www.iprofesional.com/economia/468337-harina-a-800-pesos-y-fideos-a-700-pesos-las-ofertas-imperdibles-en-el-mercado-central",
+   "source": "iProfesional",
+   "pubDate": "2026-11-05T18:28:00+00:00"
+  },
+  {
+   "title": "El Banco Nación bajó la tasa de los préstamos para comprar autos 0m y usados",
+   "link": "https://www.iprofesional.com/autos/468453-el-banco-nacion-bajo-la-tasa-de-los-prestamos-para-comprar-autos-0m-y-usados",
+   "source": "iProfesional",
+   "pubDate": "2026-11-05T18:26:00+00:00"
+  },
+  {
+   "title": "La inflación no bajaría del 2% en los próximos meses, según sondeo del BCRA al mercado",
+   "link": "https://www.iprofesional.com/finanzas/468341-inflacion-sigue-mas-alta-a-lo-esperado-y-cerca-de-2-por-ciento-esto-dicen-economistas",
+   "source": "iProfesional",
+   "pubDate": "2026-11-05T18:25:00+00:00"
+  },
+  {
+   "title": "Ante el desplome de Wall Street y el salto del riesgo país, en el Gobierno dicen que es momento de ser más ortodoxos que nunca",
+   "link": "https://www.infobae.com/economia/2026/11/05/ante-el-desplome-de-wall-street-y-el-salto-del-riesgo-pais-en-el-gonbierno-dicen-que-es-momento-de-ser-mas-ortodoxos-que-nunca/",
    "source": "Infobae",
-   "pubDate": "2026-11-05T04:54:29+00:00"
+   "pubDate": "2026-11-05T18:18:34+00:00"
   },
   {
-   "title": "Empeoró el déficit de servicios básicos: más de la mitad de los argentinos no accede a agua corriente, gas natural o cloacas",
-   "link": "https://www.infobae.com/economia/2026/11/05/empeoro-el-deficit-de-servicios-basicos-mas-de-la-mitad-de-los-argentinos-no-accede-a-agua-corriente-gas-natural-o-cloacas/",
+   "title": "Impacto financiero por el colapso del Ueno Bank: saltó el riesgo país de Paraguay y el guaraní se devaluó 8%",
+   "link": "https://www.infobae.com/economia/2026/11/05/impacto-financiero-por-el-colapso-del-ueno-bank-salto-el-riesgo-pais-de-paraguay-y-el-guarani-se-devaluo-8/",
    "source": "Infobae",
-   "pubDate": "2026-11-05T04:53:58+00:00"
+   "pubDate": "2026-11-05T18:18:23+00:00"
   },
   {
-   "title": "México inicia cuenta regresiva para decidir los negocios que ya no aceptarán efectivo",
-   "link": "https://www.bloomberglinea.com/latinoamerica/mexico/mexico-inicia-cuenta-regresiva-para-decidir-los-negocios-que-ya-no-aceptaran-efectivo/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-11-05T03:13:32+00:00"
+   "title": "Santiago Peña renunció a la Presidencia de Paraguay por el escándalo del Ueno Bank",
+   "link": "https://www.infobae.com/america/america-latina/2026/11/05/santiago-pena-renuncio-a-la-presidencia-de-paraguay-por-el-escandalo-del-ueno-bank/",
+   "source": "Infobae",
+   "pubDate": "2026-11-05T17:54:21+00:00"
   },
   {
-   "title": "Diálogos de Wall Street: buena reacción de los mercados tras la barrida demócrata en el Congreso",
-   "link": "https://www.ambito.com/economia/dialogos-wall-street-buena-reaccion-los-mercados-la-barrida-democrata-el-congreso-n6341710",
+   "title": "Francisco De Narváez compró los supermercados DIA en la Argentina, tras el intento fallido de Carrefour",
+   "link": "https://www.clarin.com/economia/francisco-narvaez-compro-supermercados-dia-argentina-intento-fallido-carrefour_0_8fQcW23iJO.html",
+   "source": "Clarín",
+   "pubDate": "2026-11-05T17:33:58+00:00"
+  },
+  {
+   "title": "En número 2 de Caputo dijo que hay mucha impaciencia por ver resultados: \"Estamos recién empezando\"",
+   "link": "https://www.clarin.com/economia/numero-2-caputo-dijo-mucha-impaciencia-ver-resultados-recien-empezando_0_kmaNbW7E3h.html",
+   "source": "Clarín",
+   "pubDate": "2026-11-05T17:33:01+00:00"
+  },
+  {
+   "title": "“Esperaba un crecimiento más alto”: el Gobierno reconoció una recuperación más débil pero minimizó una posible recesión",
+   "link": "https://www.infobae.com/economia/2026/11/05/esperaba-un-crecimiento-mas-alto-el-gobierno-reconocio-una-recuperacion-mas-debil-pero-minimizo-una-posible-recesion/",
+   "source": "Infobae",
+   "pubDate": "2026-11-05T17:28:22+00:00"
+  },
+  {
+   "title": "Por qué el Gobierno demora la licitación del cupo 2027 para importar autos híbridos y eléctricos sin arancel",
+   "link": "https://www.infobae.com/economia/2026/11/05/por-que-el-gobierno-demora-la-licitacion-del-cupo-2027-para-importar-autos-hibridos-y-electricos-sin-arancel/",
+   "source": "Infobae",
+   "pubDate": "2026-11-05T17:24:45+00:00"
+  },
+  {
+   "title": "Alerta para Milei: advierten que EE.UU. podría tener más dificultades para asistir a la Argentina",
+   "link": "https://www.iprofesional.com/economia/468443-argentina-por-que-eeuu-podria-limitar-su-ayuda-financiera-tras-las-elecciones",
+   "source": "iProfesional",
+   "pubDate": "2026-11-05T16:35:00+00:00"
+  },
+  {
+   "title": "Cayó un banco con 3 millones de clientes en Paraguay y la City mira el caso de cerca",
+   "link": "https://www.iprofesional.com/finanzas/468295-ueno-bank-la-caida-del-banco-paraguayo-y-su-impacto-en-argentina",
+   "source": "iProfesional",
+   "pubDate": "2026-11-05T16:30:00+00:00"
+  },
+  {
+   "title": "Cómo estalló el escándalo de Ueno Bank, que terminó con la renuncia de Peña en Paraguay",
+   "link": "https://www.iprofesional.com/finanzas/468355-como-estallo-el-escandalo-de-ueno-bank-que-termino-con-la-renuncia-de-pena-en-paraguay",
+   "source": "iProfesional",
+   "pubDate": "2026-11-05T16:30:00+00:00"
+  },
+  {
+   "title": "Los números de Mercado Libre desilusionaron a los analistas y sus acciones se derrumban 15% en Nueva York",
+   "link": "https://www.clarin.com/economia/numeros-mercado-libre-desilusionaron-analistas-acciones-derrumban-15-nueva-york_0_9MbrdLbYw7.html",
+   "source": "Clarín",
+   "pubDate": "2026-11-05T16:23:21+00:00"
+  },
+  {
+   "title": "REM de octubre: los gurúes de la city actualizan sus pronósticos para el dólar, la inflación y el PBI",
+   "link": "https://www.ambito.com/economia/rem-octubre-los-gurues-la-city-actualizan-sus-pronosticos-el-dolar-la-inflacion-y-el-pbi-n6341932",
    "source": "Ámbito",
-   "pubDate": "2026-11-05T03:00:00+00:00"
+   "pubDate": "2026-11-05T16:23:00+00:00"
   },
   {
-   "title": "Moody’s advierte por el impacto de la crisis de Ueno Bank en el sistema financiero de Paraguay",
-   "link": "https://www.bloomberglinea.com/latinoamerica/moodys-advierte-por-el-impacto-de-la-crisis-de-ueno-bank-en-el-sistema-financiero-de-paraguay/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-11-05T02:07:07+00:00"
+   "title": "Cierra Papelera del Sur en Tornquist y unos 160 trabajadores quedarían sin empleo",
+   "link": "https://www.clarin.com/economia/cierra-papelera-sur-tornquist-160-trabajadores-quedarian-empleo_0_pcl2A03NLq.html",
+   "source": "Clarín",
+   "pubDate": "2026-11-05T16:15:45+00:00"
   },
   {
-   "title": "El ETF Merval recibió un guiño de la CNV y podrá incluirse en fondos comunes de inversión",
-   "link": "https://www.iprofesional.com/finanzas/468368-el-nuevo-indice-etf-merval-recibio-un-guino-clave-de-la-cnv",
-   "source": "iProfesional",
-   "pubDate": "2026-11-04T23:50:00+00:00"
+   "title": "El escándalo de Ueno Bank en Paraguay ya impacta a la Argentina: suspenden a 1.000 empleados de una consultora que le presta servicios",
+   "link": "https://www.clarin.com/economia/escandalo-ueno-bank-paraguay-impacta-argentina-suspenden-1000-empleados-consultora-presta-servicios_0_wr2xvqpDiA.html",
+   "source": "Clarín",
+   "pubDate": "2026-11-05T15:52:15+00:00"
   },
   {
-   "title": "El Gobierno aprovecha el desplome, recompra bonos y baja la tasa de interés",
-   "link": "https://www.iprofesional.com/economia/468366-el-gobierno-aprovecha-el-desplome-recompra-bonos-y-baja-la-tasa-de-interes",
-   "source": "iProfesional",
-   "pubDate": "2026-11-04T23:30:00+00:00"
-  },
-  {
-   "title": "Crisis total en BGH: elminará 250 empleos de un plumazo en planta de Tierra del Fuego",
-   "link": "https://www.iprofesional.com/negocios/468373-bgh-avanza-con-despidos-masivos-de-250-empleados-en-planta-de-tierra-del-fuego",
-   "source": "iProfesional",
-   "pubDate": "2026-11-04T23:23:00+00:00"
-  },
-  {
-   "title": "Uno de los gurúes preferidos de Milei recomienda a Caputo un plan B para conseguir dólares",
-   "link": "https://www.iprofesional.com/finanzas/468367-uno-de-los-gurues-financieros-de-milei-alerta-a-caputo-por-la-canilla-de-dolares",
-   "source": "iProfesional",
-   "pubDate": "2026-11-04T23:20:00+00:00"
-  },
-  {
-   "title": "Crisis de cobertura médica: los afiliados a obras sociales y prepagas caen a su nivel más bajo desde 2016",
-   "link": "https://www.ambito.com/economia/crisis-cobertura-medica-los-afiliados-obras-sociales-y-prepagas-caen-su-nivel-mas-2016-n6341593",
+   "title": "Cuánto cuesta el libro de León XIV, \"La fuerza del Evangelio\" y dónde comprarlo",
+   "link": "https://www.ambito.com/economia/cuanto-cuesta-el-libro-leon-xiv-la-fuerza-del-evangelio-y-donde-comprarlo-n6325182",
    "source": "Ámbito",
-   "pubDate": "2026-11-04T23:05:00+00:00"
+   "pubDate": "2026-11-05T15:09:00+00:00"
   },
   {
-   "title": "La producción automotriz no levanta: cayó 14,4% anual en octubre y acumuló una baja del 15,5% en el año",
-   "link": "https://www.ambito.com/economia/la-produccion-automotriz-no-levanta-cayo-144-anual-octubre-y-acumulo-una-baja-del-155-el-ano-n6341693",
+   "title": "Se hunden los bonos argentinos y el riesgo país se dispara por encima de los 900 puntos",
+   "link": "https://www.clarin.com/economia/fuerte-caida-bonos-argentinos-derrumban-24_0_qxGWA5j73y.html",
+   "source": "Clarín",
+   "pubDate": "2026-11-05T15:05:10+00:00"
+  },
+  {
+   "title": "Vladimir Werning, vice del BCRA: \"La rentabilidad de los sectores exportadores tiene un efecto derrame fuertísimo\"",
+   "link": "https://www.ambito.com/economia/vladimir-werning-vice-del-bcra-la-rentabilidad-los-sectores-exportadores-tiene-un-efecto-derrame-fuertisimo-n6341886",
    "source": "Ámbito",
-   "pubDate": "2026-11-04T23:02:00+00:00"
+   "pubDate": "2026-11-05T14:53:00+00:00"
   },
   {
-   "title": "Las acciones de Mercado Libre se desplomaron en el after market tras presentar su balance",
-   "link": "https://www.iprofesional.com/finanzas/468371-las-acciones-de-mercado-libre-se-desploman-en-el-after-market-tras-presentar-su-balance",
-   "source": "iProfesional",
-   "pubDate": "2026-11-04T22:41:00+00:00"
-  },
-  {
-   "title": "Plazo fijo: cuánto debés invertir para ganar $500.000 en 30 días",
-   "link": "https://www.ambito.com/economia/plazo-fijo-cuanto-debes-invertir-ganar-500000-30-dias-n6341534",
+   "title": "Donald Trump avanza contra la Fed: se fijó una audiencia para intentar apartar a Lisa Cook en diciembre",
+   "link": "https://www.ambito.com/economia/donald-trump-avanza-contra-la-fed-se-fijo-una-audiencia-intentar-apartar-lisa-cook-diciembre-n6341908",
    "source": "Ámbito",
-   "pubDate": "2026-11-04T22:00:00+00:00"
+   "pubDate": "2026-11-05T14:52:00+00:00"
+  },
+  {
+   "title": "La ayuda de Trump a la Argentina, en riesgo: dos proyectos en el Congreso de EE.UU. podrían complicar un nuevo rescate financiero",
+   "link": "https://www.clarin.com/economia/ayuda-trump-argentina-riesgo-proyectos-congreso-eeuu-podrian-complicar-nuevo-rescate-financiero_0_JVDa7k5fzR.html",
+   "source": "Clarín",
+   "pubDate": "2026-11-05T14:21:51+00:00"
+  },
+  {
+   "title": "Por la crecida del Paraná y el Uruguay, el gobierno de Entre Ríos declaró la emergencia agropecuaria en la zona de islas e inundables",
+   "link": "https://www.clarin.com/rural/crecida-parana-uruguay-gobierno-rios-declaro-emergencia-agropecuaria-zona-islas-inundables_0_4I4JJJOhjL.html",
+   "source": "Clarín",
+   "pubDate": "2026-11-05T14:11:42+00:00"
+  },
+  {
+   "title": "Gustavo Puccini, ministro de producción de Santa Fe: \"El RIGI no llegará a las pymes si las provincias no acercan las puntas\"",
+   "link": "https://www.ambito.com/economia/gustavo-puccini-ministro-produccion-santa-fe-el-rigi-no-llegara-las-pymes-si-las-provincias-no-acercan-las-puntas-n6341682",
+   "source": "Ámbito",
+   "pubDate": "2026-11-05T14:05:00+00:00"
   }
  ]
 }
