@@ -8,16 +8,76 @@
  ],
  "items": [
   {
-   "title": "Las ventas minoristas del comercio pyme bajaron 1,6% interanual en octubre",
-   "link": "https://www.infobae.com/economia/2026/11/08/las-ventas-minoristas-del-comercio-pyme-bajaron-16-interanual-en-octubre/",
+   "title": "Argentina podría sumar US$5.000 millones a su PBI, según un experto en IA",
+   "link": "https://www.bloomberglinea.com/economia/argentina-podria-sumar-us5000-millones-a-su-pbi-segun-un-experto-en-ia/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-11-08T19:22:04+00:00"
+  },
+  {
+   "title": "Estiman que la pobreza subió en el tercer trimestre y ya afecta a 16,2 millones de argentinos",
+   "link": "https://www.ambito.com/economia/estiman-que-la-pobreza-subio-el-tercer-trimestre-y-ya-afecta-162-millones-argentinos-n6342928",
+   "source": "Ámbito",
+   "pubDate": "2026-11-08T19:12:00+00:00"
+  },
+  {
+   "title": "Tras la derrota de Trump, EEUU ratificó su apoyo a Milei, pero crecen las dudas sobre la asistencia financiera en 2027",
+   "link": "https://www.ambito.com/economia/tras-la-derrota-trump-eeuu-ratifico-su-apoyo-milei-pero-crecen-las-dudas-la-asistencia-financiera-2027-n6342951",
+   "source": "Ámbito",
+   "pubDate": "2026-11-08T18:54:00+00:00"
+  },
+  {
+   "title": "En qué provincias y sectores la industria del juicio golpea más fuerte: las causas y las consecuencias del ranking de conflictividad",
+   "link": "https://www.infobae.com/economia/2026/11/08/en-que-provincias-y-sectores-la-industria-del-juicio-golpea-mas-fuerte-las-causas-y-las-consecuencias-del-ranking-de-conflictividad/",
    "source": "Infobae",
-   "pubDate": "2026-11-08T15:06:45+00:00"
+   "pubDate": "2026-11-08T18:18:00+00:00"
+  },
+  {
+   "title": "Clima de Negocios: en medio del ruido financiero, los empresarios locales siguen de compras y miran atentos una norma del Gobierno",
+   "link": "https://www.infobae.com/economia/2026/11/08/clima-de-negocios-en-medio-del-ruido-financiero-los-empresarios-locales-siguen-de-compras-y-miran-atentos-una-norma-del-gobierno/",
+   "source": "Infobae",
+   "pubDate": "2026-11-08T17:35:31+00:00"
+  },
+  {
+   "title": "La visita del papa León XIV podría generar u$s270 millones y dispara el turismo religioso: el impacto en hoteles, comercios y gastronomía",
+   "link": "https://www.ambito.com/economia/la-visita-del-papa-leon-xiv-podria-generar-us270-millones-y-dispara-el-turismo-religioso-el-impacto-hoteles-comercios-y-gastronomia-n6342926",
+   "source": "Ámbito",
+   "pubDate": "2026-11-08T16:21:00+00:00"
+  },
+  {
+   "title": "Tras la derrota electoral de Trump, el embajador de Estados Unidos en Argentina ratificó el apoyo al gobierno de Milei: \"Nuestro compromiso sigue firme\"",
+   "link": "https://www.clarin.com/economia/derrota-electoral-trump-embajador-estados-unidos-argentina-ratifico-apoyo-gobierno-milei-compromiso-sigue-firme_0_1tLaKlYooz.html",
+   "source": "Clarín",
+   "pubDate": "2026-11-08T16:07:47+00:00"
+  },
+  {
+   "title": "Plazo fijo en dólares: cuánto se puede obtener al invertir u$d2.000",
+   "link": "https://www.ambito.com/economia/plazo-fijo-dolares-cuanto-se-puede-obtener-al-invertir-ud2000-n6342233",
+   "source": "Ámbito",
+   "pubDate": "2026-11-08T16:00:00+00:00"
+  },
+  {
+   "title": "Cuánto cobra el papa León XIV y qué beneficios económicos recibe del Vaticano",
+   "link": "https://www.ambito.com/economia/cuanto-cobra-el-papa-leon-xiv-y-que-beneficios-economicos-recibe-del-vaticano-n6342922",
+   "source": "Ámbito",
+   "pubDate": "2026-11-08T15:41:00+00:00"
+  },
+  {
+   "title": "El salto en las importaciones del RIGI que reabre la discusión sobre el lugar de las pyme argentinas",
+   "link": "https://www.infobae.com/economia/2026/11/08/el-salto-en-las-importaciones-del-rigi-que-reabre-la-discusion-sobre-el-lugar-de-las-pyme-argentinas/",
+   "source": "Infobae",
+   "pubDate": "2026-11-08T15:28:24+00:00"
   },
   {
    "title": "Los conceptos del Papa a propósito de la IA, la economía, el “poder tecnológico” y la búsqueda de la verdad",
    "link": "https://www.infobae.com/economia/2026/11/08/los-conceptos-del-papa-a-proposito-de-la-ia-la-economia-el-poder-tecnologico-y-la-busqueda-de-la-verdad/",
    "source": "Infobae",
-   "pubDate": "2026-11-08T15:02:12+00:00"
+   "pubDate": "2026-11-08T15:16:31+00:00"
+  },
+  {
+   "title": "Las ventas minoristas del comercio pyme bajaron 1,6% interanual en octubre",
+   "link": "https://www.infobae.com/economia/2026/11/08/las-ventas-minoristas-del-comercio-pyme-bajaron-16-interanual-en-octubre/",
+   "source": "Infobae",
+   "pubDate": "2026-11-08T15:06:45+00:00"
   },
   {
    "title": "Riesgo país: por qué el mercado vuelve a mirar con desconfianza a la Argentina",
@@ -36,6 +96,12 @@
    "link": "https://www.infobae.com/economia/2026/11/08/con-el-riesgo-pais-en-alza-el-gobierno-identifico-tres-amenazas-globales-que-factores-preocupan-al-equipo-economico/",
    "source": "Infobae",
    "pubDate": "2026-11-08T13:46:45+00:00"
+  },
+  {
+   "title": "Cuánto cuesta el libro de León XIV, \"La fuerza del Evangelio\" y dónde comprarlo",
+   "link": "https://www.ambito.com/economia/cuanto-cuesta-el-libro-leon-xiv-la-fuerza-del-evangelio-y-donde-comprarlo-n6325182",
+   "source": "Ámbito",
+   "pubDate": "2026-11-08T12:49:00+00:00"
   },
   {
    "title": "Los pronósticos para el dólar y el riesgo en la semana posterior a la visita del Papa",
@@ -74,34 +140,10 @@
    "pubDate": "2026-11-08T03:51:13+00:00"
   },
   {
-   "title": "Clima de Negocios: en medio del ruido financiero, los empresarios locales siguen de compras y miran atentos una norma del Gobierno",
-   "link": "https://www.infobae.com/economia/2026/11/08/clima-de-negocios-en-medio-del-ruido-financiero-los-empresarios-locales-siguen-de-compras-y-miran-atentos-una-norma-del-gobierno/",
-   "source": "Infobae",
-   "pubDate": "2026-11-08T03:50:46+00:00"
-  },
-  {
    "title": "¿Habrá menos autos chinos?: todo lo que hay que saber del cupo de autos híbridos y eléctricos de 2027",
    "link": "https://www.infobae.com/economia/2026/11/08/habra-menos-autos-chinos-todo-lo-que-hay-que-saber-del-cupo-de-autos-hibridos-y-electricos-de-2027/",
    "source": "Infobae",
    "pubDate": "2026-11-08T03:50:16+00:00"
-  },
-  {
-   "title": "Esteban Domecq: “Se necesita fortalecer la consistencia del programa para atravesar el año electoral”",
-   "link": "https://www.infobae.com/economia/2026/11/08/esteban-domecq-se-necesita-fortalecer-la-consistencia-del-programa-para-atravesar-el-ano-electoral/",
-   "source": "Infobae",
-   "pubDate": "2026-11-08T03:48:56+00:00"
-  },
-  {
-   "title": "Wait and see",
-   "link": "https://www.infobae.com/opinion/2026/11/08/wait-and-see/",
-   "source": "Infobae",
-   "pubDate": "2026-11-08T03:48:37+00:00"
-  },
-  {
-   "title": "Martín Polo: “Lo peor que le podría pasar a la Argentina en 2027 es acudir a la ayuda de EEUU”",
-   "link": "https://www.ambito.com/economia/martin-polo-lo-peor-que-le-podria-pasar-la-argentina-2027-es-acudir-la-ayuda-eeuu-n6342805",
-   "source": "Ámbito",
-   "pubDate": "2026-11-08T03:00:00+00:00"
   },
   {
    "title": "Argentina tendrá más adultos mayores que niños hacia 2040: cómo impactará en la economía y las jubilaciones",
@@ -144,48 +186,6 @@
    "link": "https://www.bloomberglinea.com/latinoamerica/argentina/banco-de-valores-sella-la-compra-del-broker-argentino-ppi/",
    "source": "Bloomberg Línea",
    "pubDate": "2026-11-07T14:42:06+00:00"
-  },
-  {
-   "title": "La visita del papa León XIV generará un impacto económico superior a los u$s88 millones en Buenos Aires",
-   "link": "https://www.ambito.com/economia/la-visita-del-papa-leon-xiv-generara-un-impacto-economico-superior-los-us88-millones-buenos-aires-n6342210",
-   "source": "Ámbito",
-   "pubDate": "2026-11-07T14:08:00+00:00"
-  },
-  {
-   "title": "El Gobierno modificó los créditos hipotecarios financiados con fondos de Anses",
-   "link": "https://www.iprofesional.com/economia/468605-el-gobierno-modifico-el-acceso-a-creditos-hipotecarios-con-fondos-de-anses",
-   "source": "iProfesional",
-   "pubDate": "2026-11-07T12:41:00+00:00"
-  },
-  {
-   "title": "Una salida al teatro y a cenar ya consume un salario mínimo completo",
-   "link": "https://www.iprofesional.com/economia/468603-una-familia-tipo-ya-gasta-un-salario-minimo-en-una-salida-al-teatro-y-a-cenar",
-   "source": "iProfesional",
-   "pubDate": "2026-11-07T11:26:00+00:00"
-  },
-  {
-   "title": "Las 10 mejores marcas de hoteles de lujo del mundo en 2026, según Luxury Travel Intelligence",
-   "link": "https://www.bloomberglinea.com/estilo-de-vida/las-10-mejores-marcas-de-hoteles-de-lujo-del-mundo-en-2026-segun-luxury-travel-intelligence/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-11-07T11:00:01+00:00"
-  },
-  {
-   "title": "Plazo fijo: cuánto se gana al colocar $1.000.000 durante un mes",
-   "link": "https://www.ambito.com/economia/plazo-fijo-cuanto-se-gana-al-colocar-1000000-un-mes-n6341898",
-   "source": "Ámbito",
-   "pubDate": "2026-11-07T11:00:00+00:00"
-  },
-  {
-   "title": "Motosierra: Luis Caputo profundizó el ajuste y recortó casi 10% el gasto público en octubre",
-   "link": "https://www.ambito.com/economia/motosierra-luis-caputo-profundizo-el-ajuste-y-recorto-casi-10-el-gasto-publico-octubre-n6342474",
-   "source": "Ámbito",
-   "pubDate": "2026-11-07T10:00:00+00:00"
-  },
-  {
-   "title": "Los primeros 90 días de De la Espriella frente a Santos, Duque y Petro, ¿un comienzo sin luna de miel?",
-   "link": "https://www.bloomberglinea.com/latinoamerica/colombia/los-primeros-90-dias-de-de-la-espriella-frente-a-santos-duque-y-petro-un-comienzo-sin-luna-de-miel/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-11-07T10:00:00+00:00"
   }
  ]
 }
