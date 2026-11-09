@@ -3,21 +3,110 @@
   "Ámbito",
   "iProfesional",
   "Infobae",
-  "Clarín",
   "Bloomberg Línea"
  ],
  "items": [
   {
-   "title": "Contra viento y marea: en los últimos 12 meses la base monetaria cayó más del 13% y Milei ratificó que no piensa aflojarla",
-   "link": "https://www.infobae.com/economia/2026/11/09/contra-viento-y-marea-en-los-ultimos-12-meses-la-base-monetaria-cayo-mas-del-13-y-milei-ratifico-que-no-piensa-aflojarla/",
+   "title": "Mapa de la minería: a qué países van el oro, la plata y el litio que produce la Argentina",
+   "link": "https://www.infobae.com/economia/2026/11/09/mapa-de-la-mineria-a-que-paises-van-el-oro-la-plata-y-el-litio-que-produce-la-argentina/",
    "source": "Infobae",
-   "pubDate": "2026-11-09T00:11:09+00:00"
+   "pubDate": "2026-11-09T11:29:21+00:00"
   },
   {
-   "title": "Con la visita del Papa los empresarios llaman a una mesa amplia de diálogo con el Gobierno y los trabajadores",
-   "link": "https://www.clarin.com/economia/visita-papa-empresarios-llaman-mesa-amplia-dialogo-gobierno-trabajadores_0_CA5uC3Ssg7.html",
-   "source": "Clarín",
-   "pubDate": "2026-11-09T00:09:44+00:00"
+   "title": "Casi 1.300.000 personas perdieron su cobertura de salud durante el Gobierno de Milei",
+   "link": "https://www.iprofesional.com/economia/468642-casi-1300000-personal-perdieron-su-cobertura-de-salud-durante-el-gobierno-de-milei",
+   "source": "iProfesional",
+   "pubDate": "2026-11-09T11:03:00+00:00"
+  },
+  {
+   "title": "Creación y destrucción de empresas y de empleo: el riesgo de que la economía argentina se termine pareciendo al Deportivo La Coruña",
+   "link": "https://www.infobae.com/economia/2026/11/09/creacion-y-destruccion-de-empresas-y-de-empleo-el-riesgo-de-que-la-economia-argentina-se-termine-pareciendo-al-deportivo-la-coruna/",
+   "source": "Infobae",
+   "pubDate": "2026-11-09T10:52:13+00:00"
+  },
+  {
+   "title": "Morgan Stanley enciende luz amarilla para los bonos argentinos tras derrota de Trump",
+   "link": "https://www.iprofesional.com/finanzas/468512-morgan-stanley-lanza-advierte-por-bonos-argentinos-tras-derrota-de-trump",
+   "source": "iProfesional",
+   "pubDate": "2026-11-09T10:08:00+00:00"
+  },
+  {
+   "title": "Papelera del Sur cerró su fábrica en Tornquist y deja 160 trabajadores en la calle",
+   "link": "https://www.iprofesional.com/economia/468639-cerro-papelera-del-sur-y-dejo-160-trabajadores-en-la-calle",
+   "source": "iProfesional",
+   "pubDate": "2026-11-09T10:07:00+00:00"
+  },
+  {
+   "title": "Suba del dólar achicó ganancia del carry trade y la City avisa qué pasará con el negocio",
+   "link": "https://www.iprofesional.com/finanzas/468641-que-pasara-con-la-maniobra-del-dolar-el-ultimo-bimestre-del-ano",
+   "source": "iProfesional",
+   "pubDate": "2026-11-09T10:00:00+00:00"
+  },
+  {
+   "title": "Rattazzi sobre la dolarización de Milei: “Es facilísimo, pero hay que tener la decisión política”",
+   "link": "https://www.bloomberglinea.com/latinoamerica/argentina/rattazzi-sobre-la-dolarizacion-de-milei-es-facilisimo-pero-hay-que-tener-la-decision-politica/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-11-09T10:00:00+00:00"
+  },
+  {
+   "title": "Tasa de usura limita el crédito, pero eliminarla podría ser peor: Esta es la solución de Davivienda",
+   "link": "https://www.bloomberglinea.com/latinoamerica/colombia/tasa-de-usura-limita-el-credito-pero-eliminarla-podria-ser-peor-esta-es-la-solucion-de-davivienda/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-11-09T10:00:00+00:00"
+  },
+  {
+   "title": "ANSES: cuándo cobro en noviembre 2026 si mi DNI termina en 6",
+   "link": "https://www.infobae.com/economia/2026/11/09/anses-cuando-cobro-en-noviembre-2026-si-mi-dni-termina-en-6/",
+   "source": "Infobae",
+   "pubDate": "2026-11-09T09:35:32+00:00"
+  },
+  {
+   "title": "Papa León XIV en Argentina: se dispararon las búsquedas de alojamiento",
+   "link": "https://www.bloomberglinea.com/latinoamerica/argentina/papa-leon-xiv-en-argentina-se-dispararon-las-busquedas-de-alojamiento/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-11-09T09:10:00+00:00"
+  },
+  {
+   "title": "El dividendo de Silicon Valley profundiza las diferencias en América Latina por el auge de la IA",
+   "link": "https://www.bloomberglinea.com/mercados/el-dividendo-de-silicon-valley-profundiza-las-diferencias-en-america-latina-por-el-auge-de-la-ia/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-11-09T08:00:00+00:00"
+  },
+  {
+   "title": "“Sería absurdo ir para atrás cuando estamos por llegar a la meta y obtener los resultados”, dice Pinedo",
+   "link": "https://www.bloomberglinea.com/latinoamerica/argentina/seria-absurdo-ir-para-atras-cuando-estamos-por-llegar-a-la-meta-y-obtener-los-resultados-dice-pinedo/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-11-09T08:00:00+00:00"
+  },
+  {
+   "title": "Por qué la suba del riesgo país no movió al dólar: claves de la pelea principal del Gobierno con el mercado",
+   "link": "https://www.infobae.com/economia/2026/11/09/por-que-la-suba-del-riesgo-pais-no-movio-al-dolar-claves-de-la-pelea-principal-del-gobierno-con-el-mercado/",
+   "source": "Infobae",
+   "pubDate": "2026-11-09T06:13:22+00:00"
+  },
+  {
+   "title": "Los dólares del RIGI: cuánto tardarán en concretarse los USD 76.000 millones de las inversiones aprobadas",
+   "link": "https://www.infobae.com/economia/2026/11/09/los-dolares-del-rigi-cuanto-tardaran-en-concretarse-los-usd-76000-millones-de-las-inversiones-aprobadas/",
+   "source": "Infobae",
+   "pubDate": "2026-11-09T06:13:15+00:00"
+  },
+  {
+   "title": "El Gobierno mantiene la sintonía fina con el dólar, en medio de la volatilidad financiera",
+   "link": "https://www.infobae.com/economia/2026/11/09/el-gobierno-mantiene-la-sintonia-fina-con-el-dolar-en-medio-de-la-volatilidad-financiera/",
+   "source": "Infobae",
+   "pubDate": "2026-11-09T06:12:59+00:00"
+  },
+  {
+   "title": "Las recientes elecciones en EEUU reavivaron el interés por la construcción de data centers en la Patagonia",
+   "link": "https://www.infobae.com/economia/2026/11/09/las-recientes-elecciones-en-eeuu-reavivaron-el-interes-por-la-construccion-de-data-centers-en-la-patagonia/",
+   "source": "Infobae",
+   "pubDate": "2026-11-09T06:12:48+00:00"
+  },
+  {
+   "title": "El análisis de las consultoras locales sobre las consecuencias para la Argentina de la derrota electoral de Donald Trump",
+   "link": "https://www.infobae.com/economia/2026/11/09/el-analisis-de-las-consultoras-locales-sobre-las-consecuencias-para-la-argentina-de-la-derrota-electoral-de-donald-trump/",
+   "source": "Infobae",
+   "pubDate": "2026-11-09T06:11:15+00:00"
   },
   {
    "title": "Revolut ya le puso fecha al comienzo de sus operaciones como banco en Argentina",
@@ -32,34 +121,10 @@
    "pubDate": "2026-11-08T23:16:00+00:00"
   },
   {
-   "title": "Semana corta en los mercados: el Gobierno enfrenta una rueda clave, tras las fuertes caídas en bonos y acciones",
-   "link": "https://www.clarin.com/economia/semana-corta-mercados-gobierno-enfrenta-rueda-clave-fuertes-caidas-bonos-acciones_0_rSiFFSWCiC.html",
-   "source": "Clarín",
-   "pubDate": "2026-11-08T23:12:43+00:00"
-  },
-  {
-   "title": "Quién es quién en el encuentro más esperado por gremios y  empresarios con el Papa",
-   "link": "https://www.clarin.com/economia/encuentro-esperado-gremios-empresarios-papa_0_exDW5yhe05.html",
-   "source": "Clarín",
-   "pubDate": "2026-11-08T22:06:17+00:00"
-  },
-  {
-   "title": "¿Señal de reactivación? Los créditos hipotecarios tuvieron en octubre el mejor mes en un año",
-   "link": "https://www.clarin.com/economia/senal-reactivacion-creditos-hipotecarios-octubre-mejor-mes-ano_0_DElXizKs5R.html",
-   "source": "Clarín",
-   "pubDate": "2026-11-08T20:43:42+00:00"
-  },
-  {
    "title": "Revolut prevé lanzar su banco en Argentina en el segundo semestre de 2027",
    "link": "https://www.bloomberglinea.com/latinoamerica/argentina/revolut-preve-lanzar-su-banco-en-argentina-en-el-segundo-semestre-de-2027/",
    "source": "Bloomberg Línea",
    "pubDate": "2026-11-08T20:38:41+00:00"
-  },
-  {
-   "title": "Argentina LNG: mañana se define la licitación de caños más grande de la historia energética del país",
-   "link": "https://www.infobae.com/economia/2026/11/08/argentina-lng-manana-se-define-la-licitacion-de-canos-mas-grande-de-la-historia-energetica-del-pais/",
-   "source": "Infobae",
-   "pubDate": "2026-11-08T20:23:01+00:00"
   },
   {
    "title": "Argentina podría sumar US$5.000 millones a su PBI, según un experto en IA",
@@ -80,28 +145,10 @@
    "pubDate": "2026-11-08T18:54:00+00:00"
   },
   {
-   "title": "En qué provincias y sectores la industria del juicio golpea más fuerte: las causas y las consecuencias del ranking de conflictividad",
-   "link": "https://www.infobae.com/economia/2026/11/08/en-que-provincias-y-sectores-la-industria-del-juicio-golpea-mas-fuerte-las-causas-y-las-consecuencias-del-ranking-de-conflictividad/",
-   "source": "Infobae",
-   "pubDate": "2026-11-08T18:18:00+00:00"
-  },
-  {
-   "title": "Clima de Negocios: en medio del ruido financiero, los empresarios locales siguen de compras y miran atentos una norma del Gobierno",
-   "link": "https://www.infobae.com/economia/2026/11/08/clima-de-negocios-en-medio-del-ruido-financiero-los-empresarios-locales-siguen-de-compras-y-miran-atentos-una-norma-del-gobierno/",
-   "source": "Infobae",
-   "pubDate": "2026-11-08T17:35:31+00:00"
-  },
-  {
    "title": "La visita del papa León XIV podría generar u$s270 millones y dispara el turismo religioso: el impacto en hoteles, comercios y gastronomía",
    "link": "https://www.ambito.com/economia/la-visita-del-papa-leon-xiv-podria-generar-us270-millones-y-dispara-el-turismo-religioso-el-impacto-hoteles-comercios-y-gastronomia-n6342926",
    "source": "Ámbito",
    "pubDate": "2026-11-08T16:21:00+00:00"
-  },
-  {
-   "title": "Tras la derrota electoral de Trump, el embajador de Estados Unidos en Argentina ratificó el apoyo al gobierno de Milei: \"Nuestro compromiso sigue firme\"",
-   "link": "https://www.clarin.com/economia/derrota-electoral-trump-embajador-estados-unidos-argentina-ratifico-apoyo-gobierno-milei-compromiso-sigue-firme_0_1tLaKlYooz.html",
-   "source": "Clarín",
-   "pubDate": "2026-11-08T16:07:47+00:00"
   },
   {
    "title": "Plazo fijo en dólares: cuánto se puede obtener al invertir u$d2.000",
@@ -116,40 +163,10 @@
    "pubDate": "2026-11-08T15:41:00+00:00"
   },
   {
-   "title": "El salto en las importaciones del RIGI que reabre la discusión sobre el lugar de las pyme argentinas",
-   "link": "https://www.infobae.com/economia/2026/11/08/el-salto-en-las-importaciones-del-rigi-que-reabre-la-discusion-sobre-el-lugar-de-las-pyme-argentinas/",
-   "source": "Infobae",
-   "pubDate": "2026-11-08T15:28:24+00:00"
-  },
-  {
-   "title": "Los conceptos del Papa a propósito de la IA, la economía, el “poder tecnológico” y la búsqueda de la verdad",
-   "link": "https://www.infobae.com/economia/2026/11/08/los-conceptos-del-papa-a-proposito-de-la-ia-la-economia-el-poder-tecnologico-y-la-busqueda-de-la-verdad/",
-   "source": "Infobae",
-   "pubDate": "2026-11-08T15:16:31+00:00"
-  },
-  {
-   "title": "Las ventas minoristas del comercio pyme bajaron 1,6% interanual en octubre",
-   "link": "https://www.infobae.com/economia/2026/11/08/las-ventas-minoristas-del-comercio-pyme-bajaron-16-interanual-en-octubre/",
-   "source": "Infobae",
-   "pubDate": "2026-11-08T15:06:45+00:00"
-  },
-  {
-   "title": "Riesgo país: por qué el mercado vuelve a mirar con desconfianza a la Argentina",
-   "link": "https://www.clarin.com/economia/riesgo-pais-mercado-vuelve-mirar-desconfianza-argentina_0_W0DKzqJfVc.html",
-   "source": "Clarín",
-   "pubDate": "2026-11-08T13:54:37+00:00"
-  },
-  {
    "title": "Las ventas minoristas pyme cayeron 1,6% interanual en octubre y el consumo no repunta",
    "link": "https://www.ambito.com/economia/las-ventas-minoristas-pyme-cayeron-16-interanual-octubre-y-el-consumo-no-repunta-n6342900",
    "source": "Ámbito",
    "pubDate": "2026-11-08T13:53:00+00:00"
-  },
-  {
-   "title": "Con el riesgo país en alza, el Gobierno identificó tres amenazas globales: qué factores preocupan al equipo económico",
-   "link": "https://www.infobae.com/economia/2026/11/08/con-el-riesgo-pais-en-alza-el-gobierno-identifico-tres-amenazas-globales-que-factores-preocupan-al-equipo-economico/",
-   "source": "Infobae",
-   "pubDate": "2026-11-08T13:46:45+00:00"
   },
   {
    "title": "Cuánto cuesta el libro de León XIV, \"La fuerza del Evangelio\" y dónde comprarlo",
@@ -168,24 +185,6 @@
    "link": "https://www.iprofesional.com/negocios/468593-la-vida-de-horacio-marin-del-sueno-de-ganar-wimbledon-a-transformar-ypf",
    "source": "iProfesional",
    "pubDate": "2026-11-08T11:01:00+00:00"
-  },
-  {
-   "title": "Visita del papa León XIV a la Argentina: agenda completa, día por día y acto por acto",
-   "link": "https://www.bloomberglinea.com/latinoamerica/argentina/visita-del-papa-leon-xiv-a-la-argentina-agenda-completa-dia-por-dia-y-acto-por-acto/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-11-08T11:00:00+00:00"
-  },
-  {
-   "title": "Qué inversiones en pesos y dólares elige la City ante una inflación que se resiste a bajar",
-   "link": "https://www.iprofesional.com/finanzas/468619-inflacion-proteger-ahorros-pesos-dolares-opciones-clave-noviembre-2026",
-   "source": "iProfesional",
-   "pubDate": "2026-11-08T10:57:00+00:00"
-  },
-  {
-   "title": "La Bolsa tendrá un cronograma especial por la visita del Papa y estos días no operará",
-   "link": "https://www.iprofesional.com/economia/468437-la-bolsa-tendra-un-cronograma-especial-por-la-visita-del-papa-y-estos-dias-no-operara",
-   "source": "iProfesional",
-   "pubDate": "2026-11-08T10:43:00+00:00"
   }
  ]
 }
