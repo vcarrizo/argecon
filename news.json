@@ -1,6 +1,5 @@
 {
  "sources": [
-  "Ámbito",
   "iProfesional",
   "Infobae",
   "Clarín",
@@ -8,40 +7,148 @@
  ],
  "items": [
   {
-   "title": "El Gobierno recortó un beneficio para los colectivos impulsados a GNC y reavivó la guerra en el sector",
-   "link": "https://www.infobae.com/economia/2026/11/13/el-gobierno-recorto-un-beneficio-para-los-colectivos-impulsados-a-gnc-y-reavivo-la-guerra-en-el-sector/",
-   "source": "Infobae",
-   "pubDate": "2026-11-13T15:26:19+00:00"
-  },
-  {
-   "title": "Mercados: Wall Street retoma las pérdidas y sube el riesgo país argentino",
+   "title": "Mercados: Wall Street retomó las pérdidas, pero se recuperan las acciones argentinas",
    "link": "https://www.infobae.com/economia/2026/11/13/mercados-suben-las-acciones-y-cae-el-riesgo-pais-en-un-contexto-positivo-para-las-bolsas-internacionales/",
    "source": "Infobae",
-   "pubDate": "2026-11-13T15:24:50+00:00"
+   "pubDate": "2026-11-13T21:23:26+00:00"
   },
   {
-   "title": "La inflación mayorista se desaceleró en EEUU, pero el mercado todavía espera dos subas de tasas al hilo",
-   "link": "https://www.ambito.com/economia/la-inflacion-mayorista-se-desacelero-eeuu-pero-el-mercado-todavia-espera-dos-subas-tasas-al-hilo-n6344923",
-   "source": "Ámbito",
-   "pubDate": "2026-11-13T15:14:00+00:00"
+   "title": "Explosión en Remedios de Escalada: qué informó el ente regulador sobre el incidente",
+   "link": "https://www.bloomberglinea.com/latinoamerica/argentina/explosion-en-remedios-de-escalada-que-informo-el-ente-regulador-sobre-el-incidente/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-11-13T21:14:13+00:00"
   },
   {
-   "title": "Quiénes lideran la carrera por suceder a Jensen Huang como CEO de Nvidia",
-   "link": "https://www.infobae.com/america/mundo/2026/11/13/quienes-lideran-la-carrera-por-suceder-a-jensen-huang-como-ceo-de-nvidia/",
+   "title": "Créditos hipotecarios: cuál es el cambio que permitirá a más familias acceder a un préstamo para vivienda",
+   "link": "https://www.infobae.com/economia/2026/11/13/creditos-hipotecarios-cual-es-el-cambio-permitira-que-mas-familias-accedan-a-una-casa-propia/",
    "source": "Infobae",
-   "pubDate": "2026-11-13T15:12:52+00:00"
+   "pubDate": "2026-11-13T21:05:49+00:00"
   },
   {
-   "title": "El Gobierno sumó al RIGI dos megaproyectos por USD 3.245 millones para potenciar las exportaciones de gas",
-   "link": "https://www.infobae.com/economia/2026/11/13/el-gobierno-sumo-al-rigi-dos-megaproyectos-por-usd-3245-millones-para-potenciar-las-exportaciones-de-gas/",
+   "title": "“Se dice mucho de la triangulación, pero no es tanto”: Sheinbaum en víspera de viaje a China",
+   "link": "https://www.bloomberglinea.com/latinoamerica/mexico/se-dice-mucho-de-la-triangulacion-pero-no-es-tanto-sheinbaum-en-vispera-de-viaje-a-china/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-11-13T21:05:36+00:00"
+  },
+  {
+   "title": "La industria llegó a su pico de 2026 en uso de fábricas y máquinas, pero quedó por debajo del año pasado",
+   "link": "https://www.infobae.com/economia/2026/11/13/la-industria-llego-a-su-pico-de-2026-en-uso-de-fabricas-y-maquinas-pero-quedo-por-debajo-del-ano-pasado/",
    "source": "Infobae",
-   "pubDate": "2026-11-13T14:53:08+00:00"
+   "pubDate": "2026-11-13T20:42:20+00:00"
   },
   {
-   "title": "El último dato de IPC erosiona las bases del plan económico y hay alerta por estanflación",
-   "link": "https://www.iprofesional.com/economia/468986-el-mercado-alerta-por-estanflacion-tras-el-dato-de-inflacion-ipc-indec",
+   "title": "Los salarios registrados subieron 1,9% y empataron contra la inflación en septiembre",
+   "link": "https://www.infobae.com/economia/2026/11/13/los-salarios-registrados-subieron-19-y-empataron-contra-la-inflacion-en-septiembre/",
+   "source": "Infobae",
+   "pubDate": "2026-11-13T20:26:03+00:00"
+  },
+  {
+   "title": "El uso de la capacidad instalada de la industria superó el 60% por primera vez en el año",
+   "link": "https://www.iprofesional.com/economia/469081-el-uso-de-la-capacidad-instalada-de-la-industria-supero-el-60-por-primera-vez-en-el-ano",
    "source": "iProfesional",
-   "pubDate": "2026-11-13T14:30:00+00:00"
+   "pubDate": "2026-11-13T19:56:00+00:00"
+  },
+  {
+   "title": "Orlando Ferreres: \"La inflación de noviembre tampoco va a ser muy baja\"",
+   "link": "https://www.infobae.com/economia/2026/11/13/orlando-ferreres-la-inflacion-de-noviembre-tampoco-va-a-ser-muy-baja/",
+   "source": "Infobae",
+   "pubDate": "2026-11-13T19:36:31+00:00"
+  },
+  {
+   "title": "Marcha de gastronómicos por falta de homologación de las tres últimas paritarias",
+   "link": "https://www.iprofesional.com/economia/469073-marcha-de-gastronomicos-por-falta-de-homologacion-de-tres-ultimas-paritarias",
+   "source": "iProfesional",
+   "pubDate": "2026-11-13T18:47:00+00:00"
+  },
+  {
+   "title": "Una nueva pick-up podría llegar a la Argentina: qué modelo es y qué novedades ofrece",
+   "link": "https://www.infobae.com/economia/2026/11/13/una-nueva-pick-up-podria-llegar-a-la-argentina-que-modelo-es-y-que-novedades-ofrece/",
+   "source": "Infobae",
+   "pubDate": "2026-11-13T18:43:53+00:00"
+  },
+  {
+   "title": "De la Espriella ordena reversar los sueldos del Fondo Milagro, donde el gerente gana más que un ministro",
+   "link": "https://www.bloomberglinea.com/latinoamerica/colombia/de-la-espriella-ordena-reversar-los-sueldos-del-fondo-milagro-donde-el-gerente-gana-mas-que-un-ministro/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-11-13T18:42:17+00:00"
+  },
+  {
+   "title": "Wall Street anticipa balances flojos para bancos argentinos y recomienda una sola acción",
+   "link": "https://www.iprofesional.com/finanzas/468851-wall-street-recomienda-una-sola-accion-entre-los-bancos-argentinos",
+   "source": "iProfesional",
+   "pubDate": "2026-11-13T18:40:00+00:00"
+  },
+  {
+   "title": "Buenos Aires: la provincia laudó un aumento en la tarifa del transporte de granos por encima de lo pedido por los transportistas y estalló la bronca del campo",
+   "link": "https://www.clarin.com/rural/buenos-aires-provincia-laudo-aumento-tarifa-transporte-granos-encima-pedido-transportistas-estallo-bronca-campo_0_GK5cwVpRv4.html",
+   "source": "Clarín",
+   "pubDate": "2026-11-13T18:37:05+00:00"
+  },
+  {
+   "title": "Alquilar ya no es una etapa: cada vez más hogares de entre 30 y 49 años no logran comprar su vivienda",
+   "link": "https://www.infobae.com/economia/2026/11/13/alquilar-ya-no-es-una-etapa-cada-vez-mas-hogares-de-entre-30-y-49-anos-no-logran-comprar-su-vivienda/",
+   "source": "Infobae",
+   "pubDate": "2026-11-13T18:11:27+00:00"
+  },
+  {
+   "title": "El Gobierno oficializó en el RIGI dos proyectos de gas de TGS por más de u$s3.200 millones",
+   "link": "https://www.iprofesional.com/energia/469074-el-gobierno-oficializo-en-el-rigi-dos-proyectos-de-tgs-por-mas-de-3200-millones-dolares",
+   "source": "iProfesional",
+   "pubDate": "2026-11-13T18:05:00+00:00"
+  },
+  {
+   "title": "La devaluación en Brasil alerta a Caputo y reaparece el fantasma del atraso cambiario",
+   "link": "https://www.iprofesional.com/economia/469007-caida-del-real-frente-al-dolar-en-brasil-le-mete-presion-a-caputo",
+   "source": "iProfesional",
+   "pubDate": "2026-11-13T17:30:00+00:00"
+  },
+  {
+   "title": "La caída de Nvidia no se detiene: su capitalización bursátil bajó más de USD 500.000 millones por el escándalo de su CEO",
+   "link": "https://www.infobae.com/economia/2026/11/13/la-caida-de-nvidia-no-se-detiene-su-capitalizacion-bursatil-bajo-mas-de-usd-500000-millones-por-el-escandalo-de-su-ceo/",
+   "source": "Infobae",
+   "pubDate": "2026-11-13T17:27:54+00:00"
+  },
+  {
+   "title": "Dos sectores golpeados de la economía usaron la reforma laboral para tomar 32 mil empleados con costo más bajo",
+   "link": "https://www.clarin.com/economia/sectores-golpeados-economia-usaron-reforma-laboral-tomar-32-mil-empleados-costo_0_F4QLFfY5g6.html",
+   "source": "Clarín",
+   "pubDate": "2026-11-13T17:18:36+00:00"
+  },
+  {
+   "title": "Supermercados lanzan descuentos de hasta 50% y hasta 18 cuotas en electrodomésticos",
+   "link": "https://www.iprofesional.com/actualidad/469060-supermercados-lanzan-descuentos-de-hasta-50-y-hasta-18-cuotas-en-electrodomesticos",
+   "source": "iProfesional",
+   "pubDate": "2026-11-13T16:55:00+00:00"
+  },
+  {
+   "title": "Las razones por las que el precio del dólar en Chile supera los $1.000 por primera vez en año y medio",
+   "link": "https://www.bloomberglinea.com/mercados/las-razones-por-las-que-el-precio-del-dolar-en-chile-supera-los-1000-por-primera-vez-en-ano-y-medio/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-11-13T16:48:50+00:00"
+  },
+  {
+   "title": "Colectivos: la UTA cuestionó la oferta salarial y espera una nueva propuesta de las empresas",
+   "link": "https://www.iprofesional.com/economia/469056-fracaso-la-paritaria-de-la-uta-hay-posibilidades-de-paro-de-colectivos",
+   "source": "iProfesional",
+   "pubDate": "2026-11-13T15:50:00+00:00"
+  },
+  {
+   "title": "La aerolínea Plus Ultra se achica: tras las suspensiones de vuelos, tambalea la ruta entre Ezeiza y Madrid",
+   "link": "https://www.clarin.com/economia/aerolinea-plus-ultra-achica-suspensiones-vuelos-tambalea-ruta-ezeiza-madrid_0_bN2qB3ImTi.html",
+   "source": "Clarín",
+   "pubDate": "2026-11-13T15:17:48+00:00"
+  },
+  {
+   "title": "\"Medalla de plata\": incrementan la estimación de producción trigo y la \"súper campaña\" va tomando forma",
+   "link": "https://www.clarin.com/rural/medalla-plata-incrementan-estimacion-produccion-trigo-super-campana-va-tomando-forma_0_8dcUc6Gcx1.html",
+   "source": "Clarín",
+   "pubDate": "2026-11-13T14:53:38+00:00"
+  },
+  {
+   "title": "Más del 60% de los hogares argentinos elige segundas marcas, que cuestan hasta 40% menos",
+   "link": "https://www.iprofesional.com/economia/469053-mas-del-60-por-ciento-de-los-hogares-argentinos-ya-elige-segundas-marcas",
+   "source": "iProfesional",
+   "pubDate": "2026-11-13T14:50:00+00:00"
   },
   {
    "title": "Milei y Caputo avanzan para privatizar otros 12.000 kilómetros de rutas nacionales: por qué provincias pasan las nuevas concesiones",
@@ -50,34 +157,10 @@
    "pubDate": "2026-11-13T14:26:20+00:00"
   },
   {
-   "title": "La inflación mayorista en Estados Unidos alcanzó el 6,5% interanual, el nivel más alto desde 2022",
-   "link": "https://www.infobae.com/estados-unidos/2026/11/13/la-inflacion-mayorista-en-estados-unidos-alcanzo-el-65-interanual-el-nivel-mas-alto-desde-2022/",
-   "source": "Infobae",
-   "pubDate": "2026-11-13T14:23:28+00:00"
-  },
-  {
    "title": "BTG lanza dardo a resultados de Ecopetrol: fuertes en el papel, débiles por debajo",
    "link": "https://www.bloomberglinea.com/latinoamerica/colombia/btg-lanza-dardo-a-resultados-de-ecopetrol-fuertes-en-el-papel-debiles-por-debajo/",
    "source": "Bloomberg Línea",
    "pubDate": "2026-11-13T14:22:29+00:00"
-  },
-  {
-   "title": "Pablo Moyano paraliza por tiempo indeterminado la recolección de residuos en el Mercado Central",
-   "link": "https://www.iprofesional.com/politica/469044-moyano-paraliza-por-tiempo-indeterminado-la-recoleccion-de-residuos-en-el-mercado-central",
-   "source": "iProfesional",
-   "pubDate": "2026-11-13T14:21:00+00:00"
-  },
-  {
-   "title": "Mapa del empleo privado: 21 provincias en rojo y solo 3 sumaron trabajadores en la era Milei",
-   "link": "https://www.ambito.com/economia/mapa-del-empleo-privado-21-provincias-rojo-y-solo-3-sumaron-trabajadores-la-era-milei-n6344879",
-   "source": "Ámbito",
-   "pubDate": "2026-11-13T14:02:00+00:00"
-  },
-  {
-   "title": "YPF licitó los caños de Argentina LNG y la semana próxima habrá ganador",
-   "link": "https://www.iprofesional.com/energia/469045-ypf-licito-los-canos-de-argentina-lng-y-la-semana-proxima-habra-ganador",
-   "source": "iProfesional",
-   "pubDate": "2026-11-13T14:00:00+00:00"
   },
   {
    "title": "Ciudades del sismo tienen 75.000 empleos menos que hace un año, dice Banco de la República",
@@ -92,100 +175,16 @@
    "pubDate": "2026-11-13T13:51:44+00:00"
   },
   {
-   "title": "Cómo será la Segunda Ronda de Negocios RIGI para el sector energético",
-   "link": "https://www.iprofesional.com/energia/469027-como-sera-la-segunda-ronda-de-negocios-rigi-para-el-sector-energetico",
-   "source": "iProfesional",
-   "pubDate": "2026-11-13T13:50:00+00:00"
-  },
-  {
    "title": "Trabajo: vuelve a caer el empleo asalariado y el Monotributo tiene la mayor alza del año en agosto",
    "link": "https://www.clarin.com/economia/trabajo-vuelve-caer-empleo-asalariado-monotributo-mayor-alza-ano-agosto_0_lxXCO4x9xc.html",
    "source": "Clarín",
    "pubDate": "2026-11-13T13:39:49+00:00"
   },
   {
-   "title": "Precios en Argentina superan hasta 51% el promedio regional en restaurantes y otros rubros",
-   "link": "https://www.iprofesional.com/economia/469041-precios-en-argentina-son-hasta-51-mas-caros-que-el-promedio-regional",
-   "source": "iProfesional",
-   "pubDate": "2026-11-13T13:38:00+00:00"
-  },
-  {
-   "title": "El costo de construcción en CABA está en máximos desde 2015",
-   "link": "https://www.infobae.com/economia/2026/11/13/el-costo-de-construccion-en-caba-esta-en-maximos-desde-2015/",
-   "source": "Infobae",
-   "pubDate": "2026-11-13T13:26:19+00:00"
-  },
-  {
-   "title": "El \"enfriamiento\" y los dólares del colchón: el \"gurú del blue\" advirtió sobre la recesión técnica",
-   "link": "https://www.ambito.com/economia/el-enfriamiento-y-los-dolares-del-colchon-el-guru-del-blue-advirtio-la-recesion-tecnica-n6344837",
-   "source": "Ámbito",
-   "pubDate": "2026-11-13T13:21:00+00:00"
-  },
-  {
    "title": "Un gigante brasileño amplía su acuerdo con Los Grobo y manejará uno de sus negocios",
    "link": "https://www.clarin.com/rural/gigante-brasileno-amplia-acuerdo-grobo-manejara-negocios_0_yLQrVAQgHq.html",
    "source": "Clarín",
    "pubDate": "2026-11-13T13:04:02+00:00"
-  },
-  {
-   "title": "Crisis agraria en Cuba: el 82% de los cítricos y el 62% del arroz desaparecieron de la producción nacional en cuatro años",
-   "link": "https://www.infobae.com/cuba/2026/11/13/crisis-agraria-en-cuba-el-82-de-los-citricos-y-el-62-del-arroz-desaparecieron-de-la-produccion-nacional-en-cuatro-anos/",
-   "source": "Infobae",
-   "pubDate": "2026-11-13T13:02:29+00:00"
-  },
-  {
-   "title": "NSES: cuánto cobra en diciembre una persona que se jubila con 30 años de aportes",
-   "link": "https://www.iprofesional.com/economia/469025-jubilacion-30-anos-aportes-cuanto-cobrar-noviembre-2026",
-   "source": "iProfesional",
-   "pubDate": "2026-11-13T12:42:00+00:00"
-  },
-  {
-   "title": "En agosto se perdieron más de 13.000 puestos de trabajo registrados",
-   "link": "https://www.infobae.com/economia/2026/11/13/en-agosto-se-perdieron-mas-de-13000-puestos-de-trabajo-registrados/",
-   "source": "Infobae",
-   "pubDate": "2026-11-13T12:41:03+00:00"
-  },
-  {
-   "title": "ATE aplicará \"paro a la japonesa\" en Ezeiza y Aeroparque. ¿habrá demoras en los vuelos?",
-   "link": "https://www.iprofesional.com/economia/468899-ate-aplicara-paro-a-la-japonesa-en-ezeiza-y-aeroparque-habra-demoras-en-los-vuelos",
-   "source": "iProfesional",
-   "pubDate": "2026-11-13T12:00:00+00:00"
-  },
-  {
-   "title": "Un Blaquier avanza con su imperio azucarero por afuera de Ledesma: compró un nuevo ingenio y ya lleva invertidos US$ 150 millones",
-   "link": "https://www.clarin.com/rural/santiago-blaquier-avanza-imperio-azucarero-afuera-ledesma-compro-nuevo-ingenio-lleva-invertidos-us-150-millones_0_uF7g25BKUI.html",
-   "source": "Clarín",
-   "pubDate": "2026-11-13T11:57:30+00:00"
-  },
-  {
-   "title": "GTA VI enfrenta una prueba millonaria: la cifra que calcula BofA para considerarlo un éxito",
-   "link": "https://www.bloomberglinea.com/mercados/gta-vi-enfrenta-una-prueba-millonaria-la-cifra-que-calcula-bofa-para-considerarlo-un-exito/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-11-13T11:00:01+00:00"
-  },
-  {
-   "title": "Dólar hoy y dólar blue, EN VIVO: a cuánto cotiza el oficial y cuál es el precio del paralelo, minuto a minuto, este 13 de noviembre",
-   "link": "https://www.clarin.com/economia/dolar-hoy-dolar-blue-vivo-cotiza-oficial-precio-paralelo-minuto-minuto-13-noviembre_0_PNxldjspJX.html",
-   "source": "Clarín",
-   "pubDate": "2026-11-13T10:59:44+00:00"
-  },
-  {
-   "title": "Nike tiene 2x1 combinable en sus outlets de Buenos Aires: qué productos incluye y dónde están",
-   "link": "https://www.iprofesional.com/actualidad/469014-nike-liquida-zapatillas-y-botines-con-2x1-desde-35000-pesos-y-3-cuotas-sin-interes",
-   "source": "iProfesional",
-   "pubDate": "2026-11-13T10:58:00+00:00"
-  },
-  {
-   "title": "Exclusiva: Banco BTG Colombia y Suramericana tramitan bonos que superan los COP$2 billones",
-   "link": "https://www.bloomberglinea.com/latinoamerica/colombia/exclusiva-banco-btg-colombia-y-suramericana-tramitan-bonos-que-superan-los-cop2-billones/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-11-13T10:00:00+00:00"
-  },
-  {
-   "title": "Dos de cada tres empresas argentinas buscan expandirse al exterior: cuáles son los mercados favoritos",
-   "link": "https://www.bloomberglinea.com/latinoamerica/argentina/dos-de-cada-tres-empresas-argentinas-buscan-expandirse-al-exterior-cuales-son-los-mercados-favoritos/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-11-13T09:10:00+00:00"
   }
  ]
 }
