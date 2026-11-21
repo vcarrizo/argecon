@@ -3,9 +3,40 @@
   "Ámbito",
   "iProfesional",
   "Infobae",
+  "Clarín",
   "Bloomberg Línea"
  ],
  "items": [
+  {
+   "title": "Entre el optimismo oficial y las advertencias de Cavallo y Melconian: el debate sobre el rumbo económico",
+   "link": "https://www.infobae.com/economia/2026/11/21/entre-el-optimismo-oficial-y-las-advertencias-de-cavallo-y-melconian-el-debate-sobre-el-rumbo-economico/",
+   "source": "Infobae",
+   "pubDate": "2026-11-21T19:50:54+00:00"
+  },
+  {
+   "title": "El consumo masivo subió en octubre por primera vez en el año",
+   "link": "https://www.clarin.com/economia/consumo-masivo-subio-octubre-primera-vez-ano_0_0UIJjLfjjE.html",
+   "source": "Clarín",
+   "pubDate": "2026-11-21T17:05:18+00:00"
+  },
+  {
+   "title": "Con la mora como preocupación central, los bancos públicos dan pelea para competir en el sistema financiero",
+   "link": "https://www.infobae.com/economia/2026/11/21/con-la-mora-como-preocupacion-central-los-bancos-publicos-dan-pelea-para-competir-en-el-sistema-financiero/",
+   "source": "Infobae",
+   "pubDate": "2026-11-21T16:39:41+00:00"
+  },
+  {
+   "title": "México captura a capo de los más buscados por el FBI mientras Sheinbaum y Trump avanzan en acuerdo comercial",
+   "link": "https://www.bloomberglinea.com/latinoamerica/mexico/mexico-captura-a-capo-buscado-por-el-fbi-mientras-sheinbaum-y-trump-avanzan-en-acuerdo-comercial/",
+   "source": "Bloomberg Línea",
+   "pubDate": "2026-11-21T16:34:06+00:00"
+  },
+  {
+   "title": "Venta de campos: grandes jugadores y muchos millones para un mercado que estaba dormido",
+   "link": "https://www.clarin.com/economia/venta-campos-grandes-jugadores-millones-mercado-dormido_0_qksSeXYsMs.html",
+   "source": "Clarín",
+   "pubDate": "2026-11-21T14:52:14+00:00"
+  },
   {
    "title": "“Los autos de Elon Musk”: todo lo que hay que saber sobre la llegada de Tesla a la Argentina",
    "link": "https://www.infobae.com/economia/2026/11/21/los-autos-de-elon-musk-todo-lo-que-hay-que-saber-sobre-la-llegada-de-tesla-a-la-argentina/",
@@ -17,6 +48,18 @@
    "link": "https://www.infobae.com/economia/2026/11/21/luis-secco-el-gobierno-decia-que-no-iba-a-actuar-pero-si-esto-sigue-tendra-que-actuar-aunque-no-quiera/",
    "source": "Infobae",
    "pubDate": "2026-11-21T14:47:21+00:00"
+  },
+  {
+   "title": "Consejo para el ministro Caputo: “menos Wall Street y más Conurbano”",
+   "link": "https://www.clarin.com/economia/consejo-ministro-caputo-wall-street-conurbano_0_7nK5i7f6uQ.html",
+   "source": "Clarín",
+   "pubDate": "2026-11-21T14:23:01+00:00"
+  },
+  {
+   "title": "Los próximos pasos de Tesla en Argentina: apertura de un local a la calle, centro de entrega en Munro y acuerdo con YPF",
+   "link": "https://www.clarin.com/economia/primeros-pasos-tesla-argentina-proximo-local-calle-centro-entrega-munro-acuerdo-ypf_0_cmKwFrvl0N.html",
+   "source": "Clarín",
+   "pubDate": "2026-11-21T14:12:17+00:00"
   },
   {
    "title": "Menos confianza en la reelección y más demanda de dólares: las señales que inquietan al mercado y disparan el riesgo país",
@@ -71,18 +114,6 @@
    "link": "https://www.infobae.com/economia/2026/11/21/ante-el-freno-de-la-actividad-el-gobierno-descarta-un-cambio-de-rumbo-se-ata-a-la-ortodoxia-y-profundiza-el-ajuste/",
    "source": "Infobae",
    "pubDate": "2026-11-21T05:08:58+00:00"
-  },
-  {
-   "title": "De 400 a más de 1.000 puntos en solo cuatro meses: qué explica la escalada del riesgo país y el derrumbe de los bonos argentinos",
-   "link": "https://www.infobae.com/economia/2026/11/21/de-400-a-mas-de-1000-puntos-en-solo-cuatro-meses-que-explica-la-escalada-del-riesgo-pais-y-el-derrumbe-de-los-bonos-argentinos/",
-   "source": "Infobae",
-   "pubDate": "2026-11-21T05:06:51+00:00"
-  },
-  {
-   "title": "El consumo masivo repuntó fuerte en octubre, pero acumula una caída de 2,3% en el año",
-   "link": "https://www.infobae.com/economia/2026/11/21/el-consumo-masivo-repunto-fuerte-en-octubre-pero-acumula-una-caida-de-23-en-el-ano/",
-   "source": "Infobae",
-   "pubDate": "2026-11-21T04:56:40+00:00"
   },
   {
    "title": "Ciberseguridad en la era de la IA: cómo se adaptan las empresas y dónde están las oportunidades de inversión",
@@ -155,36 +186,6 @@
    "link": "https://www.ambito.com/economia/el-gobierno-propuso-eliminar-el-impuesto-sellos-y-compensar-la-mitad-la-recaudacion-perdida-n6347734",
    "source": "Ámbito",
    "pubDate": "2026-11-20T21:25:00+00:00"
-  },
-  {
-   "title": "Cuánto cuesta hacer el \"alto guiso\" que valía $15 en 2011",
-   "link": "https://www.ambito.com/economia/cuanto-cuesta-hacer-el-alto-guiso-que-valia-15-2011-n6347650",
-   "source": "Ámbito",
-   "pubDate": "2026-11-20T21:09:00+00:00"
-  },
-  {
-   "title": "Crece el uso de billeteras digitales entre adolescentes, pero cae su capacidad de ahorro",
-   "link": "https://www.iprofesional.com/finanzas/469581-crece-uso-de-billeteras-digitales-entre-adolescentes-pero-cae-su-capacidad-de-ahorro",
-   "source": "iProfesional",
-   "pubDate": "2026-11-20T20:50:00+00:00"
-  },
-  {
-   "title": "Aprueban el RIGI de YPF para exportar GNL por u$s50.750 millones y será \"la mayor inversión de la historia\"",
-   "link": "https://www.ambito.com/economia/se-aprobo-el-rigi-el-proyecto-argentina-lng-implica-una-inversion-us25000-millones-tres-anos-n6347741",
-   "source": "Ámbito",
-   "pubDate": "2026-11-20T19:43:00+00:00"
-  },
-  {
-   "title": "Plazo fijo con extra rendimiento: cómo funciona la nueva alternativa que paga hasta 50% más",
-   "link": "https://www.ambito.com/economia/plazo-fijo-extra-rendimiento-como-funciona-la-nueva-alternativa-que-paga-50-mas-n6346803",
-   "source": "Ámbito",
-   "pubDate": "2026-11-20T19:00:00+00:00"
-  },
-  {
-   "title": "AWS lanza infraestructura de nube en Bogotá: qué dijo su VP para Latinoamérica sobre Argentina",
-   "link": "https://www.bloomberglinea.com/latinoamerica/colombia/aws-lanza-infraestructura-de-nube-en-bogota-que-dijo-su-vp-para-latinoamerica-sobre-argentina/",
-   "source": "Bloomberg Línea",
-   "pubDate": "2026-11-20T15:24:55+00:00"
   }
  ]
 }
